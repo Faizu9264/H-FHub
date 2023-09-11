@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", monospace;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ecf0f1;
+}
+
+.container {
+  text-align: center;
+  margin: auto;
+  padding: 4em;
+  img {
+   
+    height: 100px;
+  }
+
+  h1 {
+    margin-top: 1rem;
+    font-size: 35px;
+    text-align: center;
+
+    span {
+      font-size: 60px;
+    }
+  }
+  p {
+    margin-top: 1rem;
+  }
+
+  p.info {
+    margin-top: 4em;
+    font-size: 12px;
+
+    a {
+      text-decoration: none;
+      color: rgb(84, 84, 206);
+    }
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="animate__animated animate__bounceInDown " style="height: 200px;" src="https://i.imgur.com/qIufhof.png" />
+  
+        <h1>
+          <span>500</span> <br />
+          Internal server error
+        </h1>
+        <p>We are currently trying to fix the problem.</p>
+        <p class="mb-4 h4">Sorry, It's a error from us</p>
+
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-primary rounded-pill py-2 px-5 mx-2" href="/">Home</a>
+                            <a class="btn btn-primary rounded-pill py-2 px-5 mx-2 text-white" onclick="goback()">Go Back</a>
+                        </div>
+      </div>
+      <script>
+        function goback(){
+            window.history.back()
+        }
+    </script>
+</body>
+</html>
+
+
+
+            <!-- 500 Start -->
+            <!-- <div class="container-fluid py-4 px-4">
+                <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+                    <div class="col-md-6 text-center p-4">
+                        <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
+                        <h1 class="display-1 fw-bold">500</h1>
+                        <h1 class="mb-4">Internal Server Error</h1>
+                        <p class="mb-4 h4">Sorry, It's a error from us</p>
+
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-primary rounded-pill py-2 px-5 mx-2" href="/">Home</a>
+                            <a class="btn btn-primary rounded-pill py-2 px-5 mx-2 text-white" onclick="goback()">Go Back</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div> -->
+            <!-- 500 End -->
+
+

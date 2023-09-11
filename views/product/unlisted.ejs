@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlisted Products</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+        }
+
+        .product-images {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .product-image {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 16px;
+        }
+
+        .relist-link {
+            display: inline-block;
+            color: #fff;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .relist-link:hover {
+            background-color: #fdfeff;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Unlisted Products</h1>
+        <ul class="product-list">
+            <% products.forEach(product => { %>
+            <li class="product-item">
+                <div class="product-images">
+                    <% product.images.forEach(image => { %>
+                    <img class="product-image" src="/uploads/<%= image %>" alt="<%= product.name %>">
+                    <% }) %>
+                </div>
+                <div class="product-info">
+                    <strong class="product-name"><%= product.name %></strong>
+                    <p class="product-price">$<%= product.price %></p>
+                    <p class="product-description"><%= product.description %></p>
+                    <a href="/admin/products/relist/<%= product._id %>" class="relist-link">Relist</a>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+        <a href="/admin/products" class="back-link">Back to Listed Products</a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+
+</html>

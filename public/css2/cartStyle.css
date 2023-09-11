@@ -1,0 +1,117 @@
+.icon-hover-primary:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+  }
+  
+  .icon-hover-primary:hover i {
+    color: #3b71ca !important;
+  }
+  .icon-hover-danger:hover {
+    border-color: #dc4c64 !important;
+    background-color: white !important;
+  }
+  
+  .icon-hover-danger:hover i {
+    color: #dc4c64 !important;
+  }
+
+
+
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        /* Center the logo and navigation links */
+        .col-lg-2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Adjust the padding for the search bar */
+        .col-lg-5 {
+            padding: 0;
+        }
+
+        /* Adjust the style of the search bar */
+        .form-outline {
+            border: 1px solid #ced4da;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        /* Adjust the position of the cart icon */
+        .col-lg-5 .float-end {
+            justify-content: flex-end;
+        }
+
+        /* Add some padding between cart items */
+        .card.mb-4 {
+            margin-bottom: 20px;
+        }
+
+        /* Add some padding to the summary card */
+        .col-lg-3 .card {
+            padding: 15px;
+        }
+
+        /* Add a background color to the summary card footer buttons */
+        .card-footer a.btn {
+            background-color: #f8f9fa;
+            border-color: #f8f9fa;
+            color: #000;
+        }
+
+        /* Add some padding to the recommended items section */
+        section {
+            padding: 20px 0;
+        }
+
+        /* Recommended items card styling */
+        .card.px-4 {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Add a badge to the new items */
+        .mask.px-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Adjust the position of the heart icon in recommended items */
+        .card-footer a.btn i.fa-heart {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 30px 0;
+        }
+
+        /* Adjust padding for footer columns */
+        .col-6 {
+            padding: 0 10px;
+        }
+
+        /* Footer link styling */
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Footer link hover effect */
+        footer a:hover {
+            text-decoration: underline;
+        }
+  

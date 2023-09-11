@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <style>
+        .pro-qty-2 {
+          display: flex;
+          align-items: center;
+        }
+      
+        .qty-btn {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          border: 1px solid #ccc;
+          cursor: pointer;
+        }
+      
+        .qty-btn:first-child {
+          border-right: none;
+        }
+      </style>
+      
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="#">Sign in</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>Usd <i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+            <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+ <!-- Header Section Begin -->
+ <header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-6 col-md-7" style="display: flex;
+                align-items: center;">
+                    <div class="header__top__left">
+                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right ">
+                        <div class="header__top__links row" style="display: flex;">
+                            <% if (user && user.username !== undefined) { %>
+                                <div class="col-lg-6">
+                                    <p style="color:#fff; display: flex;    margin: 0px;
+                                    align-items: center;">Welcome   <%= user.username %></p>
+
+                                </div>
+                                <div class="col-lg-6">
+                                <a href="/logout">Logout</a>
+
+                                </div>
+                              <% } else { %>
+                               <div class="col-lg-6">
+                                <a href="/login">Sign In</a>
+                               </div>
+                              <% } %>
+                              
+                           
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="align-items: center;">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="/home"><span style="color: red;
+                        font-size: 34px;
+                        font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                        font-weight: 400;">HUB</span></a>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li ><a href="/shop">Shop</a></li>
+                       
+                        <li><a href="/contact">Contacts</a></li>
+                        <li><a href="/orders">Orders</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option row">
+                    <div class="col-lg-6">
+
+                       
+                            <form action="/shop" method="get">
+                                <div class="input-group ">
+                                    <input type="text" class="form-control  rounded" placeholder="Search for products" name="search" style="    margin-left: -95px">
+                                    <div class="input-group-append text-white">
+                                        <span class="input-group-text bg-transparent text-primary rounded">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                    
+                    </div>
+                    <div class="col-lg-6">
+
+                        <a href="/profile" class="text-decoreation-none text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                        </a>
+                        <a href="/wishlist"><img src="img/icon/heart.png" alt=""></a>
+                        <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                        
+                    </div>
+                    <!-- <div class="price">Cart</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Shopping Cart</h4>
+                        <div class="breadcrumb__links">
+                            <a href="/">Home</a>
+                            <a href="/shop">Shop</a>
+                            <span>Shopping Cart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Shopping Cart Section Begin -->
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8">
+              <div class="shopping__cart__table">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>Image</th>
+                              <th>Product</th>
+                              <th style="text-align: center;">Quantity</th>
+                              <th>Total</th>
+                              <th>Remove</th>
+                          </tr>
+                      </thead>
+                     
+                        <tbody>
+                            <% console.log("cartItems", cartItems); %>
+
+                            <%   let totalPrice = 0
+                            let totalDiscount = 0
+                            let currPrice;
+                            if (cartItems && cartItems.items && cartItems.items.length > 0) { %>
+                                <% console.log("ejs",cartItems.items) %>
+                                <% cartItems.items.forEach((item) => { %>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <% if (item.product && item.product.images && item.product.images.length > 0) { %>
+                                                <a href="/shop/productOverview/<%= item.product._id %>">
+                                                <img src="/uploads/<%= item.product.images[0] %>" style="max-width: 50%;" alt="">
+                                            </a>
+                                            <% } else { %>
+                                                <p>No image available</p>
+                                            <% } %>
+                                        </div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="product__cart__item__text">
+                                            <% if (item.product && item.product.name && item.price) { %>
+                                                <h6><%= item.product.name %></h6>
+                                              <h6>Brand:<%= item.product.brand %></h6>
+                                                <!-- <h6>&#8377;<%= item.product.price %></h6> -->
+                                             
+                                            <% } else { %>
+                                                <h6>Product Data Missing</h6>
+                                                <!-- <h6>&#8377;<%= item.price %></h6> -->
+                                            <% } %>
+
+                                            <% 
+                                            if(item.product.offerPrice){
+                                                console.log('product has offer')
+                                                currPrice = item.product.offerPrice
+                                            }else{
+                                                currPrice = item.product.price - item.product.discountPrice
+                                            }
+                                            //discountPercentage = Math.floor(100 - ( (currPrice*100)/item.product.price ));
+                                            %>
+                                            <h5>&#8377;<%= currPrice %></h5>
+                                            <span style="color: red;" id="<%= item.product._id %>msg"></span>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="row d-flex justify-content-center align-items-center">
+
+                                            <button id="<%= item.product._id %>minus"
+                                                    onclick="updateCart(-1,'<%= item.product._id%>','<%= item.product._id %>')">
+                                                    -
+                                            </button>
+
+                                            <span class="mx-2 quantity"  id="<%= item.product._id %>" data-max-quantity="<%= item.product.stock %>">
+                                                <%= item.quantity %>
+                                            </span>
+
+                                            <button id="<%= item.product._id %>plus"
+                                                onclick="updateCart(1,'<%= item.product._id%>','<%= item.product._id %>')">
+                                                +
+                                            </button>
+
+                                        </div>
+
+                                    </td>
+
+                                    <% 
+                                    //let price = item.product.price - item.product.discountPrice
+                                    %>
+                                    <td id="total<%= item.product._id %>" class="cart__price">&#8377;<%= currPrice*item.quantity  %></td>
+                                    <% 
+                                    totalPrice += item.product.price*item.quantity
+                                    if(item.product.offerPrice){
+                                        totalDiscount += (item.product.price - item.product.offerPrice)*item.quantity
+                                    }else{
+                                        totalDiscount += item.product.discountPrice*item.quantity
+                                    }
+                                    %>
+
+                                    <!-- <td class="cart__price" id="item-total-<%= item._id %>">
+                                        &#8377;<span class="item-total-price"><%= item.product ? (item.product.price * item.quantity).toFixed(2) : '0.00' %></span>
+                                    </td>
+                                     -->
+                                    <td class="cart__close">
+                                        <% if (item.product) { %>
+                                            <form action="/remove-from-cart" method="post">
+                                                <input type="hidden" name="productId" value="<%= item.product._id %>">
+                                                <button type="submit" class="btn btn-light border text-danger icon-hover-danger">Remove</button>
+                                            </form>
+                                        <% } %>
+                                    </td>
+                                    
+                                </tr>
+                                <% }) %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="4">Your cart is empty.</td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                        
+                      
+                  </table>
+              </div>
+             
+              <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                      <div class="continue__btn">
+                          <a href="/shop">Continue Shopping</a>
+                      </div>
+                  </div>
+                  <!-- <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="continue__btn update__btn">
+                      <button type="button" id="update-cart-btn">Update cart</button>
+                    </div>
+                  </div> -->
+                  
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <!-- <div class="cart__discount">
+                  <h6>Discount codes</h6>
+                  <form action="#">
+                      <input type="text" placeholder="Coupon code">
+                      <button type="submit">Apply</button>
+                  </form>
+              </div> -->
+              <div class="cart__total">
+                <h6>Cart total</h6>
+                <ul>
+                  <li>Total MRP: <span id="totalPrice">&#8377;<%= totalPrice %></span></li>
+                  <hr>
+                  <li>Discount <span style="color: green;"  id="totalDiscount"> -&#8377; <%= totalDiscount %></span></li>
+                  <hr>
+                  <li>Amount <span  id="amount"> &#8377; <%= totalPrice - totalDiscount %></span></li>
+                </ul>
+                
+                <form action="/checkout" method="post">
+            
+                    <% cartItems.items.forEach((item) => { %>
+                 
+                        
+                    <% }) %>
+                    <button type="submit" class="primary-btn" id="checkout-btn">Proceed to checkout</button>
+                </form>
+                
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Shopping Cart Section End -->
+
+    
+    <!-- Shopping Cart Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <a href="#"><img src="img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Clothing Store</a></li>
+                            <li><a href="#">Trending Shoes</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Delivary</a></li>
+                            <li><a href="#">Return & Exchanges</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>NewLetter</h6>
+                        <div class="footer__newslatter">
+                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    
+<!-- Include Axios library -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    
+<script>
+    function updateCart(operation, prodId, spanID) {
+      let quantity = document.getElementById(spanID);
+      console.log("quantity",quantity);
+      let parsedQuantity = parseInt(quantity.innerText);
+  
+      let minQuantity = 1;
+      let maxQuantity = parseInt(quantity.dataset.maxQuantity);
+      console.log(" maxQuantity1", maxQuantity);
+  
+      maxQuantity = Math.min(maxQuantity, 10);
+      console.log(" maxQuantity2", maxQuantity);
+  
+      if (operation == 1 && parsedQuantity < maxQuantity) {
+          parsedQuantity++;
+      } else if (operation == -1 && parsedQuantity > 1) {
+          parsedQuantity--;
+      }
+      quantity.innerText = parsedQuantity;
+  
+      ajaxConnection(parsedQuantity, prodId, spanID);
+  
+      //btn dis
+      var plusBtn = document.getElementById(`${spanID}plus`);
+      var minusBtn = document.getElementById(`${spanID}minus`);
+      plusBtn.disabled = true;
+      minusBtn.disabled = true;
+  
+      if (parsedQuantity !== 1) {
+          plusBtn.disabled = true;
+      } else {
+          plusBtn.disabled = false;
+      }
+  
+      if (parsedQuantity === 10 || parsedQuantity === maxQuantity) {
+          minusBtn.disabled = true;
+      } else {
+          minusBtn.disabled = false;
+      }
+  
+      //making error msg
+      let messageElement = document.getElementById(`${spanID}msg`);
+  
+      if (parsedQuantity == 10) {
+          messageElement.innerText = "Max quantity reached";
+      } else if (parsedQuantity == maxQuantity) {
+          messageElement.innerText = "Stock limit reached"; 
+      } else {
+          messageElement.innerText = "";
+      }
+  }
+  
+  
+      //ajax
+      function ajaxConnection(amt, prodId, spanID) {
+          $.ajax({
+              method: 'put',
+              url: '/update-cart',
+              data: { amt, prodId },
+              success: (res) => {
+                  if (res.status == true) {
+  
+                      $(`#total${spanID}`).html(`₹${res.data.totalSingle}`)
+                      $(`#totalPrice`).html(`₹${res.data.totalPrice}`)
+                      $(`#totalDiscount`).html(`-₹${res.data.totalDiscount}`)
+                      $(`#amount`).html(`₹${res.data.totalPrice - res.data.totalDiscount}`)
+  
+                      document.getElementById(`${spanID}plus`).disabled = false
+                      document.getElementById(`${spanID}minus`).disabled = false
+  
+                  } else if (res.status == false) {
+                      $(`#${spanID}msg`).html(res.data)
+                  }
+              }
+          })
+      }
+  </script>
+  
+</body>
+
+</html>

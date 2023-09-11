@@ -1,0 +1,532 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+    
+<!-- <section>
+    <div class="row">
+    
+        <div class="row mt-3 pl-lg-5 p-2 mx-auto">
+            <a class="btn text-primary fw-bold address" style="width: 250px;" data-toggle="modal" data-target="#form">Add to wallet</a>
+        </div>
+    
+        <table class="table align-items-center mb-0" id="sortTable">
+    
+            <thead>
+              <tr>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">From</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+                <% 
+                if(walletHistory.length){
+                    walletHistory.forEach( payment => {
+                        %>
+                        <tr>
+    
+                            <td class="align-middle text-center text-sm">
+                                <p class="text-xs font-weight-bold mb-0"><%= payment.amount %></p>
+                            </td>
+    
+                            <td class="align-middle text-center text-sm">
+                                <% 
+                                const dd = payment.date.getDate();
+                                const mm = payment.date.getMonth() + 1;
+                                const yyyy = payment.date.getFullYear();
+                                
+                                const formattedDate = `${dd}-${mm}-${yyyy}`; 
+                                %>
+                                <p class="text-xs font-weight-bold mb-0"><%= formattedDate %></p>
+                            </td>
+                            
+                            <td class="align-middle text-center text-sm">
+                                <p class="text-xs font-weight-bold mb-0"><%= payment.message %></p>
+                            </td>
+                        </tr>
+                        <%  
+                    });
+                }else{
+                    %>
+                    <tr>
+                        <td>
+                            <p>No Transactions yet!</p>
+                        </td>
+                    </tr>
+                    <%  
+                }
+                %>
+            </tbody>
+    
+    </div>
+    
+    </section> -->
+    
+<!--     
+    <div class="modal fade rounded-0" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered rounded-0" role="document">
+          <div class="modal-content rounded-0">
+            <form id="wallet-form">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="email1">Enter Amount</label>
+                  <input type="Number" class="form-control" id="amount" aria-describedby="emailHelp" placeholder="Enter Amount">
+                  <p id="err" class="text-danger"></p>
+                </div>
+              </div>
+              <div class="modal-footer border-top-0 d-flex justify-content-center">
+                <button type="submit" class="btn btn-success rounded-0">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+        
+    
+    
+    <%-// include('../partials/footer.ejs') %>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    
+    <script>
+        const err = document.getElementById('err')
+        document.getElementById('wallet-form').addEventListener('submit',(e) =>{
+            e.preventDefault()
+    
+            const amount = document.getElementById('amount').value.trim()
+            if( !amount ) {
+                e.preventDefault()
+            }
+            if( amount < 0 ) {
+                e.preventDefault()
+                err.innerHTML = 'Amount cannot be negative!'
+            }
+    
+            $.ajax({
+                url: '/profile/addMoneyToWallet',
+                method: 'post',
+                data: { amount },
+                success: (res) => {
+                    if(res.status){
+                        console.log('opening razorpay');
+                        razorpayPayment(res.payment)
+                    }else{
+                        console.log('status false redirecting to walletHistory');
+                        location.href = '/walletHistory'
+                    }
+                }
+            });
+    
+        });
+    
+        function razorpayPayment(order){
+            console.log('in razorpay payment');
+            var options = {
+                "key": "rzp_test_PEdrGGN9zP5cJw", // Enter the Key ID generated from the Dashboard
+                "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "H&F Hub",
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                "handler": function (response){
+                    verifyPayment(response,order)
+                },
+                "prefill": {
+                    "name": "Gaurav Kumar",
+                    "email": "gaurav.kumar@example.com",
+                    "contact": "9000090000"
+                },
+                "notes": {
+                    "address": "H&F Hub"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            console.log('new Razorpay');
+            var rzpl = new Razorpay(options)
+            rzpl.open()
+        }
+    
+        function verifyPayment(response,order){
+            console.log(response,order);
+            $.ajax({
+                url:'/verifyWalletPayment',
+                method:'post',
+                data:{
+                    response,
+                    order
+                },
+                success:(res) => {
+                    console.log(res);
+                    if(res.status == true){
+                        location.href = '/profile/walletHistory'
+                    }else{
+                        location.href = `/profile/walletHistory?result=failed`
+                    }
+                }
+            });
+        }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        // Function to copy the referral code to clipboard
+        function copyReferralCode() {
+            const referralCodeValue = document.getElementById('referralCode').value;
+            
+            const tempInput = document.createElement('input');
+            document.body.appendChild(tempInput);
+            tempInput.value = referralCodeValue;
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+    
+            // Optionally, you can show a notification to indicate the code has been copied
+            alert('Referral code copied to clipboard!');
+        }
+      </script>
+    
+    
+        
+</body>
+</html> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+
+
+
+  <!DOCTYPE html>
+<html lang="zxx">
+
+ <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>F&H Hub</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+   
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+      <div class="offcanvas__option">
+          <div class="offcanvas__links">
+              <% if (user && user.name) { %>
+                  <p>Welcome, <%= user.name %></p>
+                  <a href="/logout">Logout</a>
+                <% } else { %>
+                  <a href="/login">Sign In</a>
+                <% } %>
+              <a href="#">FAQs</a>
+          </div>
+          <div class="offcanvas__top__hover">
+              <span>Usd <i class="arrow_carrot-down"></i></span>
+              <ul>
+                  <li>USD</li>
+                  <li>EUR</li>
+                  <li>USD</li>
+              </ul>
+          </div>
+      </div>
+      <div class="offcanvas__nav__option">
+          <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+          <a href="#"><img src="img/icon/heart.png" alt=""></a>
+          <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+          <div class="price">Cart$0.00</div>
+      </div>
+      <div id="mobile-menu-wrap"></div>
+      <div class="offcanvas__text">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+      </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-md-7" style="display: flex;
+                    align-items: center;">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right ">
+                            <div class="header__top__links row" style="display: flex;">
+                                <% if (user && user.username !== undefined) { %>
+                                    <div class="col-lg-6">
+                                        <p style="color:#fff; display: flex;    margin: 0px;
+                                        align-items: center;">Welcome   <%= user.username %></p>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <a href="/logout">Logout</a>
+
+                                    </div>
+                                  <% } else { %>
+                                   <div class="col-lg-6">
+                                    <a href="/login">Sign In</a>
+                                   </div>
+                                  <% } %>
+                                  
+                               
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/home"><span style="color: red;
+                            font-size: 34px;
+                            font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                            font-weight: 400;">HUB</span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li ><a href="/shop">Shop</a></li>
+                           
+                            <li><a href="/contact">Contacts</a></li>
+                            <li><a href="/orders">Orders</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option row">
+                        <div class="col-lg-6">
+
+                           
+                               
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+  
+<section class="wallet-history">
+<div class="container">
+<div class="row">
+<div class="col-md-12" style="display: flex;
+justify-content: end;">
+<div class="row mt-3 justify-content-center">
+<button class="btn btn-primary btn-lg fw-bold" data-toggle="modal" data-target="#form" style="padding: 5px 5px 5px 5px;
+font-size: 15px;">Add to Wallet</button>
+</div>
+
+</div>
+</div>
+<div class="row mt-3">
+<table class="table table-striped">
+<thead>
+<tr>
+<th class="text-center">Amount</th>
+<th class="text-center">Date</th>
+<th class="text-center">From</th>
+</tr>
+</thead>
+<tbody>
+<% if (walletHistory.length) { %>
+<% walletHistory.forEach(payment => { %>
+<tr>
+<td class="align-middle text-center font-weight-bold"><%= payment.amount %></td>
+<td class="align-middle text-center text-sm">
+<% 
+const dd = payment.date.getDate();
+const mm = payment.date.getMonth() + 1;
+const yyyy = payment.date.getFullYear();
+const formattedDate = `${dd}-${mm}-${yyyy}`; 
+%>
+<p class="text-xs font-weight-bold mb-0"><%= formattedDate %></p>
+</td>
+<td class="align-middle text-center"><%= payment.message %></td>
+</tr>
+<% }); %>
+<% } else { %>
+<tr>
+<td colspan="3" class="text-center">No Transactions yet!</td>
+</tr>
+<% } %>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- Your modal dialog goes here (unchanged) -->
+<div class="modal fade rounded-0" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered rounded-0" role="document">
+      <div class="modal-content rounded-0">
+        <form id="wallet-form">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="email1">Enter Amount</label>
+              <input type="Number" class="form-control" id="amount" aria-describedby="emailHelp" placeholder="Enter Amount">
+              <p id="err" class="text-danger"></p>
+            </div>
+          </div>
+          <div class="modal-footer border-top-0 d-flex justify-content-center">
+            <button type="submit" class="btn btn-success rounded-0">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- Include your existing section here -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+const err = document.getElementById('err')
+document.getElementById('wallet-form').addEventListener('submit',(e) =>{
+e.preventDefault()
+
+const amount = document.getElementById('amount').value.trim()
+if( !amount ) {
+e.preventDefault()
+}
+if( amount < 0 ) {
+e.preventDefault()
+err.innerHTML = 'Amount cannot be negative!'
+}
+
+$.ajax({
+url: '/profile/addMoneyToWallet',
+method: 'post',
+data: { amount },
+success: (res) => {
+if(res.status){
+console.log('opening razorpay');
+razorpayPayment(res.payment)
+}else{
+console.log('status false redirecting to walletHistory');
+location.href = '/walletHistory'
+}
+}
+});
+
+});
+
+function razorpayPayment(order){
+console.log('in razorpay payment');
+var options = {
+"key": "rzp_test_PEdrGGN9zP5cJw", // Enter the Key ID generated from the Dashboard
+"amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+"currency": "INR",
+"name": "H&F Hub",
+"description": "Test Transaction",
+"image": "https://example.com/your_logo",
+"order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+"handler": function (response){
+verifyPayment(response,order)
+},
+"prefill": {
+"name": "Gaurav Kumar",
+"email": "gaurav.kumar@example.com",
+"contact": "9000090000"
+},
+"notes": {
+"address": "H&F Hub"
+},
+"theme": {
+"color": "#3399cc"
+}
+};
+console.log('new Razorpay');
+var rzpl = new Razorpay(options)
+rzpl.open()
+}
+
+function verifyPayment(response,order){
+console.log(response,order);
+$.ajax({
+url:'/verifyWalletPayment',
+method:'post',
+data:{
+response,
+order
+},
+success:(res) => {
+console.log(res);
+if(res.status == true){
+location.href = '/profile/walletHistory'
+}else{
+location.href = `/profile/walletHistory?result=failed`
+}
+}
+});
+}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+    // Function to copy the referral code to clipboard
+    function copyReferralCode() {
+        const referralCodeValue = document.getElementById('referralCode').value;
+        
+        const tempInput = document.createElement('input');
+        document.body.appendChild(tempInput);
+        tempInput.value = referralCodeValue;
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        // Optionally, you can show a notification to indicate the code has been copied
+        alert('Referral code copied to clipboard!');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <!-- start: Icons -->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
+    <!-- start: CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!-- Cropper CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css">
+<!-- Custom CSS -->
+    <link rel="stylesheet" href="/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css2/style.css">
+    <link rel="stylesheet" href="/admin/nucleo-svg.css">
+    <link rel="stylesheet" href="/admin/nucleo-icons.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.min.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.css">
+    <script>
+      function formatDate(date) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+      }
+    </script>
+
+<style>
+    ul>li>a{
+        text-decoration: none;
+color: black;
+font-size: 20px;
+margin-left: 15px;
+margin-top: 10px;
+font-family: -webkit-body;
+
+    }
+    .a-tag{
+        padding: 5px;
+    }
+    .show-submenu {
+display: block;
+}
+.sidebar-submenu {
+display: none;
+}
+.sidebar-menu-item.active {
+    background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+.active {
+ background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+#sortTable_filter{
+  text-align: end;
+}
+.form-control {
+  border:1px solid black
+}
+.custom-select {
+  padding: 1px;
+}
+</style>
+
+</head>
+<body style="overflow-x: hidden;">
+  
+
+
+   
+     
+  <div class="row">
+    <div class="col-lg-2">
+
+  <!-- start: Sidebar -->
+  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+    <div class="d-flex align-items-center p-3">
+        <a href="#" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">Admin</a>
+        <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+    </div>
+    <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item <%= currentPage === 'dashboard' ? 'active' : '' %>">
+            <a href="/admin/dashboard" class="a-tag rounded-pill">
+                <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+        <li class="sidebar-menu-item has-dropdown">
+           
+                <!-- <li class="sidebar-dropdown-menu-item - ">
+                    <i class="fa-solid fa-users "></i>
+                    <a href="/admin/usersProfile">Users</a>
+                    
+                  </li> -->
+
+                  <li class="nav-item " >
+                    <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'UsersProfile' ? 'active' : '' %> "  style="display: flex;">
+                    
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users " style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Users</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  "  style="display: flex;" href="/admin/categories">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center  <%= currentPage === 'categories' ? 'active' : '' %>" >
+                        <!-- <i class="fa-solid fa-users " style="color: black;"></i> -->
+                        <i class="fa-sharp fa-solid fa-tag" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/coupons" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'coupons' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Coupons</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
+                       <i class="fa-solid fa-bag-shopping" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Orders</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/offers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
+                       <i class="fa-solid fa-percent" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Offers</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-solid fa-tags" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">BrandOffers</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/banners" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-regular fa-images" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Banner</span>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
+                    <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Products</span>
+                      <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products" style="font-size: inherit;">All Products</a>
+                      </li>
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products/add" style="font-size: inherit;">Add Product</a>
+                      </li>
+                      <!-- Add more submenu items as needed -->
+                    </ul>
+                  </li>
+
+                
+       </li>
+       </ul>
+    
+</div>
+<div class="sidebar-overlay"></div>
+</div>
+<!-- end: Sidebar -->
+        <div class="col-lg-10">
+              <!-- Navbar -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3 ">
+      <nav aria-label="breadcrumb">
+     
+        <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
+
+        <ul class="navbar-nav d-flex justify-content-end ">
+
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item d-flex align-items-center">
+            <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
+              
+              <form action="/admin/logout" method="post">
+                <i class="fa fa-user me-sm-1"></i>
+                <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
+              </form>
+              
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" style="padding-left: 25px;">
+
+          <div class="container-fluid py-4">
+            <div class="row">
+              <div class="col-12">
+                <div class="card my-4">
+                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-info shadow-info border-radius-lg pt-4 pb-3" style="    text-align: center;">
+                      <h6 class="text-white text-capitalize ps-3">Users List</h6>
+                    </div>
+                  </div>
+                  <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0" id="sortTable">
+                        <thead>
+                          <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">User</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Email</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Status</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Block User</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% users.forEach(user => { %>
+                            <tr>
+                              <td >
+                                <div class=" px-2 py-1" style="text-align: center;">
+                                  <!-- <div>
+                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                                  </div> -->
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm"><%= user.username %></h6>
+                                    <td style="text-align: center;">
+                                    <p class="text-xs text-secondary mb-0"><%= user.email %></p>
+
+                                    </td>
+                                  </div>
+                                </div>
+                              </td>
+                              
+                                <td style="text-align: center">
+                                  <% if (user.blocked) { %>
+                                  <span style="color: red; ">Blocked</span>
+                                  <% } else { %>
+                                  <span style="color: green; ;">Unblocked</span>
+                                  <% } %>
+                                  </td>
+                              </td>
+                              <!-- <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold"></span>
+                              </td> -->
+                              <td class="align-middle text-center">
+                                <!-- Block/Unblock User Form -->
+                                <form action="/admin/block-unblock-user" method="POST">
+                                  <input type="hidden" name="userId" value="<%= user._id %>">
+                                  <input type="hidden" name="blocked" value="<%= user.blocked %>">
+                                  <% if (user.blocked) { %>
+                                    <button class="btn btn bg-success" style="    color: #fff;"  type="submit">Unblock</button>
+                                  <% } else { %>
+                                    <button class="btn btn bg-danger" style="    color: #fff;" type="submit">Block</button>
+                                  <% } %>
+                                </form>
+                              </td>
+                            </tr>
+                          <% }); %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+
+</div>
+
+
+<script src="/js2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js2/bootstrap.bundle.min.js"></script>
+  <script src="/js2/script.js"></script>
+  <!-- end: JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+ 
+ <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+  $('#sortTable').DataTable({
+      responsive: true
+  });
+</script>
+
+<script>
+   // sidebar.js
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
+
+  sidebarItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      // Remove the "active" class from all items
+      sidebarItems.forEach((otherItem) => {
+        otherItem.classList.remove('active');
+      });
+
+      // Add the "active" class to the clicked item
+      item.classList.add('active');
+    });
+  });
+});
+
+  </script>
+  
+  <script>
+// JavaScript to toggle the submenu
+const productsMenuItem = document.querySelector('.dropdown-toggle');
+const submenu = document.querySelector('.sidebar-submenu');
+
+productsMenuItem.addEventListener('click', () => {
+submenu.classList.toggle('show-submenu');
+});
+
+// Allow the default behavior of the links inside the submenu
+const submenuLinks = document.querySelectorAll('.sidebar-submenu-item a');
+submenuLinks.forEach((link) => {
+link.addEventListener('click', (event) => {
+  // Allow the link to navigate to its destination
+  event.stopPropagation();
+});
+});
+
+  </script>
+</body>
+</html>

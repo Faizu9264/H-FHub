@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>F&H Hub</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+   
+    <style>
+        small.error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+      <div class="offcanvas__option">
+          <div class="offcanvas__links">
+              <% if (user && user.name) { %>
+                  <p>Welcome, <%= user.name %></p>
+                  <a href="/logout">Logout</a>
+                <% } else { %>
+                  <a href="/login">Sign In</a>
+                <% } %>
+              <a href="#">FAQs</a>
+          </div>
+          <div class="offcanvas__top__hover">
+              <span>Usd <i class="arrow_carrot-down"></i></span>
+              <ul>
+                  <li>USD</li>
+                  <li>EUR</li>
+                  <li>USD</li>
+              </ul>
+          </div>
+      </div>
+      <div class="offcanvas__nav__option">
+          <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+          <a href="#"><img src="img/icon/heart.png" alt=""></a>
+          <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+          <div class="price">Cart$0.00</div>
+      </div>
+      <div id="mobile-menu-wrap"></div>
+      <div class="offcanvas__text">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+      </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-md-7" style="display: flex;
+                    align-items: center;">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right ">
+                            <div class="header__top__links row" style="display: flex;">
+                                <% if (user && user.username !== undefined) { %>
+                                    <div class="col-lg-6">
+                                        <p style="color:#fff; display: flex;    margin: 0px;
+                                        align-items: center;">Welcome   <%= user.username %></p>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <a href="/logout">Logout</a>
+
+                                    </div>
+                                  <% } else { %>
+                                   <div class="col-lg-6">
+                                    <a href="/login">Sign In</a>
+                                   </div>
+                                  <% } %>
+                                  
+                               
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/home"><span style="color: red;
+                            font-size: 34px;
+                            font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                            font-weight: 400;">HUB</span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li ><a href="/shop">Shop</a></li>
+                           
+                            <li><a href="/contact">Contacts</a></li>
+                            <li><a href="/orders">Orders</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option row">
+                        <div class="col-lg-6">
+
+                           
+                        
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-4 mb-sm-5">
+                    <div class="card card-style1 border-0">
+                        <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 mb-4 mb-lg-0">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="User image">
+                                </div>
+                                <div class="col-lg-6 px-xl-10">
+                                     <div class="bg-dark p-3 mb-4 rounded">   <!-- py-1-9 px-1-9 px-sm-6 mb-1-9 -->
+                                        <% if (userData) { %>
+                                            <h3 class="h2 text-white mb-0"><%= userData.username %></h3>
+                                        <% } else { %>
+                                            <h3 class="h2 text-white mb-0">User Data Not Available</h3>
+                                        <% } %>
+                                        
+                                    </div>
+                                    <ul class="list-unstyled mb-1-9">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <span class="display-26 text-secondary me-2 font-weight-600">Email:</span>
+                                            <% if (userData) { %>
+                                                <!-- Your existing code to display user data -->
+                                                <%= userData.email %>
+                                            <% } else { %>
+                                                <!-- Handle case where userData is null or undefined -->
+                                                User Data Not Available
+                                            <% } %>
+                                            
+                                            <!-- <a class="ms-3" href="/profile/passConfirmToChangeMail">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                </svg>
+                                            </a> -->
+
+                                        </li>
+                                       
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                          
+                                            <span class="display-26 text-secondary me-2 font-weight-600">Wallet Amount:  <% if (userData) { %>
+                                                <!-- Your existing code to display user data -->
+                                                <%= userData.wallet %>
+                                            <% } else { %>
+                                                <!-- Handle case where userData is null or undefined -->
+                                               0
+                                            <% } %></span> </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-4 mb-sm-5">
+                    <div class="d-flex justify-content-around">
+                        <a href="/orders" class="btn btn-dark" >
+                            My Orders
+                        </a>
+
+                        <a href="/profile/edit" class="btn btn-dark" >
+                            Edit Profile
+                        </a>
+                        <a href="/profile/changePassword" class="btn btn-dark" >
+                            Change Password
+                        </a>
+                        <a href="/profile/walletHistory" class="btn btn-dark my-1" >
+                            Wallet History
+                        </a>
+                      <!-- <div> -->
+                           <input type="hidden" id="referralCode" value="http://localhost:3000/signup?referral=<%= userData.referralCode %>" readonly>
+                                            <button onclick="copyReferralCode()" class="btn btn-dark my-1">Click here to copy refferal code</button>
+                        <!-- </div>  -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-4 mb-sm-5">
+                    <div class="card card-style1 border-0">
+                        <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                            <div class="row align-items-center">
+
+
+                                <div class="card">
+
+                                        <div class="container mt-5">
+                                                <div class="d-flex justify-content-between mb-3 ">
+                                                    <h4>MANAGE ADDRESS</h4>
+                                                    <%
+                                                    if (userAddress && userAddress.addresses && userAddress.addresses.length >=5 ) {
+                                                    %>
+                                                    
+                                                    <!-- Display max address limit message -->
+                                                    <div class="row d-flex justify-content-end mx-3">
+                                                        <p>You can add a maximum of 5 Addresses</p>
+                                                    </div>
+                                                    <%
+                                                    } else {
+                                                    %>
+                                                    <!-- Display "Add Address" button -->
+                                                    <div class="row d-flex justify-content-end mx-3">
+                                                        <a id="addAddressButton" href="/profile/addAddress?returnPage=profile" class="btn btn-dark">Add Address</a>
+                                                    </div>
+                                                    <%
+                                                    }
+                                                    %>
+                                                    
+                                                </div>
+                             
+
+                                               
+                                                <% if (userAddress && userAddress.length > 0 && userAddress[0].addresses.length > 0 ) { %>
+                                                    <div class="row">
+                                                       
+                                                        <% userAddress[0].addresses.forEach((address) => { %>
+                                                            
+                                                            <div class="col-sm-6 mb-3">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title"><%= address.userName  %> &nbsp; &nbsp;<%= address.mobile %></h5>
+                                                                        <span class="card-text"><%= address.email  %>
+                                                                        </span><br>
+                                                                        <span class="card-text"><%= address.address  %>
+                                                                        </span><br>
+                                                                        <span class="card-text"><%= address.town  %>
+                                                                        </span><br>
+                                                                        <span class="card-text"><%= address.zip  %>
+                                                                        </span><br>
+                                                                        <span class="card-text"><%= address.state %>
+                                                                        </span>
+                                                                     
+                                                                        <div class="d-flex">
+                                                                            <div class="">
+                                                                                <a href="/profile/editAddress/<%= address._id %>?returnPage=profile">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                                                    </svg>
+                                                                                </a>
+                                                                                <a href="/profile/deleteAddress/<%= address._id %>" class="ms-2" onclick="confirm('Are you sure?')">
+                                                                                    <svg style="color: red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                                                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                                                                    </svg>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <% 
+                                                        })
+                                                        %>
+                                                    </div>
+                                                    <%
+                                                }else{
+                                                    %>
+                                                    <div class="d-flex justify-content-center align-items-center mt-5">
+                                                        <h5>No address saved</h5>
+                                                    </div>
+                                                    <% 
+                                                }
+                                            %>
+                                        </div>
+
+                                </div>
+                              
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    
+
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+    // Function to copy the referral code to clipboard
+    function copyReferralCode() {
+        const referralCodeValue = document.getElementById('referralCode').value;
+
+        const tempInput = document.createElement('input');
+        document.body.appendChild(tempInput);
+        tempInput.value = referralCodeValue;
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        // Optionally, you can show a notification to indicate the code has been copied
+        alert('Referral code copied to clipboard!');
+    }
+  </script>
+
+</body>
+</html>

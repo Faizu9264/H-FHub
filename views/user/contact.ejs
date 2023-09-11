@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fashion Textails</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+   <!-- Add the CSS link for medium-zoom -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.css">
+
+<!-- Add the CSS link for cropper.js -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+    
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <% if (user && user.name) { %>
+                    <p>Welcome, <%= user.name %></p>
+                    <a href="/logout">Logout</a>
+                  <% } else { %>
+                    <a href="/login">Sign In</a>
+                  <% } %>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>Usd <i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>USD</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+            <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+ 
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-md-7" style="display: flex;
+                    align-items: center;">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right ">
+                            <div class="header__top__links row" style="display: flex;">
+                                <% if (user && user.username !== undefined) { %>
+                                    <div class="col-lg-6">
+                                        <p style="color:#fff; display: flex;    margin: 0px;
+                                        align-items: center;">Welcome   <%= user.username %></p>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <a href="/logout">Logout</a>
+
+                                    </div>
+                                  <% } else { %>
+                                   <div class="col-lg-6">
+                                    <a href="/login">Sign In</a>
+                                   </div>
+                                  <% } %>
+                                  
+                               
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/home"><span style="color: red;
+                            font-size: 34px;
+                            font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                            font-weight: 400;">HUB</span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li ><a href="/shop">Shop</a></li>
+                           
+                            <li class="active"><a href="/contact">Contacts</a></li>
+                            <li><a href="/orders">Orders</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option row">
+                        <div class="col-lg-6">
+
+                           
+                                <form action="/shop" method="get">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control  rounded" placeholder="Search for products" name="search" style="    margin-left: -95px">
+                                        <div class="input-group-append text-white">
+                                            <span class="input-group-text bg-transparent text-primary rounded">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                        
+                        </div>
+                        <div class="col-lg-6" style="    margin-top: 6px;">
+
+                            <a href="/profile" class="text-decoreation-none text-dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </a>
+                            <a href="/wishlist"><img src="img/icon/heart.png" alt=""></a>
+                            <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                            
+                        </div>
+                        <!-- <div class="price">Cart</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Map Begin -->
+    <!-- <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111551.9926412813!2d-90.27317134641879!3d38.606612219170856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1597926938024!5m2!1sen!2sbd" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div> -->
+    <!-- Map End -->
+
+    <section class="about mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about__pic">
+                        <img src="img/about/about-us.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="about__item">
+                        <h4>Who Are We?</h4>
+                        <p>H&F Hub is a hub of men's fashion where style meets substance. Our curated collection of clothing,
+                        accessories, bags, and more is designed to elevate your wardrobe and reflect your unique personality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="about__item">
+                        <h4>What We Offer?</h4>
+                        <p>In this era of digital convenience, H&F Hub redefines men's shopping. Our wide array of products
+                        ensures you have access to the latest trends and timeless classics, all in one place.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="about__item">
+                        <h4>Why Choose H&F Hub?</h4>
+                        <p>Discover the essence of sophistication and comfort with H&F Hub. Our selection is not just about
+                        style, but a celebration of individuality. Experience fashion that resonates with your lifestyle.</p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Testimonial Section Begin -->
+    <section class="testimonial">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="testimonial__text">
+                        <span class="icon_quotations"></span>
+                        <p>
+                            "Elevating Every Getaway. Whether it's a spontaneous riverside retreat or a planned adventure, Gents Garage outfits redefine
+                            travel style. As I enjoy my tea by the river, I'm reminded that looking sharp isn't confined to the city. Thanks to Gents Garage, 
+                            I'm ready to explore the world with confidence, one stylish step at a time."
+                        </p>
+                        <div class="testimonial__author">
+                            <div class="testimonial__author__pic">
+                                <a href="https://instagram.com/web_wiz_ard"  target="_blank">
+                                    <img src="/images/teams/faizu.jpg" alt="Happy Customer">
+                                </a>
+                            </div>
+                            <div class="testimonial__author__text">
+                                <a href="https://instagram.com/web_wiz_ard" target="_blank">
+                                    <h5>Faizu Rahman G </h5>
+                                    <p>Happy Customer </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0">
+                    <div class="testimonial__pic set-bg" data-setbg="img/about/testimonial-pic.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Counter Section Begin -->
+    <section class="counter mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num"><%= usersCount*6 %></h2>
+                        </div>
+                        <span>Our <br />Customers</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num"><%= categoriesCount %></h2>
+                        </div>
+                        <span>Total <br />Categories</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num">03</h2>
+                        </div>
+                        <span>In <br />Places</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="counter__item">
+                        <div class="counter__item__number">
+                            <h2 class="cn_num"><%= happyCustomers %></h2>
+                            <strong>%</strong>
+                        </div>
+                        <span>Happy <br />Customer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counter Section End -->
+
+    <!-- Team Section Begin -->
+    <!-- <section class="team mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Our Team</span>
+                        <h2>Meet Our Team</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <a href="https://instagram.com/niy_az__" target="_blank">
+                            <img src="/images/teams/niyas.jpg" alt="Fashion Designer">
+                            <h4>Niyas P</h4>
+                            <span>Fashion Design</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="team__item">
+                        <a href="https://instagram.com/fa_sil_v" target="_blank">
+                            <img src="/images/teams/fasilv.jpg" alt="Fasil Valiyattil CEO">
+                            <h4>Fasil Valiyattil</h4>
+                            <span>C.E.O</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://instagram.com/_._z4k_._" target="_blank">
+                        <div class="team__item">
+                            <img src="/images/teams/sachin.jpg" alt="Manager">
+                            <h4>Sachin Kizhakkepurath</h4>
+                            <span>Manager</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="https://instagram.com/_mashhoorkhan_" target="_blank">
+                        <div class="team__item">
+                            <img src="/images/teams/mashhoor.jpeg" alt="Delivery">
+                            <h4>Mashhoor Khan P</h4>
+                            <span>Delivery Partner</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Team Section End -->
+
+    <!-- Client Section Begin -->
+    <!-- <section class="clients spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Partner</span>
+                        <h2>Happy Clients</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-1.png" alt="Client 1"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-2.png" alt="Client 2"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-3.png" alt="Client 3"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-4.png" alt="Client 4"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-5.png" alt="Client 5"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-6.png" alt="Client 6"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-7.png" alt="Client 7"></a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                    <a href="#" class="client__item"><img src="img/clients/client-8.png" alt="Client 8"></a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Client Section End -->
+
+    
+    <!-- Contact Section Begin -->
+    <section class="contact spad" id="contactUs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__text">
+                        <div class="section-title">
+                            <span>Information</span>
+                            <h2>Contact Us</h2>
+                            <p>As you might expect of a company that began as a high-end interiors contractor, we pay
+                                strict attention.</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <h4>Malappuram</h4>
+                                <p>Karinkallathani, Kerala, India <br />+91 6282 821 603</p>
+                            </li>
+                            <li>
+                                <h4>Calicut</h4>
+                                <p>Kozhikkode, Kerala, India <br />+91 8157 936 753</p>
+                            </li>
+                            <li>
+                                <h4>Kochi</h4>
+                                <p>Kochi, Kerala, India <br />+91 6282 821 603</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__form">
+                        <form action="/contactForm" method="post" id="contactForm">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input type="text" name="fullname" placeholder="Enter Name">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="text" name="email" placeholder="Enter Email">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="text" name="subject" placeholder="Enter Subject">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea placeholder="Message" name="message"></textarea>
+                                    <button type="submit" class="site-btn">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.0.slim.js"
+    integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+
+<script>
+        $('#contactForm').submit((e) => {
+            e.preventDefault()
+            $.ajax({
+                url: '/contactForm',
+                method: 'post',
+                data: $('#contactForm').serialize(),
+                success: (res) => {
+                    if (res.status == true) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: 'Your message has been sent!',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // User clicked OK, refresh the page
+                                location.reload();
+                            }
+                        });
+                    } else {
+                        
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: 'An error occurred while processing your request.',
+                            confirmButtonColor: '#d33',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                }
+            })
+        })
+</script>
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <!-- <a href="#"><img src="img/footer-logo.png" alt=""></a> -->
+                        </div>
+                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <a href="#"><img src="img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Clothing Store</a></li>
+                            <li><a href="#">Trending Shoes</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Delivary</a></li>
+                            <li><a href="#">Return & Exchanges</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>NewLetter</h6>
+                        <div class="footer__newslatter">
+                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer__copyright__text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>2020
+                            All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

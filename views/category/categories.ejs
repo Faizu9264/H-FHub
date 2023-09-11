@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- start: Icons -->
+    <!-- start: CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!-- Cropper CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css">
+  <!-- start: Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- start: Icons -->
+
+<!-- Custom CSS -->
+    <link rel="stylesheet" href="/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css2/style.css">
+    <link rel="stylesheet" href="/admin/nucleo-svg.css">
+    <link rel="stylesheet" href="/admin/nucleo-icons.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.min.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.css">
+    <script>
+      function formatDate(date) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+      }
+    </script>
+ <style>
+  input[type="text"],
+input[type="number"],
+textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+.delete{
+  margin-top: 10px
+}
+
+    ul>li>a{
+        text-decoration: none;
+color: black;
+font-size: 20px;
+margin-left: 15px;
+margin-top: 10px;
+font-family: -webkit-body;
+
+    }
+    .a-tag{
+        padding: 5px;
+    }
+    .show-submenu {
+display: block;
+}
+.sidebar-submenu {
+display: none;
+}
+.sidebar-menu-item.active {
+    background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+.active {
+ background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+#sortTable_filter{
+  text-align: end;
+}
+.form-control {
+  border:1px solid black
+}
+.custom-select {
+  padding: 1px;
+}
+ </style>
+</head>
+<body style="overflow-x: hidden;">
+  
+
+
+   
+     
+  <div class="row">
+    <div class="col-lg-2">
+
+  <!-- start: Sidebar -->
+  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+    <div class="d-flex align-items-center p-3">
+        <a href="#" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">Admin</a>
+        <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+    </div>
+    <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item <%= currentPage === 'dashboard' ? 'active' : '' %>">
+            <a href="/admin/dashboard" class="a-tag rounded-pill">
+                <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+        <li class="sidebar-menu-item has-dropdown">
+           
+                <!-- <li class="sidebar-dropdown-menu-item - ">
+                    <i class="fa-solid fa-users "></i>
+                    <a href="/admin/usersProfile">Users</a>
+                    
+                  </li> -->
+
+                  <li class="nav-item " >
+                    <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
+                    
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users " style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Users</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill <%= currentPage === 'Categories' ? 'active' : '' %> "  style="display: flex;" href="/admin/categories">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center  " >
+                        <!-- <i class="fa-solid fa-users " style="color: black;"></i> -->
+                        <i class="fa-sharp fa-solid fa-tag" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/coupons" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'coupons' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Coupons</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
+                       <i class="fa-solid fa-bag-shopping" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Orders</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
+                       <i class="fa-solid fa-percent" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Offers</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-solid fa-tags" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">BrandOffers</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/banners" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-regular fa-images" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Banner</span>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
+                    <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Products</span>
+                      <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products" style="font-size: inherit;">All Products</a>
+                      </li>
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products/add" style="font-size: inherit;">Add Product</a>
+                      </li>
+                      <!-- Add more submenu items as needed -->
+                    </ul>
+                  </li>
+
+                
+       </li>
+       </ul>
+    
+</div>
+<div class="sidebar-overlay"></div>
+</div>
+<!-- end: Sidebar -->
+        <div class="col-lg-10">
+            <!-- Navbar -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3 ">
+      <nav aria-label="breadcrumb">
+       
+        <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
+
+        <ul class="navbar-nav d-flex justify-content-end ">
+
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item d-flex align-items-center">
+            <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
+              
+              <form action="/admin/logout" method="post">
+                <i class="fa fa-user me-sm-1"></i>
+                <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
+              </form>
+              
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg  " style="padding-left: 25px;">
+
+            <div class="container-fluid py-4" style="padding-top: 0px !important;">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card my-4">
+                      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <small id="catErr" class="error ms-3"></small>
+                        <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
+                          <h6 class="text-white text-capitalize ps-3" style="padding: 20px">Categories</h6>
+                          
+                          <form class="fixed-end d-flex align-content-center" action="/admin/categories" method="POST">
+                            <input id="newCatName" class="" type="text" name="categoryName" placeholder="Category Name" style="margin-right: 9px; margin-bottom: 17px;">
+                            <button type="submit" class="btn bg-gradient-dark me-3" onclick="return validateCategory()">Add Category  </button>
+                          </form>
+                          
+                        </div>
+                      </div>
+                      <div class="card-body px-0 pb-2">
+                        <div class="table-responsive p-3">
+            
+                          <table class="table align-items-center  mb-0" id="sortTable">
+            
+                            <thead>
+                              <tr>
+                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">Image</th>
+                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">Name</th>
+                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7 ps-2">Edit</th>
+                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7 ps-2">Unlist</th>
+                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7 ps-2">Apply Offer</th>
+                              </tr>
+                            </thead>
+            
+                            <tbody>
+            
+                              <% 
+                                if(categories.length > 0){
+                                  for(let i=0; i<categories.length; i++){
+                                     %>
+                                        <tr>
+            
+                                            
+                                          <td class="align-middle text-center text-sm">
+                                            <img style="width: 5rem;" src="/uploads/<%=  locals.categories[i].image %>" alt="Category Image">
+                                          </td>
+            
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-xs font-weight-bold mb-0"><%= categories[i].name %></p>
+                                            </td>
+            
+                                            <td class="align-middle text-center">
+            
+                                                <a type="button" class="btn btn-primary popupBTN" data-id="<%= categories[i]._id %>" data-val="<%= categories[i].name %>" data-bs-toggle="modal" href="#editCouponModal"> Edit</a>
+                                                
+                                                <!-- Edit Modal Start  -->
+                                                <div class="modal fade" id="editCouponModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Category Name</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/admin/categories/edit" method="post"  enctype="multipart/form-data" >
+                                                                <input id="catID" value="" type="hidden" name="categoryId">
+                                                                <div>
+                                                                  <img height="300px" width="300px" src="" id="catImgPreview" alt="Category image preview">
+                                                                </div>
+                                                                <input type="file" class="input-group mb-2" name="categoryImage" id="categoryImage" single accept="image/*">
+                                                                <!-- <button id="cropBTN" onclick="sendData()">Crop</button> -->
+                                                                <input id="catName" class="input-group"  type="text" name="categoryName" placeholder="Enter new name">
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit" id="editSubmitBTN" class="btn btn-primary" onclick="return validateModalCategory() ">Update</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                        
+                                                    </div>
+                                                    </div>
+                                                </div> 
+                                                <!--Edit Modal End  -->
+                
+                                            </td>
+            
+                                            <td class="align-middle text-center">
+                                                <% 
+                                                    if(categories[i].isListed === true){
+                                                    %>
+                                                        <a href="#unlistModal" class="btn btn-danger unlistModalBTN"  data-bs-toggle="modal" data-id="<%= categories[i]._id %>">Unlist</a>
+                                                    <%
+                                                    }else{
+                                                        %>
+                                                        <a href="#unlistModal" class="btn btn-success unlistModalBTN" data-bs-toggle="modal" data-id="<%= categories[i]._id %>">List</a>
+                                                        <%
+                                                    }
+                                                %>
+                                                                              <!-- Unlist/List Modal Start  -->
+                                                                              <div class="modal fade" id="unlistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                                <div class="modal-dialog">
+                                                                                  <div class="modal-content">
+                                                                                      <div class="modal-header">
+                                                                                      <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
+                                                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                      </div>
+                                                                                      <div class="modal-body">
+                                                                                              <strong> Do you want to List/Unlist this category ?</strong>
+                                                                                              <div class="modal-footer mt-2">
+                                                                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                                  <a id="confirmUnlistBTN" class="btn btn-primary">Confirm</a>
+                                                                                              </div>
+                                                                                      </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                            </div> 
+                                                                            <!-- Unlist/List Modal End  -->
+                                            </td>
+            
+                                            <td class="align-middle text-center">
+                                              <% 
+                                              if(offerData && offerData.length){
+                                                if(categories[i].offer && categories[i].offer!=''){
+                                                  %>
+                                                  <form action="/admin/removeCategoryOffer/<%= categories[i]._id %>" method="post">
+                                                    <input type="hidden" name="offerId" value="<%= categories[i].offer._id %>">
+                                                    <button type="submit" class="btn btn-danger"><%= categories[i].offer.name %> <span style="color: white;">x</span></button>
+                                                  </form>
+                                                  <%  
+                                                }else{
+                                                  %>
+                                                  <button class="btn btn-success offerBTN" data-bs-toggle="modal"  data-bs-target="#offerModal" data-id="<%= categories[i]._id %>">Apply</button>
+                                                  <%  
+                                                }
+                                              }else{
+                                                %>
+                                                <p>No Offer Available</p>
+                                                <%  
+                                              }
+                                              %>
+                                              <!-- <a href="#applyOfferModal" class="btn btn-danger applyOfferModal"  data-bs-toggle="modal" data-id="<%=// categories[i]._id %>">Apply</a> -->
+                                            </td>
+            
+                                            <!--OFFER Modal -->
+                                            <div class="modal fade" id="offerModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">ADD OFFER</h5>
+                                                        <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="/admin/applyOfferToCategory" method="post">
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="categoryId" value="" id="offerCategoryId">
+                                                            <label for="offer">Select an offer to apply: </label>
+                                                            <select name="offerId" id="offer" class="form-control">
+                                                                <% 
+                                                                offerData.forEach((offer) => {
+                                                                  %>
+                                                                  <option value="<%= offer._id  %>"> <%= offer.name %> </option>
+                                                                  <%  
+                                                                })
+                                                                %>
+                                                            </select>
+            
+                                                            <input type="checkbox" name="override" class="my-1" value="Override Product Offers">
+                                                            <small class="my-1">Override Product Offers</small>
+            
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">ADD</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        </tr>
+                                     <% 
+                                  }
+                                }
+                              %>
+            
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+   
+            
+            </main>
+            
+            <script>
+      const catInput = document.getElementById('newCatName')
+const catInputModal = document.getElementById('catName')
+
+function validateCategory(){
+
+  const newName = document.getElementById('newCatName').value.trim().toUpperCase()
+
+  if(newName.length === 0){
+    catInput.placeholder = 'Category required'
+    catInput.style.borderColor = 'red'
+    catInput.style.textDecorationColor = 'red' 
+    return false;
+  }
+
+
+  return true
+}
+
+function validateModalCategory(){
+
+const newName = document.getElementById('catName').value.trim().toUpperCase()
+
+if(newName.length === 0){
+  catInputModal.placeholder = 'Category required'
+  catInputModal.style.borderColor = 'red'
+  catInputModal.style.textDecorationColor = 'red' 
+  return false;
+}
+
+return true
+}
+            </script>
+            <script src="/validations/categoryValidation.js"></script>
+            
+            <!-- Cropper Script  -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+            
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+           <script>
+              $('#sortTable').DataTable({
+                  responsive: true
+              });
+            </script>
+            <script>
+                $(document).on("click", ".popupBTN", function () {
+                    var cId = $(this).data('id');
+                    var cVal = $(this).data('val');
+                    $(".modal-body #catID").val(cId);
+                    $(".modal-body #catName").val(cVal);
+                });
+            
+                $('.unlistModalBTN').click( function () {
+                    var catId = $(this).data('id');
+                    var routeURL = '/admin/categories/list/'+catId
+                    $(".modal-footer #confirmUnlistBTN").attr('href', routeURL);
+                });
+            
+                $('.offerBTN').click( function () {
+                  let catId = $(this).data('id');
+                  $('#offerCategoryId').val(catId)
+                })
+            </script>
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+crossorigin="anonymous"></script>
+
+
+<script src="/js2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js2/bootstrap.bundle.min.js"></script>
+  <script src="/js2/script.js"></script>
+  <!-- end: JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+ 
+ <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
+
+<script src="/validations/categoryValidation.js"></script>
+</body>
+</html>

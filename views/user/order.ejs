@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fashion- Textailes</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+   
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+      <div class="offcanvas__option">
+          <div class="offcanvas__links">
+              <% if (user && user.name) { %>
+                  <p>Welcome, <%= user.name %></p>
+                  <a href="/logout">Logout</a>
+                <% } else { %>
+                  <a href="/login">Sign In</a>
+                <% } %>
+              <a href="#">FAQs</a>
+          </div>
+          <div class="offcanvas__top__hover">
+              <span>Usd <i class="arrow_carrot-down"></i></span>
+              <ul>
+                  <li>USD</li>
+                  <li>EUR</li>
+                  <li>USD</li>
+              </ul>
+          </div>
+      </div>
+      <div class="offcanvas__nav__option">
+          <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+          <a href="#"><img src="img/icon/heart.png" alt=""></a>
+          <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+          <div class="price">Cart$0.00</div>
+      </div>
+      <div id="mobile-menu-wrap"></div>
+      <div class="offcanvas__text">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+      </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+   
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-md-7" style="display: flex;
+                    align-items: center;">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right ">
+                            <div class="header__top__links row" style="display: flex;">
+                                <% if (user && user.username !== undefined) { %>
+                                    <div class="col-lg-6">
+                                        <p style="color:#fff; display: flex;    margin: 0px;
+                                        align-items: center;">Welcome   <%= user.username %></p>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <a href="/logout">Logout</a>
+
+                                    </div>
+                                  <% } else { %>
+                                   <div class="col-lg-6">
+                                    <a href="/login">Sign In</a>
+                                   </div>
+                                  <% } %>
+                                  
+                               
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/home"><span style="color: red;
+                            font-size: 34px;
+                            font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                            font-weight: 400;">HUB</span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li ><a href="/shop">Shop</a></li>
+                           
+                            <li><a href="/contact">Contacts</a></li>
+                            <li class="active"><a href="/orders">Orders</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option row">
+                        <div class="col-lg-6">
+
+                           
+                                <form action="/shop" method="get">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control  rounded" placeholder="Search for products" name="search" style="    margin-left: -95px">
+                                        <div class="input-group-append text-white">
+                                            <span class="input-group-text bg-transparent text-primary rounded">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                        
+                        </div>
+                        <div class="col-lg-6" style="    margin-top: 6px;">
+
+                            <a href="/profile" class="text-decoreation-none text-dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </a>
+                            <a href="/wishlist"><img src="img/icon/heart.png" alt=""></a>
+                            <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                            
+                        </div>
+                        <!-- <div class="price">Cart</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section>
+      <div class="container">
+          <div class="mt-5">
+
+              <% 
+              if(orderData && orderData.length>0){
+                  //console.log(orderData)
+                  orderData.forEach((order) => {
+                      %>
+                      <div class="card mb-5 p-2">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-md-5 my-2  ">
+
+                                      <% 
+                                      order.products.forEach((pdt) => {
+                                          %>
+                                          <div class="d-flex my-2">
+                                            <div class="mx-3">
+                                                <% if (pdt.productId && pdt.productId.images && pdt.productId.images.length > 0) { %>
+                                                  <img src="/uploads/<%= pdt.productId.images[0] %>" class="img-fluid" style="width: 3rem;">
+                                                <% } else { %>
+                                                  <p>No images available</p>
+                                                <% } %>
+                                              </div>                                              
+                                              
+                                              <div>
+                                                  <h6 class="card-title"><%= pdt.productName %></h6>
+                                                  <span style="color: rgb(99, 99, 99);">Quantity : <%= pdt.quantity %></span>
+                                              </div>
+                                          </div>
+                                          <%  
+                                      })
+                                      %>
+
+                                  </div>
+                                  <% 
+                                  //let totalPaid = order.productPrice*order.quantity // - (order.discountPrice*order.quantity)
+                                  %>
+                                  <div class="col-md-3 text-center mt-3 d-flex flex-column justify-content-center  align-items-center">
+                                      <h6 class="card-text">Amount: ₹ <%= order.totalPrice %></h6>
+                                      <h6 class="card-text">via : <%= order.paymentMethod %></h6>
+                                  </div>
+                                  <div class="col-md-2 text-center mt-3 d-flex flex-column justify-content-center align-items-center">
+                                      <% 
+                                      const dd = order.createdAt.getDate();
+                                      const mm = order.createdAt.getMonth() + 1;
+                                      const yyyy = order.createdAt.getFullYear();
+                                      
+                                      const formattedDate = `${dd}-${mm}-${yyyy}`; 
+                                      %>
+                                      <h6 class="card-text">Date: <%= formattedDate %></h6>
+                                      <h6 class="card-text" 
+                                      
+                                      <% 
+                                      if(order.status == 'Order Confirmed' || order.status == 'Shipped' || order.status == 'Out For Delivery' || order.status == 'Delivered'){
+                                          %>
+                                          style='color: green;'
+                                          <%  
+                                      }else if(order.status == 'Cancelled' || order.status == 'Cancelled By Admin'){
+                                          %>
+                                          style='color: red;'
+                                          <%  
+                                      }else{
+                                          %>
+                                          style='color: orange;'
+                                          <%  
+                                      }
+                                      %>
+
+                                      ><%= order.status %></h6>
+                                  </div>
+                                  <div class="col-md-2 text-center mt-3 justify-content-center d-flex align-items-center">
+                                      <a href="/viewOrderDetails/<%= order._id %>" class="btn btn-dark">View Details</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <%  
+
+                  })
+              }else{
+                  %>
+                  <h3>You ordered nothing yet  </h3>
+                  <%  
+              }
+              %>
+
+          </div>
+      </div>
+  </section>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="cancelOrderPopup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div  id="myInput" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> Are you sure? </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="tru">&times;</span>
+            </button>
+          </div> 
+          <div class="modal-body">
+              <strong> Are you sure? Do you want to Cancel this Order!?</strong>
+              <div class="modal-footer mt-2">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <a id="confirmOrderCancellationBTN" href="" class="btn btn-danger">Confirm Cancellation</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+     <!-- Footer Section Begin -->
+ <footer class="footer">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="footer__about">
+                  <div class="footer__logo">
+                      <!-- <a href="#"><img src="img/footer-logo.png" alt=""></a> -->
+                  </div>
+                  <p>The customer is at the heart of our unique business model, which includes design.</p>
+                  <a href="#"><img src="img/payment.png" alt=""></a>
+              </div>
+          </div>
+          <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+              <div class="footer__widget">
+                  <h6>Shopping</h6>
+                  <ul>
+                      <li><a href="#">Clothing Store</a></li>
+                      <li><a href="#">Trending Shoes</a></li>
+                      <li><a href="#">Accessories</a></li>
+                      <li><a href="#">Sale</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-6">
+              <div class="footer__widget">
+                  <h6>Shopping</h6>
+                  <ul>
+                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="#">Payment Methods</a></li>
+                      <li><a href="#">Delivary</a></li>
+                      <li><a href="#">Return & Exchanges</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+              <div class="footer__widget">
+                  <h6>NewLetter</h6>
+                  <div class="footer__newslatter">
+                      <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                      <form action="#">
+                          <input type="text" placeholder="Your email">
+                          <button type="submit"><span class="icon_mail_alt"></span></button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+  </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Search Begin -->
+<div class="search-model">
+  <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">+</div>
+      <form class="search-model-form">
+          <input type="text" id="search-input" placeholder="Search here.....">
+      </form>
+  </div>
+</div>
+<!-- Search End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="/js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const viewButtons = document.querySelectorAll('.view-products-button');
+  viewButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const orderId = event.target.getAttribute('data-order-id');
+      const orderedProductsDiv = document.getElementById(`ordered-products-${orderId}`);
+      
+      orderedProductsDiv.classList.toggle('hidden-ordered-products');
+      // Calculate and display the total amount
+    
+    });
+  });
+
+  function calculateTotalAmount(products) {
+    const totalAmount = products.reduce((total, item) => {
+      const price = parseFloat(item.price);
+      return total + price;
+    }, 0);
+
+    return totalAmount.toFixed(2);
+  }
+  const readMoreLinks = document.querySelectorAll('.read-more-link');
+  readMoreLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const orderId = event.target.getAttribute('data-order-id');
+      const orderedProductsDiv = document.getElementById(`ordered-products-${orderId}`);
+      orderedProductsDiv.classList.toggle('hidden-ordered-products');
+    });
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  
+<script>
+    $(document).ready(function() {
+        $('#cancelOrderBTN').click(function() {
+            var orderId = $(this).data('id');
+            var routeURL = `/cancelOrder/${orderId}?cancelledBy=user`;
+            $("#confirmOrderCancellationBTN").attr('href', routeURL);
+        });
+    });
+</script>
+</body>
+</html>

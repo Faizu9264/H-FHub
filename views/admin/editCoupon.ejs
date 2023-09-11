@@ -1,0 +1,100 @@
+<%- include('../partials/admin-header.ejs') %>
+
+<div class="col-lg-10">
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
+              <h6 class="text-white text-capitalize ps-3">Edit Coupon</h6>
+
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+
+                <!-- Copeid Code Start -->
+                
+                    <form action="/admin/coupons/editCoupon/<%= couponData._id %>" method="post" class="p-4">
+
+                      <div class="form-outline mb-3 row input-group input-group-outline  ">
+                        <div class=" col-md-6 col-12 mb-3">
+                            <label for="code">Coupon Code</label>
+                            <input type="text" id="code" class="form-control form-control-md rounded-0"
+                              placeholder="Enter Coupon Code" value="<%= couponData.code %>" name="code" required/>
+                            <small id="codeErr" class="error"></small>
+                        </div>
+                        <div class="col-md-6 col-12">
+                          <label for="discountType">Discount Type</label>
+                          <select name="discountType" id="discountType" class="form-control form-control-md " required>
+                            <option value="<%= couponData.discountType %>"><%= couponData.discountType %></option>
+                            <% 
+                            couponTypes.forEach((type) => {
+                              if(couponData.discountType != type){
+                                %>
+                                <option value="<%= type %>"> <%= type %> </option>
+                                <%  
+                              }
+                            })
+                            %>
+                          </select>
+                          <small id="discountTypeErr" class="error"></small>
+                      </div>
+
+                    </div>
+                    <div class="form-outline mb-3 row input-group input-group-outline ">
+                      <div class="col-md-6 col-12">
+                        <label for="discountAmount">Discount Amount</label>
+                        <input type="number" id="discountAmount" value="<%= couponData.discountAmount %>" class="form-control form-control-md rounded-0" placeholder="Enter Discount" name="discountAmount" required/>
+                        <small id="discountAmountErr" class="error"></small>
+                      </div>
+                      <div class="col-md-6 col-12">
+                          <label for="maxDiscountAmount">Max Discount</label>
+                          <input type="number" id="maxDiscountAmount" value="<%= couponData.maxDiscountAmount %>" class="form-control form-control-md rounded-0" placeholder="Enter Max Discount" name="maxDiscountAmount" required/>
+                          <small id="maxDiscountAmountErr" class="error"></small>                                     
+                      </div>
+                  </div>
+                    <div class="form-outline mb-3 row input-group input-group-outline ">
+                        <div class=" col-md-6 col-12 mb-3">
+                            <label for="minPurchase">Min Purchase</label>
+                            <input type="number" id="minPurchase"  value="<%= couponData.minPurchase %>"
+                                class="form-control form-control-md rounded-0" placeholder="Enter Min Purchase." name="minPurchase" required/>
+                            <small id="minPurchaseErr" class="error"></small>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="date" id="expiryDate" class="form-control form-control-md rounded-0"  value="<%= couponData.expiryDate ? couponData.expiryDate.toISOString().substr(0, 10) : '' %>" placeholder="Enter Expiry Date" name="expiryDate" required/>
+                            <small id="expiryDateErr" class="error"></small>                                     
+                        </div>
+                    </div>
+                    <div class="form-outline mb-3 row input-group input-group-outline ">
+                        <div class="col-md-6 col-12 mb-3">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" value="<%= couponData.description %>"
+                                class="form-control rounded-0" placeholder="Enter Coupon Description" name="description" required/>
+                            <small id="descriptionErr" class="error"></small>
+                        </div>
+                        <div class="col-md-6 col-12 mb-3">
+                          <label for="description">Coupon Count</label>
+                          <input type="number" id="couponCount"  value="<%= couponData.couponCount %>"
+                              class="form-control rounded-0" placeholder="Enter Count (Optional)" name="couponCount"/>
+                          <small id="couponCountErr" class="error"></small>
+                      </div>
+                    </div>
+                    <div class="text-center my-2">
+                        <button class="btn btn-dark btn-md rounded-pill px-5 py-2 login-btn" type="submit" onclick="return validateCoupon()">UPDATE</button>
+                    </div>
+                        
+                    </form>
+
+
+                <!-- Copeid Code End -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- start: Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- start: Icons -->
+    <!-- start: CSS -->
+    <link rel="stylesheet" href="/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css2/style.css">
+    <style>
+      ul>li>a{
+          text-decoration: none;
+  color: black;
+  font-size: 20px;
+ margin-left: 15px;
+ margin-top: 10px;
+ font-family: -webkit-body;
+      }
+      .show-submenu {
+display: block;
+}
+.sidebar-submenu {
+display: none;
+}
+
+.active {
+background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+.a-tag{
+      padding: 5px;
+  }
+  #sortTable_filter{
+  text-align: end;
+}
+.form-control {
+  border:1px solid black
+}
+.custom-select {
+  padding: 1px;
+}
+  </style>
+    
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col-lg-2">
+ <!-- start: Sidebar -->
+ <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+  <div class="d-flex align-items-center p-3">
+      <a href="#" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">Admin</a>
+      <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+  </div>
+  <ul class="sidebar-menu p-3 m-0 mb-0">
+      <li class="sidebar-menu-item <%= currentPage === 'dashboard' ? 'active' : '' %>">
+          <a href="/admin/dashboard" class="a-tag rounded-pill">
+              <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+              Dashboard
+          </a>
+      </li>
+      <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+      <li class="sidebar-menu-item has-dropdown">
+         
+              <!-- <li class="sidebar-dropdown-menu-item - ">
+                  <i class="fa-solid fa-users "></i>
+                  <a href="/admin/usersProfile">Users</a>
+                  
+                </li> -->
+
+                <li class="nav-item " >
+                  <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
+                  
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                      <i class="fa-solid fa-users " style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Users</span>
+                  </a>
+                </li>
+                <li class="nav-item " >
+                  <a class="nav-link a-tag rounded-pill  "  style="display: flex;" href="/admin/categories">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center  <%= currentPage === 'categories' ? 'active' : '' %>" >
+                      <!-- <i class="fa-solid fa-users " style="color: black;"></i> -->
+                      <i class="fa-sharp fa-solid fa-tag" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Categories</span>
+                  </a>
+                </li>
+                <li class="nav-item " >
+                  <a class="nav-link  a-tag rounded-pill " href="/admin/coupons" style="display: flex;">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'coupons' ? 'active' : '' %>">
+                     <i class="fa-solid fa-box-open" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Coupons</span>
+                  </a>
+                </li>
+
+                <li class="nav-item " >
+                  <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
+                     <i class="fa-solid fa-bag-shopping" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Orders</span>
+                  </a>
+                </li>
+
+                <li class="nav-item " >
+                  <a class="nav-link  a-tag rounded-pill  <%= currentPage === 'Offers' ? 'active' : '' %> " href="/admin/offers" style="display: flex;">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
+                     <i class="fa-solid fa-percent" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Offers</span>
+                  </a>
+                </li>
+
+                <li class="nav-item " >
+                  <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
+                     <i class="fa-sharp fa-solid fa-tags" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">BrandOffers</span>
+                  </a>
+                </li>
+                <li class="nav-item " >
+                  <a class="nav-link  a-tag rounded-pill " href="/admin/banners" style="display: flex;">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                     <i class="fa-sharp fa-regular fa-images" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Banner</span>
+                  </a>
+                </li>
+                
+                <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
+                  <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                     <i class="fa-solid fa-box-open" style="color: black;"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Products</span>
+                    <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                  </a>
+                  <ul class="sidebar-submenu">
+                    <li class="sidebar-submenu-item">
+                      <a href="/admin/products" style="font-size: inherit;">All Products</a>
+                    </li>
+                    <li class="sidebar-submenu-item">
+                      <a href="/admin/products/add" style="font-size: inherit;">Add Product</a>
+                    </li>
+                    <!-- Add more submenu items as needed -->
+                  </ul>
+                </li>
+
+              
+     </li>
+     </ul>
+  
+</div>
+<div class="sidebar-overlay"></div>
+</div>
+<!-- end: Sidebar -->
+        <!-- <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-lg-2">
+
+                </div> -->
+              
+              <div class="col-lg-10" style="padding-left: 35px;">
+                  <!-- Navbar -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3 ">
+      <nav aria-label="breadcrumb">
+       
+        <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
+
+        <ul class="navbar-nav d-flex justify-content-end ">
+
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item d-flex align-items-center">
+            <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
+              
+              <form action="/admin/logout" method="post">
+                <i class="fa fa-user me-sm-1"></i>
+                <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
+              </form>
+              
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" style="padding-left: 25px;">
+
+                <div class="card my-4">
+                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class=" shadow-info border-radius-lg pt-4 pb-3 d-flex justify-content-between" style="background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);">
+                      <h6 class="text-white text-capitalize ps-3">Offers List</h6> 
+                      <!-- <div> -->
+                        <a class="btn bg-gradient-info me-3" href="/admin/offers/addOffer" style="background-image: linear-gradient(195deg, #ec4090 0%, #c72e54 100%); color: #fff;">Add Offers</a>
+                      <!-- </div>   -->
+                    </div>
+                  </div>
+                  <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-3">
+        
+                      <table class="table align-items-center mb-0" id="sortTable">
+        
+                        <thead>
+                          <tr>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Offer Name</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount %</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Duration</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cancel</th>
+                          </tr>
+                        </thead>
+        
+                        <tbody>
+        
+                          <% 
+                            if(offers && offers.length > 0){
+                              for(let i=0; i<offers.length; i++){
+                                 %>
+                                    <tr>
+        
+                                        <td class="align-middle text-center text-sm">
+                                            <p class="text-xs font-weight-bold mb-0"><%= offers[i].name %></p>
+                                        </td>
+        
+                                        <td class="align-middle text-center text-sm">
+                                            <p class="text-xs font-weight-bold mb-0"><%= offers[i].discount %></p>
+                                        </td>
+        
+                                        <td class="align-middle text-center text-sm">
+                                            <% 
+                                            const dds = offers[i].startingDate.getDate();
+                                            const mms = offers[i].startingDate.getMonth() + 1;
+                                            const yyyys = offers[i].startingDate.getFullYear();
+                                            
+                                            const startingDate = `${dds}-${mms}-${yyyys}`; 
+        
+                                            const dde = offers[i].expiryDate.getDate();
+                                            const mme = offers[i].expiryDate.getMonth() + 1;
+                                            const yyyye = offers[i].expiryDate.getFullYear();
+                                            
+                                            const expiryDate = `${dde}-${mme}-${yyyye}`; 
+                                            %>
+                                            <p class="text-xs font-weight-bold mb-0"><%= startingDate %> to </p>
+                                            <p class="text-xs font-weight-bold mb-0"><%= expiryDate %></p>
+                                        </td>
+        
+                                        <td class="align-middle text-center text-sm">
+                                            <p class="text-xs font-weight-bold mb-0"><%= offers[i].status %></p>
+                                        </td>
+        
+                                        <td class="align-middle text-center text-sm">
+                                            <a href="/admin/offers/editOffer/<%= offers[i]._id %>" class="btn btn-primary">Edit</a>
+                                        </td>
+        
+                                        <td class="align-middle text-center">
+                                            <% 
+                                              if(offers[i].status === 'Available' || offers[i].status === 'Starting Soon'){
+                                                 %>
+                                                   <a href="#cancelOfferModal" class="btn btn-danger modalBTN"  data-bs-toggle="modal" data-id="<%= offers[i]._id %>">Cancel</a>
+                                                 <%
+                                              }else if(offers[i].expiryDate > new Date() )  {
+                                                  %>
+                                                  <a href="#cancelOfferModal" class="btn btn-success modalBTN"  data-bs-toggle="modal" data-id="<%= offers[i]._id %>">Add</a>
+                                                  <%
+                                              }
+                                            %>
+                                        </td>  
+        
+                                    </tr>
+                                 <% 
+                              }
+                            }else{
+                                %>
+                                <tr>
+                                    <td>
+                                        <h6>Offers not added yet, add new offers</h6>
+                                    </td>
+                                </tr>
+                                <%  
+                            }
+                          %>
+        
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+       
+        
+                <!-- Modal Start  -->
+                <div class="modal fade" id="cancelOfferModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                                <strong> Are you sure? Do you want to Cancel/Add this Offer ?</strong>
+                                <div class="modal-footer mt-2">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <a id="confirmBTN" class="btn btn-primary">Confirm</a>
+                                </div>
+                          </div>
+                      </div>
+                    </div>
+                </div> 
+                <!-- Modal End  -->
+        
+        
+
+    </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+  $('#sortTable').DataTable({
+      responsive: true
+  });
+</script>
+<script>
+      $('.modalBTN').click( function () {
+        var id = $(this).data('id');
+        var routeURL = '/admin/offers/cancelOffer/'+id
+        $(".modal-footer #confirmBTN").attr('href', routeURL);
+    });
+</script>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- start: Icons -->
+    <!-- start: CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!-- Cropper CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css">
+<!-- Custom CSS -->
+    <link rel="stylesheet" href="/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css2/style.css">
+    <link rel="stylesheet" href="/admin/nucleo-svg.css">
+    <link rel="stylesheet" href="/admin/nucleo-icons.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.min.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.css">
+    <script>
+      function formatDate(date) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+      }
+    </script>
+
+</head>
+<body style="overflow-x: hidden;">
+  
+
+
+   
+     
+  <div class="row">
+    <div class="col-lg-2">
+
+             <!-- start: Sidebar -->
+             <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+              <div class="d-flex align-items-center p-3">
+                  <a href="#" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">Admin</a>
+                  <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+              </div>
+              <ul class="sidebar-menu p-3 m-0 mb-0">
+                  <li class="sidebar-menu-item active">
+                      <a href="#">
+                          <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                          Dashboard
+                      </a>
+                  </li>
+                  <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+                  <li class="sidebar-menu-item has-dropdown">
+                      <a href="#">
+                          <i class="ri-pages-line sidebar-menu-item-icon"></i>
+                          Pages
+                          <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                      </a>
+                      <ul class="sidebar-dropdown-menu">
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="/admin/usersProfile">Users</a>
+                            </li>
+                            
+                            <li class="sidebar-dropdown-menu-item has-dropdown">
+                              <a href="#">
+                                Products
+                                <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                              </a>
+                              <ul class="sidebar-submenu">
+                                <li class="sidebar-submenu-item">
+                                  <a href="/products">All Products</a>
+                                </li>
+                                <li class="sidebar-submenu-item">
+                                  <a href="/products/add">Add Product</a>
+                                </li>
+                                
+                                <!-- Add more submenu items as needed -->
+                              </ul>
+                            </li>
+                            <li class="sidebar-submenu-item">
+                              <a href="/categories">Category</a>
+                          </li>   
+                          <li class="sidebar-submenu-item">
+                              <a href="/admin/UsersOrders">Orders</a>
+                          </li>                  
+                          <li class="sidebar-dropdown-menu-item has-dropdown">
+                              <a href="#">
+                                  Email 
+                                  <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                              </a>
+                              <ul class="sidebar-dropdown-menu">
+                                  <li class="sidebar-dropdown-menu-item">
+                                      <a href="#">
+                                          Reset Password
+                                      </a>
+                                  </li>
+                                  <li class="sidebar-dropdown-menu-item">
+                                      <a href="#">
+                                          Changed Password
+                                      </a>
+                                  </li>
+                                  <li class="sidebar-dropdown-menu-item">
+                                      <a href="#">
+                                          Verify Email
+                                      </a>
+                                  </li>
+                                  <li class="sidebar-dropdown-menu-item">
+                                      <a href="#">
+                                          Invitation
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Pricing
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  About Us
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Contact Us
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Our Team
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                
+                  <li class="sidebar-menu-item has-dropdown">
+                      <a href="#">
+                          <i class="ri-user-line sidebar-menu-item-icon"></i>
+                          Authentication
+                          <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                      </a>
+                      <ul class="sidebar-dropdown-menu">
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Login
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Registration
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Reset Password
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Change Password
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Confirm Password
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Deactivate Account
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="sidebar-menu-item has-dropdown">
+                      <a href="#">
+                          <i class="ri-window-line sidebar-menu-item-icon"></i>
+                          Widgets
+                          <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                      </a>
+                      <ul class="sidebar-dropdown-menu">
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Charts
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Tables
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Apps</li>
+                  <li class="sidebar-menu-item has-dropdown">
+                      <a href="#">
+                          <i class="ri-shopping-cart-2-line sidebar-menu-item-icon"></i>
+                          eCommerce
+                          <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                      </a>
+                      <ul class="sidebar-dropdown-menu">
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Shop
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Checkout
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Details
+                              </a>
+                          </li>
+                          <li class="sidebar-dropdown-menu-item">
+                              <a href="#">
+                                  Wishlist
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="sidebar-menu-item">
+                      <a href="#">
+                          <i class="ri-mail-line sidebar-menu-item-icon"></i>
+                          Email
+                      </a>
+                  </li>
+                  <li class="sidebar-menu-item">
+                      <a href="#">
+                          <i class="ri-calendar-line sidebar-menu-item-icon"></i>
+                          Calendar
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="sidebar-overlay"></div>
+          
+        </div> 
+        <!-- end: Sidebar -->
+<div class="col-lg-10">
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+
+        <div class="container-fluid py-4">
+           <div class="row">
+             <div class="col-12">
+               <div class="card my-4">
+                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                   <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
+                     <h6 class="text-white text-capitalize ps-3">Edit Brand Offer</h6>
+       
+                   </div>
+                 </div>
+                 <div class="card-body px-0 pb-2">
+                   <div class="table-responsive p-0">
+                       
+                           <form action="/admin/brandOffers/editBrandOffer/<%= brandOffer._id %>" method="post" class="p-4">
+       
+                               <div class="form-outline mb-3 row input-group input-group-outline  ">
+                                   <div class=" col-md-6 col-12 mb-3">
+                                       <label for="name">Offer Name</label>
+                                       <input type="text" id="name" class="form-control form-control-md rounded-0" value="<%= brandOffer.name %>"
+                                       placeholder="Enter Offer Name" name="name" required/>
+                                       <small id="nameErr" class="error"></small>
+                                   </div>
+                                   <div class="col-md-6 col-12">
+                                       <label for="discount">Discount %</label>
+                                       <input type="number" id="discount" class="form-control form-control-md rounded-0" value="<%= brandOffer.discount %>"
+                                       placeholder="Enter Discount" name="discount" required/>
+                                       <small id="discountErr" class="error"></small>
+                                   </div>
+                               </div>
+                               <div class="form-outline mb-3 row input-group input-group-outline ">
+                                   <div class=" col-md-6 col-12 mb-3">
+                                       <label for="brand">Brand</label>
+                                       <!-- <input type="text" id="brand" class="form-control form-control-md rounded-0" name="brand" required/> -->
+                                       <select name="brand" id="brand"  class="form-control">
+                                           <% 
+                                           if(brands && brands.length > 0){
+                                               brands.forEach((brand) => {
+                                                   %>
+                                                   <option value="<%= brand %>" <% if(brand == brandOffer.brand ){ %> selected <%   } %>><%= brand %></option>
+                                                   <% 
+                                               })
+                                           }else{
+                                               %>
+                                               <option value="">No Brands Available</option>
+                                               <% 
+                                           }
+                                           %>
+                                       </select>
+                                       <small id="brandErr" class="error"></small>
+                                   </div>
+                                   <div class="col-md-6 col-12">
+                                       <label for="category">Select Category</label>
+                                       <!-- <input type="text" id="category" class="form-control form-control-md rounded-0" name="category" required/> -->
+                                       <select name="category" id="category"  class="form-control">
+                                           <% 
+                                           console.log(brandOffer)
+                                           console.log(categories)
+                                           if(categories && categories.length > 0){
+                                               categories.forEach((cat) => {
+                                                   %>
+                                                   <option value="<%= cat._id %>" <% if(cat._id == brandOffer.categoryId ){ %> selected <% } %>><%= cat.name %></option>
+                                                   <% 
+                                               })
+                                           }else{
+                                               %>
+                                               <option value="">No Categories</option>
+                                               <% 
+                                           }
+                                           %>
+                                       </select>
+                                       <small id="categoryErr" class="error"></small>                                     
+                                   </div>
+                               </div>
+                               <div class="form-outline mb-3 row input-group input-group-outline ">
+                                   <div class="col-md-6 col-12">
+                                       <label for="expiryDate">Select Expiry Date</label>
+                                       <input type="date" id="expiryDate" class="form-control form-control-md rounded-0"  value="<%= brandOffer.expiryDate ? brandOffer.expiryDate.toISOString().substr(0, 10) : '' %>"
+                                       name="expiryDate" required/>
+                                       <small id="expiryDateErr" class="error"></small>                                     
+                                   </div>
+                               </div>
+                               <div class="text-center my-2">
+                                   <button class="btn btn-dark btn-md rounded-pill px-5 py-2 login-btn" type="submit" onclick="return validateOffer()">UPDATE</button>
+                               </div>
+       
+                           </form>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       
+  
+       
+       </main>
+</div>
+</div>
+
+    <script src="/validations/offerValidation.js"></script>
+
+  <!-- start: JS -->
+  <script src="/js2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js2/bootstrap.bundle.min.js"></script>
+  <script src="/js2/script.js"></script>
+  <!-- end: JS -->
+</body>
+
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>F&H Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+   <style>
+    /* Example CSS for styling the filter section */
+    body{
+        overflow-x: hidden;
+    }
+.filter-section {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section h5 {
+  margin-top: 10px;
+}
+
+.form-select {
+  width: 100%;
+}
+.list-inline{
+    padding-left: 0;
+    list-style: none;
+    font-size: x-large;
+    margin-top: 15px;
+    text-decoration: none;
+ }
+ a{
+    color:rgb(3, 3, 3)
+ }
+
+
+.filter-section {
+   height: 207px;
+}
+
+   </style>
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+      <div class="offcanvas__option">
+          <div class="offcanvas__links">
+              <% if (user && user.name) { %>
+                  <p>Welcome, <%= user.name %></p>
+                  <a href="/logout">Logout</a>
+                <% } else { %>
+                  <a href="/login">Sign In</a>
+                <% } %>
+              <a href="#">FAQs</a>
+          </div>
+          <div class="offcanvas__top__hover">
+              <span>Usd <i class="arrow_carrot-down"></i></span>
+              <ul>
+                  <li>USD</li>
+                  <li>EUR</li>
+                  <li>USD</li>
+              </ul>
+          </div>
+      </div>
+      <div class="offcanvas__nav__option">
+          <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+          <a href="#"><img src="img/icon/heart.png" alt=""></a>
+          <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+          <div class="price">Cart$0.00</div>
+      </div>
+      <div id="mobile-menu-wrap"></div>
+      <div class="offcanvas__text">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+      </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+  
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-md-7" style="display: flex;
+                    align-items: center;">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right ">
+                            <div class="header__top__links row" style="display: flex;">
+                                <% if (user && user.username !== undefined) { %>
+                                    <div class="col-lg-6">
+                                        <p style="color:#fff; display: flex;    margin: 0px;
+                                        align-items: center;">Welcome   <%= user.username %></p>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <a href="/logout">Logout</a>
+
+                                    </div>
+                                  <% } else { %>
+                                   <div class="col-lg-6">
+                                    <a href="/login">Sign In</a>
+                                   </div>
+                                  <% } %>
+                                  
+                               
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/home"><span style="color: red;
+                            font-size: 34px;
+                            font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                            font-weight: 400;">HUB</span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li class="active"><a href="/shop">Shop</a></li>
+                           
+                            <li><a href="/contact">Contacts</a></li>
+                            <li><a href="/orders">Orders</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option row">
+                        <div class="col-lg-6">
+
+                           
+                                <form action="/shop" method="get">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control   rounded" placeholder="Search for products" name="search" style="    margin-left: -95px">
+                                        <div class="input-group-append text-dark">
+                                            <span class="input-group-text bg-transparent text-primary rounded">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                        
+                        </div>
+                        <div class="col-lg-6" style="    margin-top: 6px;">
+
+                            <a href="/profile" class="text-decoreation-none text-dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </a>
+                            <a href="/wishlist"><img src="img/icon/heart.png" alt=""></a>
+                            <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                            
+                        </div>
+                        <!-- <div class="price">Cart</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Shop</h4>
+                        <div class="breadcrumb__links">
+                            <a href="/">Home</a>
+                            <span>Shop</span>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <!-- Add this code above the product items -->
+   <!-- Shop Section Begin -->
+   <section class="shop spad" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <!-- <div class="shop__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div> -->
+                    <div class="shop__sidebar__accordion">
+                        <% 
+                        if(removeFilter === 'true'){
+                            %>
+                            <a href="/shop?page=1"
+                            style="background-color: rgb(141, 141, 252); padding: 2px 6px; color: white;"
+                            >Remove Filter&nbsp;x</a>
+                            <%  
+                        }
+                        %>
+
+                        <div class="accordion" id="accordionExample">
+
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <% 
+                                                categoryNames.forEach((category) => {
+                                                    %>
+                                                    <li>
+                                                        <a href="?category=<%= category._id %>&sortValue=<%= sortValue %>
+                                                                &brand=<%= brand %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>
+                                                                &search=<%= search %>">
+                                                            <%= category.name %>
+                                                        </a>
+                                                    </li>
+                                                    <%  
+                                                })
+                                                %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                      
+                            </div>
+
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__brand">
+                                            <ul>
+                                                <% 
+                                                brands.forEach((brand) => {
+                                                    %>
+                                                    <li>
+                                                        <a href="?brand=<%= brand._id %>&sortValue=<%= sortValue %>
+                                                            &category=<%= category %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>
+                                                            &search=<%= search %>">
+                                                            <%= brand._id %>
+                                                        </a>
+                                                    </li>
+                                                    <%  
+                                                })
+                                                %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <ul>
+                                                <li>
+                                                    <a href="?minPrice=0&maxPrice=1999&sortValue=<%= sortValue %>&category=<%= category %>&brand=<%= brand %>&search=<%= search %>">
+                                                        &#8377; 0 - &#8377; 1999
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="?minPrice=2000&maxPrice=3999&sortValue=<%= sortValue %>&category=<%= category %>&brand=<%= brand %>&search=<%= search %>">
+                                                        &#8377; 2000 - &#8377; 3999
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="?minPrice=4000&maxPrice=5999&sortValue=<%= sortValue %>&category=<%= category %>&brand=<%= brand %>&search=<%= search %>">
+                                                        &#8377; 4000 - &#8377; 5999
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="?minPrice=6000&maxPrice=7999&sortValue=<%= sortValue %>&category=<%= category %>&brand=<%= brand %>&search=<%= search %>">
+                                                        &#8377; 6000 - &#8377; 7999
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="?minPrice=8000&maxPrice=9999&sortValue=<%= sortValue %>&category=<%= category %>&brand=<%= brand %>&search=<%= search %>">
+                                                        &#8377; 8000 - &#8377; 9999
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="?minPrice=10000&sortValue=<%= sortValue %>&category=<%= category %>&brand=<%= brand %>&search=<%= search %>">
+                                                        &#8377; 10000+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+      
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col text-right mr-2 my-2">
+
+                        <a class="text-dark <% if(sortValue == 1){ %> font-weight-bold <% } %>" 
+                            href="?sortValue=1&category=<%=category  %>&brand=<%=brand  %>&minPrice=<%=minPrice  %>&maxPrice=<%=maxPrice  %>&search=<%=search  %>">
+                            &nbsp;Latest&nbsp;
+                        </a> |
+
+                        <a class="text-dark <% if(sortValue == 2){ %> font-weight-bold <% } %>" 
+                            href="?sortValue=2&category=<%=category  %>&brand=<%=brand  %>&minPrice=<%=minPrice  %>&maxPrice=<%=maxPrice  %>&search=<%=search  %>">
+                            &nbsp;Price Low to High&nbsp;
+                        </a> |
+
+                        <a class="text-dark <% if(sortValue == 3){ %> font-weight-bold <% } %>" 
+                            href="?sortValue=3&category=<%=category  %>&brand=<%=brand  %>&minPrice=<%=minPrice  %>&maxPrice=<%=maxPrice  %>&search=<%=search  %>">
+                            &nbsp;Price High to Low&nbsp;
+                        </a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <% 
+                    if(pdtsData){
+                        for(let i=0; i<pdtsData.length; i++){
+                            %>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="/uploads/<%= pdtsData[i].images[0] %>"> 
+                                        <% 
+                                        if(pdtsData[i].offer && pdtsData[i].offer.status == 'Available'){
+                                            %>
+                                            <span class="label"><%= pdtsData[i].offer.name %></span>
+                                            <%  
+                                        }
+                                        %>
+                                        <ul class="product__hover">
+
+                                            <li>
+                                                <% 
+                                                if(wishlist && wishlist.length && wishlist.includes(pdtsData[i]._id)){
+                                                    %>
+                                                    <a class="btn btn-danger" href="/removeWishlistItem/<%= pdtsData[i]._id %>?returnPage=shop"><i class="bi bi-heart-fill"></i></a>
+                                                    <%  
+                                                }else{
+                                                    %>
+                                                    <a class="btn btn-dark" href="/addToWishlist/<%= pdtsData[i]._id %>?returnPage=shop"><i class="bi bi-heart-fill"></i></a>
+                                                    <%  
+                                                }
+                                                %>
+                                            </li>
+                                            <li><a class="btn btn-dark" href="/shop/productOverview/<%= pdtsData[i]._id %>"><i class="bi bi-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><%= pdtsData[i].name %></h6>
+                                        <% 
+                                        //console.log(cart)
+                                        if(cart && cart.length && cart.includes(pdtsData[i]._id.toString())){
+                                            %>
+                                            <a href="/shoppingCart"  class="add-cart">Go to Cart</a>
+                                            <%  
+                                        }else{
+                                            %>
+                                            <a href="/add-to-cart/<%= pdtsData[i]._id  %>" class="add-cart">+ Add To Cart</a>
+                                            <%  
+                                        }
+
+
+                                        let currPrice;
+                                        //console.log(pdtsData[i].offer)
+                                        if(pdtsData[i].offer && pdtsData[i].offer.status == 'Available'){
+                                            currPrice = pdtsData[i].offerPrice
+                                        }else{
+                                            currPrice = pdtsData[i].price - pdtsData[i].discountPrice 
+                                        }
+                                        let discountPercentage = Math.floor(100 - ( (currPrice*100) / pdtsData[i].price ));
+                                        %>
+                                        <div class="d-flex align-content-center">
+                                            <div>
+                                                <h5>&#8377; <%= currPrice  %></h5>
+                                                <small style="color: grey; text-decoration: line-through;">&#8377; <%= pdtsData[i].price %></small>
+                                            </div>
+                                            <div>
+                                                <strong class="ml-3" style="color: green;"><%= discountPercentage %>% off</strong>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <% 
+                        } 
+                    }
+                    %>
+
+                </div>
+
+                
+                                
+                                <!-- Pagination  -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="product__pagination  d-flex justify-content-end">
+                                            <% 
+                                            for(let i=1; i<= pageCount; i++){
+                                                %>
+                                                <a  href="/shop?page=<%= i %>&sortValue=<%=sortValue  %>&category=<%=category  %>&brand=<%=brand  %>&minPrice=<%=minPrice  %>&maxPrice=<%=maxPrice  %>&search=<%=search  %>">
+                                                    <%= i %>
+                                                </a>
+                                                <%  
+                                            }
+                                            %>
+                                        </div>
+                                    </div>
+                                </div>
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+  
+<!-- Product Section Begin -->
+
+<!-- Product Section End -->
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <!-- <a href="#"><img src="img/footer-logo.png" alt=""></a> -->
+                        </div>
+                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <a href="#"><img src="img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Clothing Store</a></li>
+                            <li><a href="#">Trending Shoes</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Delivary</a></li>
+                            <li><a href="#">Return & Exchanges</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>NewLetter</h6>
+                        <div class="footer__newslatter">
+                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script>
+        function submitQuery() {
+            const query = document.getElementById('queryInput').value;
+            if (query.trim() !== '') {
+                // Construct the URL with the search query
+                const baseURL = '/shop';
+                const urlWithQuery = `${baseURL}?search=${encodeURIComponent(query)}`;
+                
+                // Redirect to the search results page
+                window.location.href = urlWithQuery;
+            }
+        }
+    
+        // Handle Enter key press
+        function checkEnterKey(event) {
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                submitQuery();
+            }
+        }
+    </script>
+    
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+  $('#sortTable').DataTable({
+      responsive: true
+  });
+</script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- start: Icons -->
+    <!-- start: CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!-- Cropper CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css">
+  <!-- start: Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- start: Icons -->
+<!-- Custom CSS -->
+    <link rel="stylesheet" href="/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css2/style.css">
+    <link rel="stylesheet" href="/admin/nucleo-svg.css">
+    <link rel="stylesheet" href="/admin/nucleo-icons.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.min.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.css">
+    <style>
+        .product-description-container {
+          max-height: 60px; /* Adjust the height as needed */
+          overflow: hidden;
+          position: relative;
+        }
+      
+        .product-description {
+          margin-bottom: 0; /* Remove default margin */
+          white-space: break-spaces; /* Allow line breaks */
+        }
+      
+        .expanded {
+          max-height: none;
+        }
+      
+        .read-more-link {
+          display: block;
+          margin-top: 5px;
+          color: blue;
+          cursor: pointer;
+        }
+        .hidden-images {
+    display: none;
+  }
+
+  .modal-backdrop {
+    z-index: auto;
+  }
+  ul>li>a{
+        text-decoration: none;
+color: black;
+font-size: 20px;
+margin-left: 15px;
+margin-top: 10px;
+font-family: -webkit-body;
+
+    }
+    .a-tag{
+        padding: 5px;
+    }
+    .show-submenu {
+display: block;
+}
+.sidebar-submenu {
+display: none;
+}
+.sidebar-menu-item.active {
+    background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+.active {
+ background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+span:hover{
+  color: black;
+}
+      </style>
+      
+    
+    <script>
+      function formatDate(date) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+      }
+    </script>
+
+</head>
+<body style="overflow-x: hidden;">
+  
+
+
+   
+     
+  <div class="row">
+    <div class="col-lg-2">
+
+           <!-- start: Sidebar -->
+  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+    <div class="d-flex align-items-center p-3">
+        <a href="#" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">Admin</a>
+        <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+    </div>
+    <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item <%= currentPage === 'dashboard' ? 'active' : '' %>">
+            <a href="/admin/dashboard" class="a-tag rounded-pill">
+                <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+        <li class="sidebar-menu-item has-dropdown">
+           
+                <!-- <li class="sidebar-dropdown-menu-item - ">
+                    <i class="fa-solid fa-users "></i>
+                    <a href="/admin/usersProfile">Users</a>
+                    
+                  </li> -->
+
+                  <li class="nav-item " >
+                    <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
+                    
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users " style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Users</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  "  style="display: flex;" href="/admin/categories">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center  <%= currentPage === 'categories' ? 'active' : '' %>" >
+                        <!-- <i class="fa-solid fa-users " style="color: black;"></i> -->
+                        <i class="fa-sharp fa-solid fa-tag" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/coupons" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'coupons' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Coupons</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
+                       <i class="fa-solid fa-bag-shopping" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Orders</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/offers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
+                       <i class="fa-solid fa-percent" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Offers</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-solid fa-tags" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">BrandOffers</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/banners" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-regular fa-images" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Banner</span>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
+                    <a class="nav-link  a-tag rounded-pill <%= currentPage === 'products' ? 'active' : '' %>" href="#" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1" >Products</span>
+                      <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products" class=" " style="font-size: inherit;">All Products</a>
+                      </li>
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products/add" style="font-size: inherit;">Add Product</a>
+                      </li>
+                      <!-- Add more submenu items as needed -->
+                    </ul>
+                  </li>
+
+                
+       </li>
+       </ul>
+    
+</div>
+<div class="sidebar-overlay"></div>
+</div>
+<!-- end: Sidebar -->
+
+
+
+        <div class="col-lg-10" style="    padding-left: 30px">
+       
+ <!-- Navbar -->
+ <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+  <div class="container-fluid py-1 px-3 ">
+    <nav aria-label="breadcrumb">
+     
+      <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
+    </nav>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
+
+      <ul class="navbar-nav d-flex justify-content-end ">
+
+        <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
+          <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line"></i>
+              <i class="sidenav-toggler-line"></i>
+              <i class="sidenav-toggler-line"></i>
+            </div>
+          </a>
+        </li>
+
+        <li class="nav-item d-flex align-items-center">
+          <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
+            
+            <form action="/admin/logout" method="post">
+              <i class="fa fa-user me-sm-1"></i>
+              <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
+            </form>
+            
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar -->
+
+
+ <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
+              <h6 class="text-white text-capitalize ps-3" style="margin-top: 30px;">Products List</h6> 
+              <!-- <div> -->
+                <a href="/admin/products/unlisted" class="btn btn-primary" style="margin-top: 25px;
+                margin-bottom: 25px;
+            ">View Unlisted Products</a>
+                <div class="add-button-container">
+                <a class="btn bg-gradient-dark me-3" href="/admin/products/add" style="margin-top: 25px">Add Product</a>
+              <!-- </div>   -->
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-3">
+
+              <table class="table align-items-center mb-0" id="sortTable">
+
+                <thead>
+                  <tr>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Product</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Stock</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Apply Offer</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <% 
+                    if(pdtsData && pdtsData.length > 0){
+                      for(let i=0; i<pdtsData.length; i++){
+                         %>
+                            <tr>
+
+                              <td>
+                                <img style="width: 5rem;" src="/uploads/<%= pdtsData[i].images[0]  %>" alt="">
+                              </td>
+
+                              <td>
+                                <div class="d-flex px-2 py-1">
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm"><%= pdtsData[i].name %></h6>
+                                    <p class="text-xs text-secondary mb-0">Brand:<%= pdtsData[i].brand %></p>
+                                  </div>
+                                </div>
+                              </td>
+
+                              
+                              <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold"><%= pdtsData[i].stock %></span>
+                              </td>
+
+                              <td class="align-middle text-center text-sm">
+                                <p class="text-xs font-weight-bold mb-0"><%= pdtsData[i].category.name %></p>
+                              </td>
+
+                              <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold"><%= pdtsData[i].price %></span>
+                              </td>
+
+
+                              <td class="align-middle text-center">
+
+                                <a href="/admin/products/edit/<%= pdtsData[i]._id %>" class="btn btn-primary">Edit</a>
+                                <form action="/admin/products/delete/<%= pdtsData[i]._id %>" method="post">
+                                  <button type="submit" class="delete-button btn btn-danger">Unlist</button>
+                              </form>
+
+                                <% 
+                                  if(pdtsData[i].isListed === true){
+                                     %>
+                                       <a href="#confirmationPopUp" class="btn btn-danger modalBTN" data-id="<%= pdtsData[i]._id %>"  data-bs-toggle="modal">Delete</a>
+                                     <%
+                                  }else{
+                                      %>
+                                      <a href="#confirmationPopUp " class="btn btn-success modalBTN" data-id="<%= pdtsData[i]._id %>" data-bs-toggle="modal">Add</a>
+                                      <%
+                                  }
+                                %>
+
+
+                                                                  <!-- Modal Start  -->
+                                                                  <div class="modal fade" id="confirmationPopUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                                                    <div class="modal-dialog">
+                                                                      <div class="modal-content">
+                                                                          <div class="modal-header">
+                                                                          <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
+                                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                          </div>
+                                                                          <div class="modal-body">
+                                                                                  <strong> Are you sure? Do you want to Delete/Add this product ?</strong>
+                                                                                  <div class="modal-footer mt-2">
+                                                                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                      <a id="confirmBTN" class="btn btn-primary">Confirm</a>
+                                                                                  </div>
+                                                                          </div>
+                                                                      </div>
+                                                                    </div>
+                                                                </div> 
+                                                                <!-- Modal End  -->
+                              </td>
+
+                              <% 
+                              if(pdtsData[i].offerAppliedBy && pdtsData[i].offerAppliedBy === 'Category'){
+                                %>
+                                <td>
+                                  <small>Offer Already Applied to Category</small>
+                                  
+                                  <button class="btn btn-secondary applyOfferBTN" data-bs-toggle="modal" data-bs-target="#offerModal" data-id="<%= pdtsData[i]._id %>" style="margin-top: 13px;">
+                                    <i class="bi bi-arrow-left-right"></i>Apply
+                                  </button>
+                                </td>
+                                <%  
+
+                              }else if(pdtsData[i].offerAppliedBy && pdtsData[i].offerAppliedBy === 'Product'){
+                                %>
+                                <td>
+                                  <form action="/admin/removeProductOffer/<%= pdtsData[i]._id %>" method="post">
+                                    <button type="submit" class="btn btn-danger">
+                                      Remove
+                                    </button>
+                                  </form>
+                                </td>
+                                <%  
+                              }else{
+                                %>
+                                <td>
+                                  <button class="btn btn-success applyOfferBTN" id="applyPdtOfferBTN" data-bs-toggle="modal"
+                                          data-bs-target="#offerModal" data-id="<%= pdtsData[i]._id %>">Apply</button>
+                                </td>
+                                <% 
+                              }
+                              %>
+
+                              <!-- Modal to apply offer to product start -->
+                              <div class="modal fade" id="offerModal"
+                              tabindex="-1" aria-labelledby="exampleModalLabel"
+                              aria-hidden="true" >
+                              <div class="modal-dialog">
+                                  <div class="modal-content">
+
+                                      <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">
+                                            APPLY OFFER
+                                          </h5>
+                                          <button type="button" class="btn-close"
+                                              data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+
+                                      <form action="/admin/applyOfferToProduct"  method="post">
+                                          <div class="modal-body">
+                                              <input type="hidden" name="productId" value="" id="offerProductId">
+                                              <label for="offer">Select Offer </label>
+                                              <select name="offerId" id="offer" class="form-control">
+                                                  <% 
+                                                  offerData.forEach( (offer) => {
+                                                    %>
+                                                    <option value="<%= offer._id %>">
+                                                      <%= offer.name %>
+                                                    </option>
+                                                    <%  
+                                                  })
+                                                  %>
+                                              </select>
+
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                              <button type="submit" class="btn btn-primary">APPLY</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                              </div>
+                              <!-- Modal to apply offer to product end -->
+                              
+                            </tr>
+                         <% 
+                      }
+                    }else{
+                      %>
+                      <tr>
+                        <td><h6>Products not added yet!</h6></td>
+                      </tr>
+                      <%  
+                    }
+                  %>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+    $('.modalBTN').click( function () {
+        var productId = $(this).data('id');
+        var routeURL = '/admin/products/deleteProduct/'+productId
+        $(".modal-footer #confirmBTN").attr('href', routeURL);
+    });
+
+    $('.applyOfferBTN').click( function () {
+      console.log('apply offer btn clicked');
+      let pdtId = $(this).data('id');
+      console.log('pdtId : '+pdtId);
+      $('#offerProductId').val(pdtId)
+    })
+</script>
+
+
+  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+</script>
+
+<script src="/js2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js2/bootstrap.bundle.min.js"></script>
+  <script src="/js2/script.js"></script>
+  <!-- end: JS -->
+ 
+  
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const readMoreLinks = document.querySelectorAll(".read-more-link");
+        readMoreLinks.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const descriptionContainer = this.parentNode.querySelector(".product-description-container");
+                descriptionContainer.classList.toggle("expanded");
+            });
+        });
+    });
+</script>
+ <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+  $('#sortTable').DataTable({
+      responsive: true
+  });
+</script>
+</body>
+</html>

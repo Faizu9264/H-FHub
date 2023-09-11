@@ -1,0 +1,45 @@
+  <!-- start: JS -->
+  <script src="/js2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js2/bootstrap.bundle.min.js"></script>
+  <script src="/js2/script.js"></script>
+  <!-- end: JS -->
+
+  <script>
+    const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
+  
+    sidebarItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        // Remove the "active" class from all items
+        sidebarItems.forEach((otherItem) => {
+          otherItem.classList.remove('active');
+        });
+  
+        // Add the "active" class to the clicked item
+        item.classList.add('active');
+      });
+    });
+  </script>
+  
+  <script>
+// JavaScript to toggle the submenu
+const productsMenuItem = document.querySelector('.dropdown-toggle');
+const submenu = document.querySelector('.sidebar-submenu');
+
+productsMenuItem.addEventListener('click', () => {
+submenu.classList.toggle('show-submenu');
+});
+
+// Allow the default behavior of the links inside the submenu
+const submenuLinks = document.querySelectorAll('.sidebar-submenu-item a');
+submenuLinks.forEach((link) => {
+link.addEventListener('click', (event) => {
+  // Allow the link to navigate to its destination
+  event.stopPropagation();
+});
+});
+
+  </script>
+</body>
+
+</html>

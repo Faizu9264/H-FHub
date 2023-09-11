@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>F&H Hub</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+   
+    <style>
+        small.error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <!-- <div id="preloder">
+        <div class="loader"></div>
+    </div> -->
+
+  <!-- Offcanvas Menu Begin -->
+  <div class="offcanvas-menu-overlay"></div>
+  <div class="offcanvas-menu-wrapper">
+      <div class="offcanvas__option">
+          <div class="offcanvas__links">
+              <% if (user && user.name) { %>
+                  <p>Welcome, <%= user.name %></p>
+                  <a href="/logout">Logout</a>
+                <% } else { %>
+                  <a href="/login">Sign In</a>
+                <% } %>
+              <a href="#">FAQs</a>
+          </div>
+          <div class="offcanvas__top__hover">
+              <span>Usd <i class="arrow_carrot-down"></i></span>
+              <ul>
+                  <li>USD</li>
+                  <li>EUR</li>
+                  <li>USD</li>
+              </ul>
+          </div>
+      </div>
+      <div class="offcanvas__nav__option">
+          <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+          <a href="#"><img src="img/icon/heart.png" alt=""></a>
+          <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+          <div class="price">Cart$0.00</div>
+      </div>
+      <div id="mobile-menu-wrap"></div>
+      <div class="offcanvas__text">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+      </div>
+  </div>
+  <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-6 col-md-7" style="display: flex;
+                    align-items: center;">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right ">
+                            <div class="header__top__links row" style="display: flex;">
+                                <% if (user && user.username !== undefined) { %>
+                                    <div class="col-lg-6">
+                                        <p style="color:#fff; display: flex;    margin: 0px;
+                                        align-items: center;">Welcome   <%= user.username %></p>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                    <a href="/logout">Logout</a>
+
+                                    </div>
+                                  <% } else { %>
+                                   <div class="col-lg-6">
+                                    <a href="/login">Sign In</a>
+                                   </div>
+                                  <% } %>
+                                  
+                               
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="align-items: center;">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/home"><span style="color: red;
+                            font-size: 34px;
+                            font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
+                            font-weight: 400;">HUB</span></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li ><a href="/shop">Shop</a></li>
+                           
+                            <li><a href="/contact">Contacts</a></li>
+                            <li><a href="/orders">Orders</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option row">
+                        <div class="col-lg-6">
+
+                           
+                        
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-sm-12">
+                    <div class="card shadow-2-strong">
+                        <div class=" p-5 ">
+                            <div class="text-center">
+                                <h3 class="mb-3">Edit Profile</h3>
+                               
+                            </div>
+                            <form action="/profile/edit" method="post" onsubmit="return validateProfile()">
+                                <div class="form-outline mb-3 row">
+                                    <div class="col-md-6 col-12 mb-3">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input type="text" id="username" class="form-control form-control-md rounded-0" value="<%= userData.fname %>"
+                                            placeholder="Enter your new username" name="username" />
+                                        <small id="fnameErr" class="error"></small>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="text" id="email" class="form-control form-control-md rounded-0" value="<%= userData.lname %>"
+                                            placeholder="Enter your  email" name="email" />
+                                        <small id="lnameErr" class="error"></small>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-dark btn-md rounded-pill px-5 py-2 login-btn" type="submit">Update Profile</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function validateProfile() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const fnameErr = document.getElementById('fnameErr'); // Corrected variable name
+            const lnameErr = document.getElementById('lnameErr'); // Corrected variable name
+    
+            // Reset previous error messages
+            fnameErr.textContent = '';
+            lnameErr.textContent = '';
+    
+            // Check username and email for validation
+            if (username.trim() === '') {
+                fnameErr.textContent = 'Username is required';
+                return false; // Prevent form submission
+            }
+    
+            if (/^\d+$/.test(username)) {
+                fnameErr.textContent = 'No numbers allowed in username';
+                return false; // Prevent form submission
+            }
+    
+            if (email.trim() === '') {
+                lnameErr.textContent = 'Email is required';
+                return false; // Prevent form submission
+            }
+    
+            if (!email.includes('@')) {
+                lnameErr.textContent = 'Email must contain "@" symbol';
+                return false; // Prevent form submission
+            }
+    
+            // You can add more complex validation here, e.g., email format validation
+    
+            return true; // Allow form submission
+        }
+    </script>
+    
+
+    <!-- <script src="/validations/signupValidation.js"></script> -->
+
+</body>
+
+</html>

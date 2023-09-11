@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+      <!-- start: Icons -->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- start: Icons -->
+    <!-- start: CSS -->
+    <link rel="stylesheet" href="/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css2/style.css">
+    <link rel="stylesheet" href="/admin/nucleo-svg.css">
+    <link rel="stylesheet" href="/admin/nucleo-icons.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.min.css">
+    <link rel="stylesheet" href="/admin/material-dashboard.css">
+    <script>
+      function formatDate(date) {
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+      }
+    </script>
+
+<style>
+    ul>li>a{
+        text-decoration: none;
+color: black;
+font-size: 20px;
+margin-left: 15px;
+margin-top: 10px;
+font-family: -webkit-body;
+
+    }
+    .a-tag{
+        padding: 5px;
+    }
+    .show-submenu {
+display: block;
+}
+.sidebar-submenu {
+display: none;
+}
+.sidebar-menu-item.active {
+    background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+.active {
+ background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
+color: white; 
+}
+#sortTable_filter{
+  text-align: end;
+}
+.form-control {
+  border:1px solid black
+}
+.custom-select {
+  padding: 1px;
+}
+.pagination{
+  display: none;
+}
+</style>
+
+</head>
+<body style="overflow-x: hidden;">
+  
+
+
+    <div class="row">
+      <div class="col-lg-2">
+             <!-- start: Sidebar -->
+  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
+    <div class="d-flex align-items-center p-3">
+        <a href="#" class="sidebar-logo text-uppercase fw-bold text-decoration-none text-indigo fs-4">Admin</a>
+        <i class="sidebar-toggle ri-arrow-left-circle-line ms-auto fs-5 d-none d-md-block"></i>
+    </div>
+    <ul class="sidebar-menu p-3 m-0 mb-0">
+        <li class="sidebar-menu-item <%= currentPage === 'dashboard' ? 'active' : '' %>">
+            <a href="/admin/dashboard" class="a-tag rounded-pill">
+                <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                Dashboard
+            </a>
+        </li>
+        <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
+        <li class="sidebar-menu-item has-dropdown">
+           
+                <!-- <li class="sidebar-dropdown-menu-item - ">
+                    <i class="fa-solid fa-users "></i>
+                    <a href="/admin/usersProfile">Users</a>
+                    
+                  </li> -->
+
+                  <li class="nav-item " >
+                    <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
+                    
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa-solid fa-users " style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Users</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  "  style="display: flex;" href="/admin/categories">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center  <%= currentPage === 'categories' ? 'active' : '' %>" >
+                        <!-- <i class="fa-solid fa-users " style="color: black;"></i> -->
+                        <i class="fa-sharp fa-solid fa-tag" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Categories</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/coupons" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'coupons' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Coupons</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill <%= currentPage === 'UsersOrders' ? 'active' : '' %>" href="/admin/UsersOrders" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
+                       <i class="fa-solid fa-bag-shopping" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Orders</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/offers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
+                       <i class="fa-solid fa-percent" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Offers</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item " >
+                    <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-solid fa-tags" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">BrandOffers</span>
+                    </a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link  a-tag rounded-pill " href="/admin/banners" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-sharp fa-regular fa-images" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Banner</span>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
+                    <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
+                      <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
+                       <i class="fa-solid fa-box-open" style="color: black;"></i>
+                      </div>
+                      <span class="nav-link-text ms-1">Products</span>
+                      <i class="ri-arrow-down-s-line sidebar-menu-item-accordion ms-auto"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products" style="font-size: inherit;">All Products</a>
+                      </li>
+                      <li class="sidebar-submenu-item">
+                        <a href="/admin/products/add" style="font-size: inherit;">Add Product</a>
+                      </li>
+                      <!-- Add more submenu items as needed -->
+                    </ul>
+                  </li>
+
+                
+       </li>
+       </ul>
+    
+</div>
+<div class="sidebar-overlay"></div>
+</div>
+<!-- end: Sidebar -->
+      <div class="col-lg-10">
+         <!-- Navbar -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3 ">
+      <nav aria-label="breadcrumb">
+        
+        <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
+
+        <ul class="navbar-nav d-flex justify-content-end ">
+
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item d-flex align-items-center">
+            <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
+              
+              <form action="/admin/logout" method="post">
+                <i class="fa fa-user me-sm-1"></i>
+                <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
+              </form>
+              
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  
+
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg " style="padding-left:0px ">
+
+        <div class="container-fluid py-4" style="padding-left: 35px;">
+           <div class="row">
+             <div class="col-12">
+               <div class="card my-4">
+                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                   <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
+                     <h6 class="text-white text-capitalize ps-3">Orders List</h6> 
+                     <!-- <div> -->
+                       <!-- <a class="btn bg-gradient-dark me-3" href="/admin/products/addProduct">Add Product</a> -->
+                     <!-- </div>   -->
+                   </div>
+                 </div>
+                 <div class="card-body px-0 pb-2">
+                   <div class="table-responsive p-0">
+       
+                     <table class="table align-items-center mb-0" id="sortTable">
+       
+                       <thead>
+                         <tr>
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                           <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User</th> -->
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Products</th>
+                           <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th> -->
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Payment Method</th>
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">view product</th>
+
+                         </tr>
+                       </thead>
+       
+                       <tbody>
+                        <% if (orders && orders.length > 0) { %>
+                          <% orders.forEach(order => { %>
+                            <tr>
+                              
+                                
+                              <td>
+                                <% if (order.createdAt) { %>
+                                   
+                                        <p class="text-muted">
+                                            <span class="font-weight-bold text-dark">
+                                                <%= order.createdAt.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) %>
+                                            </span>
+                                        </p>
+                                        <% } else { %>
+                                            
+                                            <p class="text-muted">N/A</p>
+                                            
+                                            <% } %>
+                                        
+                                
+                             
+                             
+                              </td>
+                                <!-- User Address -->
+                                <td>
+                                   <% if (order && order.deliveryAddress) { %>   
+                                
+                                  <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm"><%= order.deliveryAddress.userName %></h6>
+                                    <p class="text-xs text-secondary mb-0"><%= order.deliveryAddress.mobile %></p>
+                                    <p class="text-xs text-secondary mb-0"> <%= order.deliveryAddress.email %>
+                                    </p>
+                                    
+                                  </div>
+                                  
+                                </div>
+                                <% } else { %>
+                                  <!-- Handle case where user address is not found -->
+                                  <p>User address not found</p>
+                                <% } %>
+                              </td>
+                           
+                              
+                             <!-- Products within the order -->
+<td class="align-middle text-center">
+    <div class="d-flex flex-wrap" style="justify-content: center;">
+      <% order.products.forEach(product => { %>
+        <div class="d-flex px-2 py-1" style="margin-right: 20px;">
+          <div class="d-flex flex-column justify-content-center">
+            <% if (product) { %>
+              <h6 class="mb-0 text-sm"><%= product.productName %></h6>
+            <% } else { %>
+              <p>No product name available</p>
+            <% } %>
+            <p class="text-xs text-secondary mb-0">Quantity: <%= product.quantity %></p>
+            <p class="text-xs text-secondary mb-0">₹<%= product.totalPrice %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </td>
+  
+                              
+                              <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold"><%= order.status %>
+                                  
+
+                                </span>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <%= order.paymentMethod %>
+                            </td>
+                            
+                            <td>
+                                <% 
+                                if(order.status == 'Order Confirmed' || order.status == 'Shipped'|| order.status == 'Out For Delivery' || order.status == 'Pending' ){
+                                    %>
+                                    <button style="border: none;" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    class="popupBTN btn btn-info" data-id="<%= order._id  %>"><i class="bi bi-pencil-square"
+                                    style="color: blue;"></i>
+                                   edit </button>
+                                    <%  
+                                }
+                                %>
+                                
+                                <% 
+                                if(order.status == 'Order Confirmed' || order.status == 'Shipped' || order.status == 'Pending'){
+                                    %>
+                                    <!-- <td class="align-middle text-center"> -->
+                                        <a href="#cancelOrderModal"  class="btn btn-danger confirmCancelBTN"  data-bs-toggle="modal" data-id="<%= order._id %>">Cancel</a>
+                                    <!-- </td> -->
+                                    <%  
+                                }else if(order.status === 'Pending Return Approval'){
+                                  %>
+                                  <!-- <td class="align-middle text-center"> -->
+                                      <a href="/admin/approveReturn/<%= order._id %>" class="btn btn-warning">Approve</a>
+                                  <!-- </td> -->
+                                  <%  
+                                }
+                                %>
+                                
+                            </td>
+                            <td class="align-middle text-center">
+                                <a href="/admin/AdminviewOrderDetails/<%= order._id %>" class="btn btn-dark">Details</a>
+                              </td>
+                            
+                            
+                        </tbody>
+                                     
+                        
+    
+                               
+    
+                            <!-- Modal Start -->
+                            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Change Status</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="/admin/changeOrderStatus" method="post">
+                                            <div class="modal-body">
+                                                <input type="hidden" name="orderId" id="orderId" value="">
+                                                <label for="status">Select delivery status</label><br><br>
+                                                <select name="status" class="form-control" id="status">
+                                                    <option value="Shipped">Shipped</option>
+                                                    <option value="Out For Delivery">Out For Delivery</option>
+                                                    <option value="Delivered">Delivered</option>
+                                                </select>
+    
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Change Status</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal End  -->
+
+    
+    
+                                                                                              <!-- Order Cancel Confirmation Modal Start  -->
+                                                                                              <div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                                                <div class="modal-dialog">
+                                                                                                  <div class="modal-content">
+                                                                                                      <div class="modal-header">
+                                                                                                      <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
+                                                                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                                      </div>
+                                                                                                      <div class="modal-body">
+                                                                                                              <strong> Do you want to Cancel this Order ?</strong>
+                                                                                                              <div class="modal-footer mt-2">
+                                                                                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                                                  <a id="confirmCancelBTN" class="btn btn-primary">Confirm</a>
+                                                                                                              </div>
+                                                                                                      </div>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                            </div> 
+                                                                                            <!-- Order Cancel Confirmation Modal End  -->
+                                  
+                                </tr>
+                                <% }); %>
+                                <% } %>
+    
+                    </tbody>
+ 
+                  </table>
+                  <!-- Pagination  -->
+        <div class="row">
+        <div class="col-lg-12 d-flex  align-items-center">
+        <div class="product__pagination  d-flex justify-content-end">
+        <% 
+        if(pageNum > 1){
+        %>
+        <a class="mx-1 btn" 
+          href="?pageNum=<%= pageNum-1 %>&limit=<%= limit %>">Prev
+        </a>
+        <% 
+        }
+        for(let i=1; i<= pageCount; i++){
+          %>
+          <a class="mx-1 btn p-2 rounded-pill" 
+          <% if(pageNum === i){ %> 
+            style="color: black; background-color: lightblue;"
+          <% } %>
+            href="?pageNum=<%= i %>&limit=<%= limit %>"><%= i %>
+          </a>
+          <%  
+        }
+        if(pageNum < pageCount){
+        %>
+        <a class="mx-1 btn" 
+          href="?pageNum=<%= pageNum+1 %>&limit=<%= limit %>">Next
+        </a>
+        <% 
+        }
+        %>
+        </div>
+        </div>
+        </div>
+                
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+ <script src="/js2/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="/js2/bootstrap.bundle.min.js"></script>
+ <script src="/js2/script.js"></script>
+ <!-- end: JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+    $(document).on("click", ".popupBTN", function () {
+        var cId = $(this).data('id');
+        $(".modal-body #orderId").val(cId);  
+    });
+
+    $('.confirmCancelBTN').click( function () {
+        var orderId = $(this).data('id');
+        var routeURL = `/admin/cancelOrder/${orderId}?cancelledBy=admin`
+        $(".modal-footer #confirmCancelBTN").attr('href', routeURL);
+    });
+</script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+  $('#sortTable').DataTable({
+      responsive: true
+  });
+</script>
+</body>
+</html>
