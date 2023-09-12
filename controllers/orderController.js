@@ -78,7 +78,7 @@ exports.order = async (req, res) => {
         const userId = req.session.userId
   
         const userAddress = await UserAddress.findOne({ user: userId });
-        console.log("userAddress", userAddress);
+        console.log("userAddress", userAddress.addresses);
 
         if (!userAddress) {
             return res.status(404).json({ error: 'No address found for the user.' });
@@ -1155,7 +1155,7 @@ exports.cancelOrder = async(req,res, next) => {
         if(cancelledBy == 'user'){
             res.redirect(`/viewOrderDetails/${orderId}`)
         }else if(cancelledBy == 'admin'){
-            res.redirect('/admin/ordersList')
+            res.redirect('/admin//UsersOrders')
         }
 
     } catch (error) {
