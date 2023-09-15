@@ -300,7 +300,6 @@ exports.updatecart = async (req, res, next) => {
         { $set: { 'items.$.quantity': quantity } },
         { new: true }
       );
-    console.log("cartItem:",cartItem);
       if (cartItem) {
         const totalPrice = cartItem.items.reduce(
           (total, item) => total + item.price * item.quantity,

@@ -621,8 +621,7 @@ exports.updateOrderStatus = async (req, res,next) => {
     res.redirect(`/admin/orders/${orderId}`);
   } catch (error) {
     next(error)
-    // console.error(error);
-    // res.render('error');
+    
   }
 };
 exports.approveReturn = async(req,res,next) => {
@@ -707,7 +706,6 @@ exports.cancelOrder = async(req,res, next) => {
         const cancelledBy = req.query.cancelledBy
         const orderData = await Order.findById({_id:orderId})
         const userId = orderData.userId
-        // console.log(cancelledBy);
         let refundAmount = 0;
         if(cancelledBy == 'user'){
             for (const pdt of orderData.products){

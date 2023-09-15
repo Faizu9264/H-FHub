@@ -12,6 +12,7 @@ const { err404, err500 , routeDifferentiator} = require('./middilware/errorHandl
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/authRoutes');
 const connectDB = require('./db');
+const morgan = require('morgan')
 connectDB();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +29,7 @@ app.use(session({
 }));
 app.use(flash());
 app.use(otpRouter);
+app.use(morgan('dev'))
 app.use('/css2', express.static(path.join(__dirname, 'public/css2')));
 app.use(routeDifferentiator)
 app.use('/', indexRouter);

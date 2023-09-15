@@ -179,7 +179,6 @@ exports.loadProfile = async (req, res,next) => {
 exports.loadEditProfile = async(req, res,next) => {
   try {
      const user = req.session.user;
-      // console.log('userId : '+id);
       if(!user){
         res.redirect('/')
       }
