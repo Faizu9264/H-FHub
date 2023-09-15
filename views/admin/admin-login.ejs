@@ -14,37 +14,30 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-   
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-
     .container {
-
       background-color:#fffcfc;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     h1 {
       text-align: center;
       margin-top: 0;
       margin-bottom: 15px;
     }
-
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     label {
       margin-bottom: 5px;
       font-weight: bold;
     }
-
     input[type="password"],
     input[type="text"] {
       width: 655px;
@@ -53,7 +46,6 @@
       border: 1px solid #ccc;
       margin-bottom: 25px;
     }
-
     button {
       padding: 10px 20px;
       background-color: #4CAF50;
@@ -62,7 +54,6 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #45a049;
     }
@@ -71,7 +62,6 @@
 <body>
   <div class="container-fluid " style="background-color: #f0f4f6; ">
     <div class="">
-    
     </div>
     <div class="animate__animated animate__rubberBand" style=" border-bottom: 1px solid rgb(207, 202, 202);">
  <span style="color: red;
@@ -79,15 +69,12 @@
       font-weight: bold;" >H&F</span> <span style="font-size: 20px ;color: black;
       font-weight: 400;">HUB</span></div>
   </div>
- 
   <div class="row">
   <div class="container col-6  animate__animated  animate__bounceInDown" style="margin-top: 40px;" >
     <h1>Admin Login</h1>
-  
     <% if (message) { %>
       <p><%= message %></p>
     <% } %>
-
     <form method="POST" action="/admin/login">
       <div>
         <!-- <label    for="secret">Secret:</label> -->
@@ -99,14 +86,8 @@
       <div> 
          <!-- <label for="password">Password:</label> -->
         <input type="password" id="password" name="password" placeholder="password" required></div>
-      
-    
-
-    
-
       <button type="submit">Login</button>
     </form>
-
     <p class="text-center mt-3">Don't have an account? <a href="/admin/signup">Sign Up</a></p>
   </div>
 </div>

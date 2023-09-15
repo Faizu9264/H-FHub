@@ -16,45 +16,29 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   },
 });
-
 const upload = multer({
   storage: storage,
   limits: {
     fileSize: 1024 * 1024 * 2, 
   },
 });
-
-exports.showAddProductForm = async(req, res) => {
+exports.showAddProductForm = async(req, res,next) => {
   try {
     const categories = await Category.find(); 
     const currentPage = 'Products';
     res.render('product/add', { categories,currentPage }); 
   } catch (error) {
-    console.error('Error fetching categories:', error);
-    res.status(500).send('Internal Server Error');
+    next(error);
   }
- 
 };
-
-exports.addProduct = async (req, res) => {
+exports.addProduct = async (req, res,next) => {
   const {brand, productName, price, dprice, description, category, stock } = req.body;
-  
-  console.log(req.body);
-  // console.log('Uploaded Files:', req.files);
   const images = req.files.map((file) => file.filename);
-
-  // console.log("Request Body:", req.body);
-  // console.log("Request Files:", req.files);
-  // console.log("Images Array:", images);
-
   try {
     const categoryObj = await Category.findOne({ name: category });
-    console.log("categoryObj", categoryObj);
-
     if (!categoryObj) {
       return res.status(400).send('Category not found.');
     }
-
     const product = await Product.create({
       name: productName,
       price: price,
@@ -65,16 +49,12 @@ exports.addProduct = async (req, res) => {
       stock: stock, 
       brand:brand,
     });
-
     res.redirect('/admin/products');
   } catch (error) {
-    console.error(error);
-    res.render('error');
+   next(error)
   }
 };
-
-
-exports.getAllProducts = async (req, res) => {
+exports.getAllProducts = async (req, res,next) => {
   const showUnlisted = req.query.showUnlisted === 'true';
   try {
     const currentPage = 'products';
@@ -91,73 +71,54 @@ exports.getAllProducts = async (req, res) => {
     }
     res.render('product/index', { pdtsData, offerData, page:'index',currentPage});
   } catch (error) {
-    console.error(error);
-    res.render('error');
+  next(error)
   }
 };
-
-
-exports.editProductForm = async (req, res) => {
+exports.editProductForm = async (req, res,next) => {
   const productId = req.params.id;
   try {
     const product = await Product.findById(productId);
     const categories = await Category.find();
     const currentPage = 'products';
-
     if (!product) {
       return res.render('error', { message: 'Product not found',currentPage });
     }
     res.render('product/edit', { product,categories ,currentPage});
   } catch (error) {
-    console.error(error);
-    res.render('error');
+    next(error)
   }
 };
 exports.editProduct = async (req, res,next) => {
   const productId = req.params.id;
-  console.log("editing..");
   const { brand, name, price, description, discountPrice, stock } = req.body; 
-  console.log("brand, name, price, description, discountPrice, stock ",brand, name, price, description, discountPrice, stock );
   const newImages = req.files ? req.files.map((file) => file.filename) : [];
-
   try {
     const product = await Product.findById(productId);
     if (!product) {
       return res.render('error', { message: 'Product not found' });
     }
-
     // Make sure the required fields are provided in the request body
     try{
       if (!brand || !name || !price || !description || !discountPrice) {
         // return res.render('errors/404', { message: 'Required fields missing' });
-        
       }
     }catch(error){
       next(error)
     }
-    
-
     product.brand = brand; // Update the brand field
     product.name = name;
     product.price = price;
     product.description = description;
     product.discountPrice = discountPrice;
     product.stock = stock; // Update the stock value
-
     // ... Update other fields as needed
-
     product.images = newImages;
-
     await product.save();
     res.redirect('/admin/products');
   } catch (error) {
    next(error)
   }
 };
-
-
-
-
 exports.uploadImages = upload.array('images', 4);
 exports.addImages = async (req, res) => {
   const productId = req.params.id;
@@ -171,64 +132,48 @@ exports.addImages = async (req, res) => {
     await product.save();
     res.redirect(`/products/edit/${productId}`);
   } catch (error) {
-    console.error(error);
-    res.render('error');
+   next(error)
   }
 };
-
-
-
-
-exports.getListedProducts = async (req, res) => {
+exports.getListedProducts = async (req, res,next) => {
   try {
     const products = await Product.find({ deleted: false });
     res.render('product/listed', { products });
   } catch (error) {
-    console.error(error);
-    res.render('error');
+ next(error)
   }
 };
-
-exports.getUnlistedProducts = async (req, res) => {
+exports.getUnlistedProducts = async (req, res,next) => {
   try {
     const products = await Product.find({ listed: false });
     res.render('product/unlisted', { products });
   } catch (error) {
-    console.error(error);
-    res.render('error');
+  next(error)
   }
 };
-
-exports.deleteProduct = async (req, res) => {
+exports.deleteProduct = async (req, res,next) => {
   const productId = req.params.id;
-
   try {
     const product = await Product.findById(productId);
     if (!product) {
       return res.render('error', { message: 'Product not found' });
     }
     product.listed = false; 
-   
     await product.save();
     res.redirect('/admin/products/unlisted'); 
   } catch (error) {
-    console.error(error);
-    res.render('error');
+   next(error)
   }
 };
-
-
-
-exports.getProductsAPI = async (req, res) => {
+exports.getProductsAPI = async (req, res,next) => {
   try {
     const products = await Product.find();
     res.json(products);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch product data' });
+  } catch (error) {
+next(error)
   }
 };
-
-exports.getProductDetail = async (req, res) => {
+exports.getProductDetail = async (req, res,next) => {
   const productId = req.params.id;
   try {
     const user = req.session.user;
@@ -238,16 +183,10 @@ exports.getProductDetail = async (req, res) => {
     }
     res.render('product/detail', { product,user });
   } catch (error) {
-    console.error(error);
-    res.render('error');
+   next(error)
   }
 };
-
-
-
-
-
-exports.relistProduct = async (req, res) => {
+exports.relistProduct = async (req, res,next) => {
   const productId = req.params.id;
   try {
     const product = await Product.findById(productId);
@@ -258,37 +197,22 @@ exports.relistProduct = async (req, res) => {
     await product.save();
     res.redirect('/admin/products');
   } catch (error) {
-    console.error(error);
-    res.render('error');
+    next(error)
   }
 };
-
-
-
-
-exports.unlistedProducts = async (req, res) => {
+exports.unlistedProducts = async (req, res,next) => {
   try {
     const unlistedProducts = await Product.find({ listed: false });
-
     res.render('user/unlisted-products', { unlistedProducts });
   } catch (err) {
-    console.error('Error fetching unlisted products:', err);
-    res.status(500).send('Internal Server Error');
+ next(error)
   }
 };
-
-
-
-exports.addToCart = async (req, res) => {
+exports.addToCart = async (req, res,next) => {
   try {
-    console.log("product AddToCart");
     const productId = req.params.id;
     const userId = req.session.user;
-    console.log("user",userId);
-    
-
     let userCart = await Cart.findOne({ user: userId });
-
     if (!userCart) {
       userCart = new Cart({
         user: userId,
@@ -296,20 +220,15 @@ exports.addToCart = async (req, res) => {
         total: 0,
       });
     }
-
     const product = await Product.findById(productId);
-
     if (!product) {
       return res.status(404).send('Product not found.');
     }
-
     const discount = typeof product.discountPrice === 'number' ? product.discountPrice : 0;
     const actualPrice = product.price - discount;
-
     const productIndex = userCart.items.findIndex(
       (item) => item.product.toString() === productId
     );
-
     if (productIndex === -1) {
       userCart.items.push({
         product: productId,
@@ -319,65 +238,40 @@ exports.addToCart = async (req, res) => {
     } else {
       userCart.items[productIndex].quantity += 1;
     }
-
     userCart.total = userCart.items.reduce((total, item) => {
       return total + actualPrice * item.quantity;
     }, 0);
-
     await userCart.save();
-
     res.redirect('/shopping-cart');
   } catch (error) {
-    console.error(error);
-    res.status(500).send('Server Error');
+   next(error)
   }
 };
-
-
-
-
-
-
-
-exports.getShoppingCart = async (req, res) => {
+exports.getShoppingCart = async (req, res,next) => {
   try {
     const userId = req.session.user;
     const user = userId;
     if (!userId) {
       return res.redirect('/login');
     }
-
     const cartItems = await Cart.findOne({ user: userId._id }).populate('items.product').populate('items.product.offer');
-
     if (!cartItems) {
       const newCart = new Cart({ user: userId._id, items: [], total: 0 });
       await newCart.save();
       return res.redirect('/shopping-cart');
     }
-
     const cartSubtotal = calculateCartSubtotal(cartItems.items);
-
     // Calculate the total discount by summing up discounts for each item
     const carttotalDiscount = cartItems.items.reduce((totalDiscount, item) => {
       const discount = item.product.offer ? item.product.offer.offerPrice : 0;
       return totalDiscount + (discount * item.quantity);
     }, 0);
-
     const cartTotal = cartItems.total;
-
     res.render('user/shopping-cart', { cartItems,user, cartSubtotal, carttotalDiscount, cartTotal, userId });
-  } catch (err) {
-    console.error('Error fetching shopping cart:', err);
-    res.status(500).send('Internal Server Error');
+  } catch (error) {
+  next(error)
   }
 };
-
-// function getProductById(productId) {
-
-//   const product = Product.findOne({ _id: productId });
-//   return product || { _id: 'Unknown', price: 0 };
-// }
-
 function calculateCartSubtotal(cartItems) {
   let subtotal = 0;
   cartItems.forEach(item => {
@@ -387,18 +281,12 @@ function calculateCartSubtotal(cartItems) {
   });
   return subtotal;
 }
-
-
 exports.updatecart = async (req, res, next) => {
   try {
-    console.log("cart updating..");
     const userId = req.session.userId;
     const quantity = parseInt(req.body.amt);
     const prodId = req.body.prodId;
-    console.log("qty,prodId",quantity,prodId);
-  
     const pdtData = await Product.findById({ _id: prodId });
-  
     const stock = pdtData.stock;
     let totalSingle;
     if (pdtData.offerPrice) {
@@ -406,7 +294,6 @@ exports.updatecart = async (req, res, next) => {
     } else {
       totalSingle = quantity * (pdtData.price - pdtData.discountPrice);
     }
-  
     if (stock >= quantity) {
       const cartItem = await Cart.findOneAndUpdate(
         { user: userId, 'items.product': prodId },
@@ -419,14 +306,11 @@ exports.updatecart = async (req, res, next) => {
           (total, item) => total + item.price * item.quantity,
           0
         );
-  
         const cartItems = await Cart.findOne({ user: userId })
           .populate('items.product')
           .populate('items.product.offer');
-        
         if (cartItems) {
           let totalDiscount = 0;
-  
           cartItems.items.forEach(item => {
             const product = item.product;
             const itemTotalDiscount = product.offerPrice
@@ -434,8 +318,6 @@ exports.updatecart = async (req, res, next) => {
               : product.discountPrice * item.quantity;
             totalDiscount += itemTotalDiscount;
           });
-          
-          console.log("totalSingle, totalPrice, totalDiscount ", totalSingle, totalPrice, totalDiscount);
           res.json({
             status: true,
             data: { totalSingle, totalPrice, totalDiscount }
@@ -462,35 +344,20 @@ exports.updatecart = async (req, res, next) => {
     next(error);
   }  
 };
-
-
-
-
-
-
-
-
-
-exports.searchProduct = async (req, res) => {
+exports.searchProduct = async (req, res,next) => {
   const searchTerm = req.query.searchTerm;
 console.log(searchTerm);
   if (!searchTerm) {
       // return res.status(400).json({ error: 'Search term is empty.' });
       return  res.redirect('/shop')
   }
-
   try {
       const products = await Product.find({ name: { $regex: new RegExp('^' + searchTerm, 'i') } }).limit(10);
       res.status(200).json({ products });
   } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'An error occurred while searching for products.' });
+    next(error)
   }
 };
-
-
-
-
 exports.applyProductOffer = async(req, res, next) => {
   try {
       const { offerId, productId } = req.body
@@ -498,13 +365,11 @@ exports.applyProductOffer = async(req, res, next) => {
       const product = await Product.findById({_id:productId})
       const offerData = await Offers.findById({_id:offerId})
       const actualPrice = product.price - product.discountPrice;
-      
       let offerPrice = 0;
       if(offerData.status == 'Available'){
           offerPrice = Math.round( actualPrice - ( (actualPrice*offerData.discount)/100 ))
       }
       // const offerPrice = Math.round( actualPrice - ( (actualPrice*offerData.discount)/100 ))
-
       await Product.findByIdAndUpdate(
           {_id:productId},
           {
@@ -516,14 +381,11 @@ exports.applyProductOffer = async(req, res, next) => {
               }
           }
       )
-
       res.redirect('/admin/products')
-
   } catch (error) {
       next(error)
   }
 }
-
 exports.removeProductOffer = async(req, res, next) => {
   try {
       const { productId } = req.params
@@ -538,49 +400,35 @@ exports.removeProductOffer = async(req, res, next) => {
               }
           }
       );
-
       res.redirect('/admin/products')
-
   } catch (error) {
       next(error)
   }
 }
-
-
-
-
-
-
 exports.loadAddReview = async(req, res, next) => {
   try {
       const { productId } = req.params
       const { userId } = req.session
-      console.log(userId);
       let isPdtPurchased = false
       const isLoggedIn = Boolean(req.session.userId)
       const orderData = await Orders.findOne({ userId, 'products.productId': productId })
       if(orderData) isPdtPurchased = true
       if(userId){
-
         const user = await User.findById({_id: userId})
       res.render('user/addReview',{page:'Reviews', parentPage:'Shop',isPdtPurchased, productId, userId, isLoggedIn,user})
-
       }else{
         const user = null
         res.render('user/addReview',{page:'Reviews', parentPage:'Shop',isPdtPurchased, productId, userId, isLoggedIn,user})
       }
-
   } catch (error) {
       next(error)
   }
 }
-
 exports.postAddReview = async(req, res, next) => {
   try {
       const { productId } = req.params
       const { userId } = req.session
       const { rating, title, description } = req.body
-
       await Product.updateOne(
           {_id:productId},
           {
@@ -591,11 +439,9 @@ exports.postAddReview = async(req, res, next) => {
               }
           }
       );
-
       const pdtData = await Product.findById({_id:productId})
       const totalRating = pdtData.reviews.reduce((sum, review) => sum += review.rating, 0)
       const avgRating = Math.floor(totalRating/pdtData.reviews.length)
-
       await Product.updateOne(
           {_id:productId},
           {
@@ -604,13 +450,11 @@ exports.postAddReview = async(req, res, next) => {
               }
           }
       );
-
       res.redirect(`/shop/productOverview/${productId}`)
   } catch (error) {
       next(error)
   }
 }
-
 exports.loadEditReview = async(req, res, next) => {
   try {
       const { productId } = req.params
@@ -631,14 +475,11 @@ exports.loadEditReview = async(req, res, next) => {
       next(error)
   }
 }
-
 exports.postEditReview = async(req, res, next) => {
   try {
-
       const { productId } = req.params
       const { reviewId }  = req.query
       const { rating, title, description } = req.body
-
       await Product.updateOne(
           {_id:productId, 'reviews._id': reviewId },
           {
@@ -649,11 +490,9 @@ exports.postEditReview = async(req, res, next) => {
               }
           }
       );
-      
       const pdtData = await Product.findById({_id:productId})
       const totalRating = pdtData.reviews.reduce((sum, review) => sum += review.rating, 0)
       const avgRating = Math.floor(totalRating/pdtData.reviews.length)
-
       await Product.updateOne(
           {_id:productId},
           {
@@ -662,14 +501,11 @@ exports.postEditReview = async(req, res, next) => {
               }
           }
       );
-      
       res.redirect(`/shop/productOverview/${productId}`)
   } catch (error) {
       next(error)
   }
 }
-
-
 exports.loadAllReviews = async(req, res, next) => {
   try {
       const { productId } = req.params

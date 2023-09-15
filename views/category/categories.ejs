@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>H&F Hub</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- start: Icons -->
@@ -21,7 +21,6 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- start: Icons -->
-
 <!-- Custom CSS -->
     <link rel="stylesheet" href="/css2/bootstrap.min.css">
     <link rel="stylesheet" href="/css2/style.css">
@@ -48,7 +47,6 @@ border-radius: 5px;
 .delete{
   margin-top: 10px
 }
-
     ul>li>a{
         text-decoration: none;
 color: black;
@@ -56,7 +54,6 @@ font-size: 20px;
 margin-left: 15px;
 margin-top: 10px;
 font-family: -webkit-body;
-
     }
     .a-tag{
         padding: 5px;
@@ -87,14 +84,8 @@ color: white;
  </style>
 </head>
 <body style="overflow-x: hidden;">
-  
-
-
-   
-     
   <div class="row">
     <div class="col-lg-2">
-
   <!-- start: Sidebar -->
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
     <div class="d-flex align-items-center p-3">
@@ -110,16 +101,8 @@ color: white;
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
         <li class="sidebar-menu-item has-dropdown">
-           
-                <!-- <li class="sidebar-dropdown-menu-item - ">
-                    <i class="fa-solid fa-users "></i>
-                    <a href="/admin/usersProfile">Users</a>
-                    
-                  </li> -->
-
                   <li class="nav-item " >
                     <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
-                    
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users " style="color: black;"></i>
                       </div>
@@ -143,7 +126,6 @@ color: white;
                       <span class="nav-link-text ms-1">Coupons</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
@@ -152,7 +134,6 @@ color: white;
                       <span class="nav-link-text ms-1">Orders</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
@@ -161,7 +142,6 @@ color: white;
                       <span class="nav-link-text ms-1">Offers</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
@@ -178,7 +158,6 @@ color: white;
                       <span class="nav-link-text ms-1">Banner</span>
                     </a>
                   </li>
-                  
                   <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
                     <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
@@ -197,11 +176,8 @@ color: white;
                       <!-- Add more submenu items as needed -->
                     </ul>
                   </li>
-
-                
        </li>
        </ul>
-    
 </div>
 <div class="sidebar-overlay"></div>
 </div>
@@ -211,13 +187,10 @@ color: white;
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
     <div class="container-fluid py-1 px-3 ">
       <nav aria-label="breadcrumb">
-       
         <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
       </nav>
       <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
-
         <ul class="navbar-nav d-flex justify-content-end ">
-
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
               <div class="sidenav-toggler-inner">
@@ -227,25 +200,20 @@ color: white;
               </div>
             </a>
           </li>
-
           <li class="nav-item d-flex align-items-center">
             <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
-              
               <form action="/admin/logout" method="post">
                 <i class="fa fa-user me-sm-1"></i>
                 <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
               </form>
-              
             </a>
           </li>
-
         </ul>
       </div>
     </div>
   </nav>
   <!-- End Navbar -->
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg  " style="padding-left: 25px;">
-
             <div class="container-fluid py-4" style="padding-top: 0px !important;">
                 <div class="row">
                   <div class="col-12">
@@ -254,19 +222,15 @@ color: white;
                         <small id="catErr" class="error ms-3"></small>
                         <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
                           <h6 class="text-white text-capitalize ps-3" style="padding: 20px">Categories</h6>
-                          
                           <form class="fixed-end d-flex align-content-center" action="/admin/categories" method="POST">
                             <input id="newCatName" class="" type="text" name="categoryName" placeholder="Category Name" style="margin-right: 9px; margin-bottom: 17px;">
                             <button type="submit" class="btn bg-gradient-dark me-3" onclick="return validateCategory()">Add Category  </button>
                           </form>
-                          
                         </div>
                       </div>
                       <div class="card-body px-0 pb-2">
                         <div class="table-responsive p-3">
-            
                           <table class="table align-items-center  mb-0" id="sortTable">
-            
                             <thead>
                               <tr>
                                 <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">Image</th>
@@ -276,28 +240,20 @@ color: white;
                                 <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7 ps-2">Apply Offer</th>
                               </tr>
                             </thead>
-            
                             <tbody>
-            
                               <% 
                                 if(categories.length > 0){
                                   for(let i=0; i<categories.length; i++){
                                      %>
                                         <tr>
-            
-                                            
                                           <td class="align-middle text-center text-sm">
                                             <img style="width: 5rem;" src="/uploads/<%=  locals.categories[i].image %>" alt="Category Image">
                                           </td>
-            
                                             <td class="align-middle text-center text-sm">
                                                 <p class="text-xs font-weight-bold mb-0"><%= categories[i].name %></p>
                                             </td>
-            
                                             <td class="align-middle text-center">
-            
                                                 <a type="button" class="btn btn-primary popupBTN" data-id="<%= categories[i]._id %>" data-val="<%= categories[i].name %>" data-bs-toggle="modal" href="#editCouponModal"> Edit</a>
-                                                
                                                 <!-- Edit Modal Start  -->
                                                 <div class="modal fade" id="editCouponModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -321,14 +277,11 @@ color: white;
                                                                 </div>
                                                             </form>
                                                         </div>
-                                        
                                                     </div>
                                                     </div>
                                                 </div> 
                                                 <!--Edit Modal End  -->
-                
                                             </td>
-            
                                             <td class="align-middle text-center">
                                                 <% 
                                                     if(categories[i].isListed === true){
@@ -361,7 +314,6 @@ color: white;
                                                                             </div> 
                                                                             <!-- Unlist/List Modal End  -->
                                             </td>
-            
                                             <td class="align-middle text-center">
                                               <% 
                                               if(offerData && offerData.length){
@@ -385,7 +337,6 @@ color: white;
                                               %>
                                               <!-- <a href="#applyOfferModal" class="btn btn-danger applyOfferModal"  data-bs-toggle="modal" data-id="<%=// categories[i]._id %>">Apply</a> -->
                                             </td>
-            
                                             <!--OFFER Modal -->
                                             <div class="modal fade" id="offerModal" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -410,10 +361,8 @@ color: white;
                                                                 })
                                                                 %>
                                                             </select>
-            
                                                             <input type="checkbox" name="override" class="my-1" value="Override Product Offers">
                                                             <small class="my-1">Override Product Offers</small>
-            
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -425,13 +374,11 @@ color: white;
                                                 </div>
                                             </div>
                                         </div>
-            
                                         </tr>
                                      <% 
                                   }
                                 }
                               %>
-            
                             </tbody>
                           </table>
                         </div>
@@ -440,50 +387,34 @@ color: white;
                   </div>
                 </div>
               </div>
-            
-   
-            
             </main>
-            
             <script>
       const catInput = document.getElementById('newCatName')
 const catInputModal = document.getElementById('catName')
-
 function validateCategory(){
-
   const newName = document.getElementById('newCatName').value.trim().toUpperCase()
-
   if(newName.length === 0){
     catInput.placeholder = 'Category required'
     catInput.style.borderColor = 'red'
     catInput.style.textDecorationColor = 'red' 
     return false;
   }
-
-
   return true
 }
-
 function validateModalCategory(){
-
 const newName = document.getElementById('catName').value.trim().toUpperCase()
-
 if(newName.length === 0){
   catInputModal.placeholder = 'Category required'
   catInputModal.style.borderColor = 'red'
   catInputModal.style.textDecorationColor = 'red' 
   return false;
 }
-
 return true
 }
             </script>
             <script src="/validations/categoryValidation.js"></script>
-            
             <!-- Cropper Script  -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
-            
-            
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
             <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
@@ -499,35 +430,28 @@ return true
                     $(".modal-body #catID").val(cId);
                     $(".modal-body #catName").val(cVal);
                 });
-            
                 $('.unlistModalBTN').click( function () {
                     var catId = $(this).data('id');
                     var routeURL = '/admin/categories/list/'+catId
                     $(".modal-footer #confirmUnlistBTN").attr('href', routeURL);
                 });
-            
                 $('.offerBTN').click( function () {
                   let catId = $(this).data('id');
                   $('#offerCategoryId').val(catId)
                 })
             </script>
-
                         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 crossorigin="anonymous"></script>
-
-
 <script src="/js2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js2/bootstrap.bundle.min.js"></script>
   <script src="/js2/script.js"></script>
   <!-- end: JS -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
- 
  <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
-
 <script src="/validations/categoryValidation.js"></script>
 </body>
 </html>

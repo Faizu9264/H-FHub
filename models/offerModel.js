@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-
 const offerSchema = mongoose.Schema({
-
     name:{
         type: String,
         required : true
@@ -26,5 +24,4 @@ const offerSchema = mongoose.Schema({
 {
     timestamps: true
 })
-
 module.exports = mongoose.model('Offers',offerSchema)

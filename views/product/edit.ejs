@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>H&F Hub</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- start: Icons -->
@@ -68,7 +68,6 @@ display: block;
 .sidebar-submenu {
 display: none;
 }
-
 .active {
 background-image: linear-gradient(195deg, #49a3f1 0%, #1A73E8 100%);
 color: white; 
@@ -82,14 +81,8 @@ color: white;
  </style>
 </head>
 <body style="overflow-x: hidden;">
-  
-
-
-   
-     
   <div class="row">
     <div class="col-lg-2">
-
              <!-- start: Sidebar -->
  <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
     <div class="d-flex align-items-center p-3">
@@ -105,16 +98,8 @@ color: white;
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
         <li class="sidebar-menu-item has-dropdown">
-           
-                <!-- <li class="sidebar-dropdown-menu-item - ">
-                    <i class="fa-solid fa-users "></i>
-                    <a href="/admin/usersProfile">Users</a>
-                    
-                  </li> -->
-  
                   <li class="nav-item " >
                     <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
-                    
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users " style="color: black;"></i>
                       </div>
@@ -138,7 +123,6 @@ color: white;
                       <span class="nav-link-text ms-1">Coupons</span>
                     </a>
                   </li>
-  
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
@@ -147,7 +131,6 @@ color: white;
                       <span class="nav-link-text ms-1">Orders</span>
                     </a>
                   </li>
-  
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/offers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
@@ -156,7 +139,6 @@ color: white;
                       <span class="nav-link-text ms-1">Offers</span>
                     </a>
                   </li>
-  
                   <li class="nav-item " >
                     <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
@@ -173,7 +155,6 @@ color: white;
                       <span class="nav-link-text ms-1">Banner</span>
                     </a>
                   </li>
-                  
                   <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
                     <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
@@ -192,19 +173,14 @@ color: white;
                       <!-- Add more submenu items as needed -->
                     </ul>
                   </li>
-  
-                
        </li>
        </ul>
-    
   </div>
   <div class="sidebar-overlay"></div>
   </div>
   <!-- end: Sidebar -->
         <div class="col-lg-10">
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg  " style="padding-left: 25px;">
-
-
             <div class="container-fluid py-4">
                 <div class="row">
                   <div class="col-12">
@@ -212,10 +188,7 @@ color: white;
                       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 text-center">
                           <h6 class="text-white text-capitalize ps-3">Edit Product</h6> 
-
-                          
                           </div>
-
                           <div class="form-container">
                             <form action="/admin/products/editproduct/<%= product._id %>" method="post" enctype="multipart/form-data" >
                           <div class="container">
@@ -331,26 +304,21 @@ color: white;
                            <div class="d-flex justify-content-end">
                            </div>
                             </div>
-                           
-                            
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" value="<%= product.name %>" required>
                                     <small id="nameErr" class="error"></small>
                                 </div>
-                            
                                 <div class="form-group">
                                     <label for="price">Price</label>
                                     <input type="number" class="form-control" id="price" name="price" value="<%= product.price %>" required>
                                     <small id="priceErr" class="error"></small>
                                 </div>
-                            
                                 <div class="form-group">
                                     <label for="description">Description</label>
                                     <textarea class="form-control" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" id="description" name="description" required><%= product.description %></textarea>
                                     <small id="descriptionErr" class="error"></small>
                                 </div>
-                            
                                 <!-- Add category selection -->
                                 <div class="form-group">
                                     <label for="category">Category</label>
@@ -362,61 +330,48 @@ color: white;
                                     </select>
                                     <small id="categoryErr" class="error"></small>
                                 </div>
-                            
                                 <!-- Add discount price field -->
                                 <div class="form-group">
                                     <label for="discountPrice">Discount Price</label>
                                     <input type="number" class="form-control" id="discountPrice" name="discountPrice" value="<%= product.discountPrice %>" required>
                                     <small id="discountPriceErr" class="error"></small>
                                 </div>
-                            
                                 <!-- Add stock field -->
                                 <div class="form-group">
                                     <label for="stock">Stock</label>
                                     <input type="number" class="form-control" id="stock" name="stock" value="<%= product.stock %>" required>
                                     <small id="stockErr" class="error"></small>
                                 </div>
-                            
                                 <div class="form-group">
                                     <label for="brand">Brand</label>
                                     <input type="text" class="form-control" name="brand" id="brand" placeholder="Brand" required>
                                     <small id="brandErr" class="error"></small>
                                 </div>
-                            
                                 <div class="button-link-container" style="display: flex; justify-content: space-between;">
                                     <a href="/admin/products" class="btn btn-secondary">Back to All Products</a>
                                     <button type="submit" class="btn btn-primary" onclick="return validateForm()">Update Product</button>
                                 </div>
                             </form>
-                            
                             </div>
-                            
                             </div>
-                            
                             </div>
-                            
-                            
-
                          </div>
                      </div> 
                  </div>
              </div>
          </div>
         </div>   
-
         </div>
         <script src="validation/productValidation.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
 </script>
-
 <script src="/js2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js2/bootstrap.bundle.min.js"></script>
   <script src="/js2/script.js"></script>
   <!-- end: JS -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
- 
  <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
@@ -470,9 +425,7 @@ reader.readAsDataURL(file);
   });
   });
   const productForm = document.getElementById("productForm"); // Assuming your form has the id "productForm"
-  
   let imageFiles = []; // Array to store the saved image files
-  
   const fileInputs = document.querySelectorAll(".file-input");
   fileInputs.forEach((upload, index) => {
   let result = document.querySelectorAll('.result')[index],
@@ -483,7 +436,6 @@ reader.readAsDataURL(file);
   cropped = document.querySelectorAll('.cropped')[index],
   dwn = document.querySelectorAll('.download')[index],
   cropper = '';
-  
   upload.addEventListener('change', e => {
   if (e.target.files.length) {
   // start file reader
@@ -508,7 +460,6 @@ reader.readAsDataURL(file);
   reader.readAsDataURL(e.target.files[0]);
   }
   });
-  
   save.addEventListener('click', e => {
   e.preventDefault();
   // get result to data uri
@@ -523,30 +474,24 @@ reader.readAsDataURL(file);
   dwn.classList.remove('hide');
   dwn.download = 'imagename.png';
   dwn.setAttribute('href', imgSrc);
-  
   // Add the saved image to the array
   const blob = dataURItoBlob(imgSrc);
   imageFiles[index] = new File([blob], 'image.png');
   console.log("Image Files Array:", imageFiles);
   });
   });
-  
   productForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  
   const formData = new FormData(productForm);
-  
   // Append the saved images to the form data
   imageFiles.forEach((file, index) => {
   formData.append(`images_${index}`, file);
   });
-  console.log("Form Data Before Submit:", formData);
   try {
   const response = await fetch("/products/add", {
   method: "POST",
   body: formData,
   });
-  
   if (response.ok) {
   // Handle successful response (e.g., redirect)
   } else {
@@ -557,7 +502,6 @@ reader.readAsDataURL(file);
   }
   });
   });
-  
   // Function to convert data URI to Blob
   function dataURItoBlob(dataURI) {
   const byteString = atob(dataURI.split(',')[1]);
@@ -569,7 +513,6 @@ reader.readAsDataURL(file);
   }
   return new Blob([ab], { type: mimeString });
   }
-  
   </script>
   <script>
   let fileInputs = document.querySelectorAll('.file-input');
@@ -623,34 +566,24 @@ reader.readAsDataURL(file);
   });
   });
   </script>
-
-
-
-
-
-
 <script>
     function validateForm() {
     let isValid = true;
-
     // Reset error messages
     document.querySelectorAll('.error').forEach((error) => {
         error.textContent = '';
     });
-
     // Image validation
     const fileInputs = document.querySelectorAll('.file-input');
     for (const [index, fileInput] of fileInputs.entries()) {
         const files = fileInput.files;
         const errorElement = document.querySelectorAll('.error')[index];
-
         if (files.length === 0) {
             errorElement.textContent = 'Please select all images.';
             isValid = false;
         } else {
             errorElement.textContent = ''; // Clear the error message
         }
-
         for (const file of files) {
             const fileSize = file.size;
             const allowedFileSize = 5 * 1024 * 1024; // 5 MB
@@ -660,7 +593,6 @@ reader.readAsDataURL(file);
             }
         }
     }
-
     // Offer fields validation
     const name = document.getElementById('name').value.trim();
     const price = document.getElementById('price').value.trim();
@@ -669,40 +601,32 @@ reader.readAsDataURL(file);
     const discountPrice = document.getElementById('discountPrice').value.trim();
     const stock = document.getElementById('stock').value.trim();
     // const brand = document.getElementById('brand').value.trim();
-
     if (name === '') {
         document.getElementById('nameErr').textContent = 'Name is required';
         isValid = false;
     }
-
     if (price === '' || isNaN(price) || parseFloat(price) <= 0) {
         document.getElementById('priceErr').textContent = 'Price must be a positive number';
         isValid = false;
     }
-
     if (description === '') {
         document.getElementById('descriptionErr').textContent = 'Description is required';
         isValid = false;
     }
-
     if (category === '') {
         document.getElementById('categoryErr').textContent = 'Category is required';
         isValid = false;
     }
-
     if (discountPrice === '' || isNaN(discountPrice) || parseFloat(discountPrice) < 0) {
         document.getElementById('discountPriceErr').textContent = 'Discount Price must be a positive number';
         isValid = false;
     }
-
     if (stock === '' || isNaN(stock) || parseInt(stock) < 0) {
         document.getElementById('stockErr').textContent = 'Stock must be a non-negative integer';
         isValid = false;
     }
-
     const brand = document.getElementById('brand').value.trim();
     const brandErrorElement = document.getElementById('brandErr'); // Use getElementById
-
     if (brand === '') {
         brandErrorElement.textContent = 'Brand is required';
         isValid = false;
@@ -713,12 +637,9 @@ reader.readAsDataURL(file);
     if (!isValid) {
         return false;
     }
-
     // Return true if validation passes
     return true;
 }
-
 </script>
-        
 </body>
 </html>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>H&F Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- start: Icons -->
     <!-- start: CSS -->
@@ -30,17 +29,10 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
           return date.toLocaleDateString(undefined, options);
       }
     </script>
-
 </head>
 <body style="overflow-x: hidden;">
-  
-
-
-   
-     
   <div class="row">
     <div class="col-lg-2">
-
              <!-- start: Sidebar -->
              <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
               <div class="d-flex align-items-center p-3">
@@ -65,7 +57,6 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
                           <li class="sidebar-dropdown-menu-item">
                               <a href="/admin/usersProfile">Users</a>
                             </li>
-                            
                             <li class="sidebar-dropdown-menu-item has-dropdown">
                               <a href="#">
                                 Products
@@ -78,7 +69,6 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
                                 <li class="sidebar-submenu-item">
                                   <a href="/products/add">Add Product</a>
                                 </li>
-                                
                                 <!-- Add more submenu items as needed -->
                               </ul>
                             </li>
@@ -138,7 +128,6 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
                           </li>
                       </ul>
                   </li>
-                
                   <li class="sidebar-menu-item has-dropdown">
                       <a href="#">
                           <i class="ri-user-line sidebar-menu-item-icon"></i>
@@ -242,14 +231,10 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
               </ul>
           </div>
           <div class="sidebar-overlay"></div>
-          
         </div> 
         <!-- end: Sidebar -->
 <div class="col-lg-10">
-
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-
-
         <div class="container-fluid py-4">
            <div class="row">
              <div class="col-12">
@@ -257,14 +242,11 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                    <div class="bg-gradient-info shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
                      <h6 class="text-white text-capitalize ps-3">Edit Brand Offer</h6>
-       
                    </div>
                  </div>
                  <div class="card-body px-0 pb-2">
                    <div class="table-responsive p-0">
-                       
                            <form action="/admin/brandOffers/editBrandOffer/<%= brandOffer._id %>" method="post" class="p-4">
-       
                                <div class="form-outline mb-3 row input-group input-group-outline  ">
                                    <div class=" col-md-6 col-12 mb-3">
                                        <label for="name">Offer Name</label>
@@ -334,7 +316,6 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
                                <div class="text-center my-2">
                                    <button class="btn btn-dark btn-md rounded-pill px-5 py-2 login-btn" type="submit" onclick="return validateOffer()">UPDATE</button>
                                </div>
-       
                            </form>
                    </div>
                  </div>
@@ -342,15 +323,10 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
              </div>
            </div>
          </div>
-       
-  
-       
        </main>
 </div>
 </div>
-
     <script src="/validations/offerValidation.js"></script>
-
   <!-- start: JS -->
   <script src="/js2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -358,5 +334,4 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
   <script src="/js2/script.js"></script>
   <!-- end: JS -->
 </body>
-
 </html>

@@ -47,17 +47,13 @@ wishlist:[{
 }],
 referralCode:{
   type: String,
-  required : true,
+  // required : true,
   unique : true
 },
 referredBy:{
   type: String,
   readOnly: true
 }
-  
 });
-
 const User = mongoose.model('User', userSchema);
-
-
 module.exports = User;

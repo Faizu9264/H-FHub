@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-
 const couponSchema = mongoose.Schema({
-
     code: {
         type: String,
         required: true,
@@ -47,35 +45,26 @@ const couponSchema = mongoose.Schema({
         type:Number,
         default: Infinity
     }
-
 },
 {
     timestamps: true
 })
-
-
 couponSchema.pre('save', function(next) {
     if (typeof this.couponCount === undefined || this.couponCount == '') {
       this.couponCount = Infinity;
     }
     next();
 });
-  
 couponSchema.pre('save', function(next) {
     if (typeof this.maxDiscountAmount === 'undefined' && this.discountType === 'Fixed Amount') {
       this.maxDiscountAmount = this.discountAmount
     }
     next();
 });
-
-
-
 couponSchema.statics.findByDiscountType = function (discountType){
     return this.find({discountType})
 }
-
 couponSchema.statics.findByIsCancelled = function (boolValue){
     return this.find({isCancelled: boolValue})
 }
-
 module.exports = mongoose.model('Coupons',couponSchema)

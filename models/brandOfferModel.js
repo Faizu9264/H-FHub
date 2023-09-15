@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-
 const brandOfferSchema = mongoose.Schema({
-
     name:{
         type: String,
         required : true
@@ -36,5 +34,4 @@ const brandOfferSchema = mongoose.Schema({
 {
     timestamps: true
 })
-
 module.exports = mongoose.model('BrandOffers',brandOfferSchema )

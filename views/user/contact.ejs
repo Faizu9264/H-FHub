@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Male_Fashion Template">
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashion Textails</title>
-
+    <title>H&F Hub</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
-
     <!-- Css Styles -->
    <!-- Add the CSS link for medium-zoom -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.css">
-
 <!-- Add the CSS link for cropper.js -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
@@ -29,13 +24,11 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
-
 <body>
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
     </div> -->
-    
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
@@ -70,14 +63,11 @@
         </div>
     </div>
     <!-- Offcanvas Menu End -->
-
- 
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    
                     <div class="col-lg-6 col-md-7" style="display: flex;
                     align-items: center;">
                         <div class="header__top__left">
@@ -91,21 +81,16 @@
                                     <div class="col-lg-6">
                                         <p style="color:#fff; display: flex;    margin: 0px;
                                         align-items: center;">Welcome   <%= user.username %></p>
-
                                     </div>
                                     <div class="col-lg-6">
                                     <a href="/logout">Logout</a>
-
                                     </div>
                                   <% } else { %>
                                    <div class="col-lg-6">
                                     <a href="/login">Sign In</a>
                                    </div>
                                   <% } %>
-                                  
-                               
                             </div>
-                         
                         </div>
                     </div>
                 </div>
@@ -119,7 +104,6 @@
                             font-size: 34px;
                             font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
                             font-weight: 400;">HUB</span></a>
-
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -127,18 +111,14 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li ><a href="/shop">Shop</a></li>
-                           
                             <li class="active"><a href="/contact">Contacts</a></li>
                             <li><a href="/orders">Orders</a></li>
-
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option row">
                         <div class="col-lg-6">
-
-                           
                                 <form action="/shop" method="get">
                                     <div class="input-group ">
                                         <input type="text" class="form-control  rounded" placeholder="Search for products" name="search" style="    margin-left: -95px">
@@ -149,10 +129,8 @@
                                         </div>
                                     </div>
                                 </form>
-                        
                         </div>
                         <div class="col-lg-6" style="    margin-top: 6px;">
-
                             <a href="/profile" class="text-decoreation-none text-dark">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -161,7 +139,6 @@
                             </a>
                             <a href="/wishlist"><img src="img/icon/heart.png" alt=""></a>
                             <a href="/shopping-cart"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                            
                         </div>
                         <!-- <div class="price">Cart</div> -->
                     </div>
@@ -171,13 +148,11 @@
         </div>
     </header>
     <!-- Header Section End -->
-
     <!-- Map Begin -->
     <!-- <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111551.9926412813!2d-90.27317134641879!3d38.606612219170856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1597926938024!5m2!1sen!2sbd" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div> -->
     <!-- Map End -->
-
     <section class="about mt-5">
         <div class="container">
             <div class="row">
@@ -213,7 +188,6 @@
         </div>
     </section>
     <!-- About Section End -->
-
     <!-- Testimonial Section Begin -->
     <section class="testimonial">
         <div class="container-fluid">
@@ -248,7 +222,6 @@
         </div>
     </section>
     <!-- Testimonial Section End -->
-
     <!-- Counter Section Begin -->
     <section class="counter mt-5">
         <div class="container">
@@ -290,7 +263,6 @@
         </div>
     </section>
     <!-- Counter Section End -->
-
     <!-- Team Section Begin -->
     <!-- <section class="team mt-5">
         <div class="container">
@@ -343,7 +315,6 @@
         </div>
     </section> -->
     <!-- Team Section End -->
-
     <!-- Client Section Begin -->
     <!-- <section class="clients spad">
         <div class="container">
@@ -384,8 +355,6 @@
         </div>
     </section> -->
     <!-- Client Section End -->
-
-    
     <!-- Contact Section Begin -->
     <section class="contact spad" id="contactUs">
         <div class="container">
@@ -439,13 +408,9 @@
         </div>
     </section>
     <!-- Contact Section End -->
-
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.7.0.slim.js"
     integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
-
 <script>
         $('#contactForm').submit((e) => {
             e.preventDefault()
@@ -468,7 +433,6 @@
                             }
                         });
                     } else {
-                        
                         Swal.fire({
                             icon: 'error',
                             title: 'Error!',
@@ -481,7 +445,6 @@
             })
         })
 </script>
-
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
@@ -548,7 +511,6 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-
     <!-- Search Begin -->
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
@@ -559,7 +521,6 @@
         </div>
     </div>
     <!-- Search End -->
-
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -572,5 +533,4 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>

@@ -1,11 +1,6 @@
-
 const bcrypt = require('bcrypt')
 const User = require('../models/User')
-
-
 const getOTP = () =>  Math.floor( 1000000*Math.random() )
-
-
 const generateReferralCode = async() => {
     const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let referralCode = '';
@@ -15,16 +10,12 @@ const generateReferralCode = async() => {
     }
     return referralCode;
 }
-
 const getReferralCode = async() => {
-
     const referralCode = await generateReferralCode()
     const isreferralExist = await User.findOne({ referralCode})
     if(isreferralExist) getReferralCode()
     return referralCode
-
 }
-
 const securePassword = async(password) => {
     try {
         const hashedPassword = await bcrypt.hash(password,10);
@@ -33,7 +24,6 @@ const securePassword = async(password) => {
         console.log(error);
     }
 }
-
 module.exports = {
     getOTP,
     getReferralCode,

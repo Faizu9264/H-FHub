@@ -1,6 +1,5 @@
 // models/UserAddress.js
 const mongoose = require('mongoose');
-
 const userAddressSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -42,7 +41,5 @@ const userAddressSchema = new mongoose.Schema({
     }
 }]
 });
-
 const UserAddress = mongoose.model('UserAddress', userAddressSchema);
-
 module.exports = UserAddress;

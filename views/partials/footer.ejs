@@ -4,32 +4,26 @@
   <script src="/js2/bootstrap.bundle.min.js"></script>
   <script src="/js2/script.js"></script>
   <!-- end: JS -->
-
   <script>
     const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
-  
     sidebarItems.forEach((item) => {
       item.addEventListener('click', () => {
         // Remove the "active" class from all items
         sidebarItems.forEach((otherItem) => {
           otherItem.classList.remove('active');
         });
-  
         // Add the "active" class to the clicked item
         item.classList.add('active');
       });
     });
   </script>
-  
   <script>
 // JavaScript to toggle the submenu
 const productsMenuItem = document.querySelector('.dropdown-toggle');
 const submenu = document.querySelector('.sidebar-submenu');
-
 productsMenuItem.addEventListener('click', () => {
 submenu.classList.toggle('show-submenu');
 });
-
 // Allow the default behavior of the links inside the submenu
 const submenuLinks = document.querySelectorAll('.sidebar-submenu-item a');
 submenuLinks.forEach((link) => {
@@ -38,8 +32,6 @@ link.addEventListener('click', (event) => {
   event.stopPropagation();
 });
 });
-
   </script>
 </body>
-
 </html>

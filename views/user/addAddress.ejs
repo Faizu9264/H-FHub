@@ -1,27 +1,20 @@
-
-
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Male_Fashion Template">
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashion Textails</title>
-
+    <title>H&F Hub</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
-
     <!-- Css Styles -->
    <!-- Add the CSS link for medium-zoom -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.css">
-
 <!-- Add the CSS link for cropper.js -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.css">
-
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
@@ -41,7 +34,6 @@
      <!-- <div id="preloder">
         <div class="loader"></div>
     </div> -->
-
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
@@ -58,7 +50,6 @@
                     <%
                 }
                 %>
-                
                 <a href="#">FAQs</a>
             </div>
             <!-- <div class="offcanvas__top__hover">
@@ -101,8 +92,6 @@
         </div>
     </div>
     <!-- Offcanvas Menu End -->
-
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -127,16 +116,7 @@
                                     <%
                                 }
                                 %>
-                                <a href="#">FAQs</a>
                             </div>
-                            <!-- <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -160,14 +140,12 @@
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option d-flex justify-content-around" >
-                        <!-- <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a> -->
                         <div class="shop__sidebar__search mx-3">
                             <div class="d-flex" >
                                 <input type="search" id="queryInput" onkeydown="checkEnterKey(event)" placeholder=" Search..." class="" style="width: 10rem; height: 2rem; border: 1; border-color: thistle;"  >
                                 <button onclick="submitQuery()" class="me-4" style="border: 1px solid black; background-color: black;"><i class="bi bi-search text-white" style="background-color: black;"></i></button>
                             </div>
                         </div>
-                        <!-- <a href=""></a> -->
                         <a href="#" class="text-decoreation-none text-dark" ><img src="img/icon/heart.png" alt=""></a>
                         <a href="/shoppingCart" class="text-decoreation-none text-dark  position-relative">
                             <% 
@@ -182,7 +160,6 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                             </svg>
-                           
                         </a>
                         <a href="/profile" class="text-decoreation-none text-dark">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -222,14 +199,12 @@
                             <% 
                         }
                         %>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
 <!-- Add Address Section Begin -->
 <section class="checkout spad">
     <div class="container">
@@ -309,24 +284,20 @@
 </section>
 <!-- Add Address Section End -->
 <script src="/validations/addressValidation.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
     // Function to copy the referral code to clipboard
     function copyReferralCode() {
         const referralCodeValue = document.getElementById('referralCode').value;
-
         const tempInput = document.createElement('input');
         document.body.appendChild(tempInput);
         tempInput.value = referralCodeValue;
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-
         // Optionally, you can show a notification to indicate the code has been copied
         alert('Referral code copied to clipboard!');
     }
   </script>
-
 </body>
 </html>

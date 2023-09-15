@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>H&F Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- start: Icons -->
     <!-- start: CSS -->
@@ -41,7 +41,6 @@ font-size: 20px;
 margin-left: 15px;
 margin-top: 10px;
 font-family: -webkit-body;
-
     }
     .a-tag{
         padding: 5px;
@@ -72,11 +71,6 @@ color: white;
 </style>
 </head>
 <body style="overflow-x: hidden;">
-  
-
-
-   
-     
   <div class="row">
     <div class="col-lg-2">
   <!-- start: Sidebar -->
@@ -94,16 +88,12 @@ color: white;
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
         <li class="sidebar-menu-item has-dropdown">
-           
                 <!-- <li class="sidebar-dropdown-menu-item - ">
                     <i class="fa-solid fa-users "></i>
                     <a href="/admin/usersProfile">Users</a>
-                    
                   </li> -->
-
                   <li class="nav-item " >
                     <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
-                    
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users " style="color: black;"></i>
                       </div>
@@ -127,7 +117,6 @@ color: white;
                       <span class="nav-link-text ms-1">Coupons</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
@@ -136,7 +125,6 @@ color: white;
                       <span class="nav-link-text ms-1">Orders</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/offers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
@@ -145,7 +133,6 @@ color: white;
                       <span class="nav-link-text ms-1">Offers</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
@@ -162,7 +149,6 @@ color: white;
                       <span class="nav-link-text ms-1">Banner</span>
                     </a>
                   </li>
-                  
                   <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
                     <a class="nav-link  a-tag rounded-pill " href="#" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'banners' ? 'active' : '' %>">
@@ -181,11 +167,8 @@ color: white;
                       <!-- Add more submenu items as needed -->
                     </ul>
                   </li>
-
-                
        </li>
        </ul>
-    
 </div>
 <div class="sidebar-overlay"></div>
 </div>
@@ -195,13 +178,10 @@ color: white;
               <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
                 <div class="container-fluid py-1 px-3 ">
                   <nav aria-label="breadcrumb">
-                   
                     <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
                   </nav>
                   <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
-            
                     <ul class="navbar-nav d-flex justify-content-end ">
-            
                       <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
                         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                           <div class="sidenav-toggler-inner">
@@ -211,18 +191,14 @@ color: white;
                           </div>
                         </a>
                       </li>
-            
                       <li class="nav-item d-flex align-items-center">
                         <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
-                          
                           <form action="/admin/logout" method="post">
                             <i class="fa fa-user me-sm-1"></i>
                             <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
                           </form>
-                          
                         </a>
                       </li>
-            
                     </ul>
                   </div>
                 </div>
@@ -242,9 +218,7 @@ color: white;
                   </div>
                   <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-3">
-        
                       <table class="table align-items-center mb-0" id="sortTable">
-        
                         <thead>
                           <tr>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Code</th>
@@ -256,46 +230,36 @@ color: white;
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cancel</th>
                           </tr>
                         </thead>
-        
                         <tbody>
-        
                           <% 
                             if(coupons && coupons.length > 0){
                               for(let i=0; i<coupons.length; i++){
                                  %>
                                     <tr>
-        
                                         <td class="align-middle text-center text-sm">
                                             <p class="text-xs font-weight-bold mb-0"><%= coupons[i].code %></p>
                                         </td>
-        
                                         <td class="align-middle text-center text-sm">
                                             <p class="text-xs font-weight-bold mb-0"><%= coupons[i].description %></p>
                                         </td>
-        
                                         <td class="align-middle text-center text-sm">
                                             <p class="text-xs font-weight-bold mb-0"><%= coupons[i].discount %></p>
                                         </td>
-        
                                         <td class="align-middle text-center text-sm">
                                             <p class="text-xs font-weight-bold mb-0"><%= coupons[i].minPurchase %></p>
                                         </td>
-        
                                         <td class="align-middle text-center text-sm">
                                             <% 
                                             const dd = coupons[i].expiryDate.getDate();
                                             const mm = coupons[i].expiryDate.getMonth() + 1;
                                             const yyyy = coupons[i].expiryDate.getFullYear();
-                                            
                                             const formattedDate = `${dd}-${mm}-${yyyy}`; 
                                             %>
                                             <p class="text-xs font-weight-bold mb-0"><%= formattedDate %></p>
                                         </td>
-        
                                         <td class="align-middle text-center text-sm">
                                             <a href="/admin/coupons/editCoupon/<%= coupons[i]._id %>" class="btn btn-primary">Edit</a>
                                         </td>
-        
                                         <td class="align-middle text-center">
                                             <% 
                                               if(coupons[i].isCancelled === true){
@@ -328,7 +292,6 @@ color: white;
                 </div> 
                 <!-- Modal End  -->
                                         </td>  
-        
                                     </tr>
                                  <% 
                               }
@@ -342,7 +305,6 @@ color: white;
                                 <%  
                             }
                           %>
-        
                         </tbody>
                       </table>
                     </div>
@@ -352,9 +314,6 @@ color: white;
             </div>
           </div>
         </div>
-
-
-
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
@@ -366,7 +325,6 @@ color: white;
         $(".modal-footer #confirmBTN").attr('href', routeURL);
     });
 </script>
-
 <script>
   $('#sortTable').DataTable({
       responsive: true
@@ -378,7 +336,6 @@ color: white;
   <script src="/js2/script.js"></script>
   <!-- end: JS -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
- 
  <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>

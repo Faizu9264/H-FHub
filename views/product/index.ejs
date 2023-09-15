@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>H&F Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- start: Icons -->
     <!-- start: CSS -->
@@ -33,16 +33,13 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
           overflow: hidden;
           position: relative;
         }
-      
         .product-description {
           margin-bottom: 0; /* Remove default margin */
           white-space: break-spaces; /* Allow line breaks */
         }
-      
         .expanded {
           max-height: none;
         }
-      
         .read-more-link {
           display: block;
           margin-top: 5px;
@@ -52,7 +49,6 @@ integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2
         .hidden-images {
     display: none;
   }
-
   .modal-backdrop {
     z-index: auto;
   }
@@ -63,7 +59,6 @@ font-size: 20px;
 margin-left: 15px;
 margin-top: 10px;
 font-family: -webkit-body;
-
     }
     .a-tag{
         padding: 5px;
@@ -86,25 +81,16 @@ span:hover{
   color: black;
 }
       </style>
-      
-    
     <script>
       function formatDate(date) {
           const options = { year: 'numeric', month: 'long', day: 'numeric' };
           return date.toLocaleDateString(undefined, options);
       }
     </script>
-
 </head>
 <body style="overflow-x: hidden;">
-  
-
-
-   
-     
   <div class="row">
     <div class="col-lg-2">
-
            <!-- start: Sidebar -->
   <div class="sidebar position-fixed top-0 bottom-0 bg-white border-end">
     <div class="d-flex align-items-center p-3">
@@ -120,16 +106,8 @@ span:hover{
         </li>
         <li class="sidebar-menu-divider mt-3 mb-1 text-uppercase">Custom</li>
         <li class="sidebar-menu-item has-dropdown">
-           
-                <!-- <li class="sidebar-dropdown-menu-item - ">
-                    <i class="fa-solid fa-users "></i>
-                    <a href="/admin/usersProfile">Users</a>
-                    
-                  </li> -->
-
                   <li class="nav-item " >
                     <a  href="/admin/usersProfile" class="nav-link  a-tag rounded-pill <%= currentPage === 'usersProfile' ? 'active' : '' %> "  style="display: flex;">
-                    
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-users " style="color: black;"></i>
                       </div>
@@ -153,7 +131,6 @@ span:hover{
                       <span class="nav-link-text ms-1">Coupons</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/UsersOrders" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'UsersOrders' ? 'active' : '' %>">
@@ -162,7 +139,6 @@ span:hover{
                       <span class="nav-link-text ms-1">Orders</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link  a-tag rounded-pill " href="/admin/offers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'offers' ? 'active' : '' %>">
@@ -171,7 +147,6 @@ span:hover{
                       <span class="nav-link-text ms-1">Offers</span>
                     </a>
                   </li>
-
                   <li class="nav-item " >
                     <a class="nav-link a-tag rounded-pill  " href="/admin/brandOffers" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center <%= currentPage === 'brandOffers' ? 'active' : '' %>">
@@ -188,7 +163,6 @@ span:hover{
                       <span class="nav-link-text ms-1">Banner</span>
                     </a>
                   </li>
-                  
                   <li class="nav-item sidebar-dropdown-menu-item has-dropdown dropdown-toggle" >
                     <a class="nav-link  a-tag rounded-pill <%= currentPage === 'products' ? 'active' : '' %>" href="#" style="display: flex;">
                       <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -207,31 +181,21 @@ span:hover{
                       <!-- Add more submenu items as needed -->
                     </ul>
                   </li>
-
-                
        </li>
        </ul>
-    
 </div>
 <div class="sidebar-overlay"></div>
 </div>
 <!-- end: Sidebar -->
-
-
-
         <div class="col-lg-10" style="    padding-left: 30px">
-       
  <!-- Navbar -->
  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
   <div class="container-fluid py-1 px-3 ">
     <nav aria-label="breadcrumb">
-     
       <h6 class="font-weight-bolder mb-0"><%= currentPage %></h6>
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
-
       <ul class="navbar-nav d-flex justify-content-end ">
-
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center me-2">
           <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
             <div class="sidenav-toggler-inner">
@@ -241,25 +205,19 @@ span:hover{
             </div>
           </a>
         </li>
-
         <li class="nav-item d-flex align-items-center">
           <a href="/admin/logout" class="nav-link text-body font-weight-bold px-0">
-            
             <form action="/admin/logout" method="post">
               <i class="fa fa-user me-sm-1"></i>
               <button class="border-0 bg-transparent text-bold" type="submit"><span class="d-sm-inline d-none opacity-7">Log Out</span></button>
             </form>
-            
           </a>
         </li>
-
       </ul>
     </div>
   </div>
 </nav>
 <!-- End Navbar -->
-
-
  <div class="container-fluid py-4">
     <div class="row">
       <div class="col-12">
@@ -278,9 +236,7 @@ span:hover{
           </div>
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-3">
-
               <table class="table align-items-center mb-0" id="sortTable">
-
                 <thead>
                   <tr>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
@@ -292,19 +248,15 @@ span:hover{
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Apply Offer</th>
                   </tr>
                 </thead>
-
                 <tbody>
-
                   <% 
                     if(pdtsData && pdtsData.length > 0){
                       for(let i=0; i<pdtsData.length; i++){
                          %>
                             <tr>
-
                               <td>
                                 <img style="width: 5rem;" src="/uploads/<%= pdtsData[i].images[0]  %>" alt="">
                               </td>
-
                               <td>
                                 <div class="d-flex px-2 py-1">
                                   <div class="d-flex flex-column justify-content-center">
@@ -313,28 +265,20 @@ span:hover{
                                   </div>
                                 </div>
                               </td>
-
-                              
                               <td class="align-middle text-center text-sm">
                                 <span class="text-secondary text-xs font-weight-bold"><%= pdtsData[i].stock %></span>
                               </td>
-
                               <td class="align-middle text-center text-sm">
                                 <p class="text-xs font-weight-bold mb-0"><%= pdtsData[i].category.name %></p>
                               </td>
-
                               <td class="align-middle text-center text-sm">
                                 <span class="text-secondary text-xs font-weight-bold"><%= pdtsData[i].price %></span>
                               </td>
-
-
                               <td class="align-middle text-center">
-
                                 <a href="/admin/products/edit/<%= pdtsData[i]._id %>" class="btn btn-primary">Edit</a>
                                 <form action="/admin/products/delete/<%= pdtsData[i]._id %>" method="post">
                                   <button type="submit" class="delete-button btn btn-danger">Unlist</button>
                               </form>
-
                                 <% 
                                   if(pdtsData[i].isListed === true){
                                      %>
@@ -346,8 +290,6 @@ span:hover{
                                       <%
                                   }
                                 %>
-
-
                                                                   <!-- Modal Start  -->
                                                                   <div class="modal fade" id="confirmationPopUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                                                                     <div class="modal-dialog">
@@ -368,19 +310,16 @@ span:hover{
                                                                 </div> 
                                                                 <!-- Modal End  -->
                               </td>
-
                               <% 
                               if(pdtsData[i].offerAppliedBy && pdtsData[i].offerAppliedBy === 'Category'){
                                 %>
                                 <td>
                                   <small>Offer Already Applied to Category</small>
-                                  
                                   <button class="btn btn-secondary applyOfferBTN" data-bs-toggle="modal" data-bs-target="#offerModal" data-id="<%= pdtsData[i]._id %>" style="margin-top: 13px;">
                                     <i class="bi bi-arrow-left-right"></i>Apply
                                   </button>
                                 </td>
                                 <%  
-
                               }else if(pdtsData[i].offerAppliedBy && pdtsData[i].offerAppliedBy === 'Product'){
                                 %>
                                 <td>
@@ -400,14 +339,12 @@ span:hover{
                                 <% 
                               }
                               %>
-
                               <!-- Modal to apply offer to product start -->
                               <div class="modal fade" id="offerModal"
                               tabindex="-1" aria-labelledby="exampleModalLabel"
                               aria-hidden="true" >
                               <div class="modal-dialog">
                                   <div class="modal-content">
-
                                       <div class="modal-header">
                                           <h5 class="modal-title" id="exampleModalLabel">
                                             APPLY OFFER
@@ -415,7 +352,6 @@ span:hover{
                                           <button type="button" class="btn-close"
                                               data-bs-dismiss="modal" aria-label="Close"></button>
                                       </div>
-
                                       <form action="/admin/applyOfferToProduct"  method="post">
                                           <div class="modal-body">
                                               <input type="hidden" name="productId" value="" id="offerProductId">
@@ -431,7 +367,6 @@ span:hover{
                                                   })
                                                   %>
                                               </select>
-
                                           </div>
                                           <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -442,7 +377,6 @@ span:hover{
                               </div>
                               </div>
                               <!-- Modal to apply offer to product end -->
-                              
                             </tr>
                          <% 
                       }
@@ -454,7 +388,6 @@ span:hover{
                       <%  
                     }
                   %>
-
                 </tbody>
               </table>
             </div>
@@ -463,8 +396,6 @@ span:hover{
       </div>
     </div>
   </div>
-
-  
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
@@ -473,7 +404,6 @@ span:hover{
         var routeURL = '/admin/products/deleteProduct/'+productId
         $(".modal-footer #confirmBTN").attr('href', routeURL);
     });
-
     $('.applyOfferBTN').click( function () {
       console.log('apply offer btn clicked');
       let pdtId = $(this).data('id');
@@ -481,23 +411,15 @@ span:hover{
       $('#offerProductId').val(pdtId)
     })
 </script>
-
-
-  
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
 integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
 </script>
-
 <script src="/js2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js2/bootstrap.bundle.min.js"></script>
   <script src="/js2/script.js"></script>
   <!-- end: JS -->
- 
-  
  <script>
     document.addEventListener("DOMContentLoaded", function() {
         const readMoreLinks = document.querySelectorAll(".read-more-link");
@@ -515,7 +437,6 @@ integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026
 integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-
 <script>
   $('#sortTable').DataTable({
       responsive: true

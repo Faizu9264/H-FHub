@@ -1,10 +1,5 @@
-
 <%- include('../partials/head.ejs') %>
-
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-
- 
-
  <div class="container-fluid py-4">
     <div class="row">
       <div class="col-12">
@@ -12,14 +7,11 @@
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between"  style="background-color: var(--bs-indigo);">
               <h6 class="text-white text-capitalize ps-3">Add Offer</h6>
-
             </div>
           </div>
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
-                
                     <form action="/admin/offers/addOffer" method="POST" class="p-4">
-
                         <div class="form-outline mb-3 row input-group input-group-outline  ">
                             <div class=" col-md-6 col-12 mb-3">
                                 <label for="name">Offer Name</label>
@@ -49,7 +41,6 @@
                         <div class="text-center my-2">
                             <button class="btn btn-dark btn-md rounded-pill px-5 py-2 login-btn" type="submit" onclick="return validateOffer()">ADD</button>
                         </div>
-
                     </form>
             </div>
           </div>
@@ -57,16 +48,12 @@
       </div>
     </div>
   </div>
-
-
-
 </main>
 <script>
     const nameErr = document.getElementById('nameErr');
     const discountErr = document.getElementById('discountErr');
     const startingDateErr = document.getElementById('startingDateErr');
     const expiryDateErr = document.getElementById('expiryDateErr');
-    
     function validateName() {
         const name = document.getElementById('name').value.trim();
         if (name.length === 0) {
@@ -75,7 +62,6 @@
         }
         return true;
     }
-    
     function validateDiscount() {
         const discount = document.getElementById('discount').value.trim();
         if (discount.length === 0) {
@@ -88,7 +74,6 @@
         }
         return true;
     }
-    
     function validateStartingDate() {
         const startingDate = document.getElementById('startingDate').value;
         if (!startingDate) {
@@ -97,7 +82,6 @@
         }
         return true;
     }
-    
     function validateExpiryDate() {
         const expiryDate = document.getElementById('expiryDate').value;
         if (!expiryDate) {
@@ -110,7 +94,6 @@
         }
         return true;
     }
-    
     function validateOffer() {
         return (
             validateName() &&
@@ -120,7 +103,5 @@
         );
     }
     </script>
-    
-
     <!-- <script src="/validations/offerValidation.js"></script> -->
     <%- include('../partials/footer.ejs') %>

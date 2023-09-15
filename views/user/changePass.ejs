@@ -1,8 +1,5 @@
-
-
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Male_Fashion Template">
@@ -10,11 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>F&H Hub</title>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
-
     <!-- Css Styles -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
@@ -24,20 +19,17 @@
     <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-   
     <style>
         small.error {
             color: red;
         }
     </style>
 </head>
-
 <body>
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
     </div> -->
-
   <!-- Offcanvas Menu Begin -->
   <div class="offcanvas-menu-overlay"></div>
   <div class="offcanvas-menu-wrapper">
@@ -49,15 +41,6 @@
                 <% } else { %>
                   <a href="/login">Sign In</a>
                 <% } %>
-              <a href="#">FAQs</a>
-          </div>
-          <div class="offcanvas__top__hover">
-              <span>Usd <i class="arrow_carrot-down"></i></span>
-              <ul>
-                  <li>USD</li>
-                  <li>EUR</li>
-                  <li>USD</li>
-              </ul>
           </div>
       </div>
       <div class="offcanvas__nav__option">
@@ -72,13 +55,11 @@
       </div>
   </div>
   <!-- Offcanvas Menu End -->
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    
                     <div class="col-lg-6 col-md-7" style="display: flex;
                     align-items: center;">
                         <div class="header__top__left">
@@ -92,21 +73,16 @@
                                     <div class="col-lg-6">
                                         <p style="color:#fff; display: flex;    margin: 0px;
                                         align-items: center;">Welcome   <%= user.username %></p>
-
                                     </div>
                                     <div class="col-lg-6">
                                     <a href="/logout">Logout</a>
-
                                     </div>
                                   <% } else { %>
                                    <div class="col-lg-6">
                                     <a href="/login">Sign In</a>
                                    </div>
                                   <% } %>
-                                  
-                               
                             </div>
-                         
                         </div>
                     </div>
                 </div>
@@ -120,7 +96,6 @@
                             font-size: 34px;
                             font-weight: bold;">H&F</span> <span style="font-size: 20px ;color: black;
                             font-weight: 400;">HUB</span></a>
-
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -128,21 +103,15 @@
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
                             <li ><a href="/shop">Shop</a></li>
-                           
                             <li><a href="/contact">Contacts</a></li>
                             <li><a href="/orders">Orders</a></li>
-
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option row">
                         <div class="col-lg-6">
-
-                           
-                        
                         </div>
-                       
                     </div>
                 </div>
             </div>
@@ -150,8 +119,6 @@
         </div>
     </header>
     <!-- Header Section End -->
-
-
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -160,7 +127,6 @@
                         <div class=" p-5 ">
                             <div class="text-center">
                                 <h3 class="mb-3">Change Password</h3>
-                               
                             </div>
                             <form action="/profile/changePassword" method="post" class="d-flex flex-column ">
                                 <div class="form-outline mb-3 row">
@@ -184,7 +150,6 @@
                                         <small id="confirmPasswordErr" class="error"></small>
                                     </div>
                                 </div>
-
                                 <div class="text-center">
                                     <button class="btn btn-dark btn-md rounded-pill px-5 py-2 login-btn" type="submit" onclick="return validatePassword()">Change Password</button>
                                     <p>forgot password? <a href="/forgot-password">reset</a></p>
@@ -196,8 +161,6 @@
             </div>
         </div>
     </section>
-
     <script src="/validations/changePasswordValidation.js"></script>
 </body>
-
 </html>

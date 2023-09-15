@@ -1,7 +1,7 @@
 const Categories = require('../models/categoryModel');
 const Products = require('../models/productModel')
 const Offers = require('../models/offerModel')
-exports.getAllCategories = async (req, res) => {
+exports.getAllCategories = async (req, res,next) => {
   try {
 
    
@@ -14,37 +14,10 @@ exports.getAllCategories = async (req, res) => {
   const currentPage = 'Categories';
     res.render('category/categories', { categories ,nameError: '',page:'Categories', offerData,currentPage});
   } catch (error) {
-    console.error(error);
-    res.render('error');
+   next(error)
   }
 };
 
-// exports.addCategory = async (req, res) => {
-  // let { name } = req.body;
-
-  // name = name.trim();
-
-  // let nameError = '';
-
-  // if (!name) {
-  //   nameError = 'Category name is required.';
-  // }
-
-  // name = name.replace(/[^A-Z]/g, '');
-
-  // try {
-  //   if (name.length != 0 && !nameError) {
-  //     await Category.create({ name });
-  //     res.redirect('/admin/categories');
-  //   } else {
-  //     const categories = await Category.find();
-  //     res.render('category/categories', { categories, nameError });
-  //  }
-  // } catch (error) {
-  //   console.error(error);
-  //   res.render('error');
-  // }
-// };
 
 exports.addCategory = async(req, res, next) => {
   try {

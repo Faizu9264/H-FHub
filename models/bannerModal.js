@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const bannerSchema = mongoose.Schema({
     heading:{
         type: String,
@@ -15,5 +14,4 @@ const bannerSchema = mongoose.Schema({
         required : true
     }
 });
-
 module.exports = mongoose.model('Banners',bannerSchema);
