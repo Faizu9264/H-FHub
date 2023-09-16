@@ -49,7 +49,7 @@ exports.verifyOtpAndCreateUser = async (req, res) => {
         await User.create({
           username: username,
           password: hashedPassword,
-          // referralCode,
+          referralCode,
           email: email,
           isVerified: true, 
         });
