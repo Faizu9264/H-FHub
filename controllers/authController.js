@@ -163,6 +163,9 @@ exports.loadProfile = async (req, res,next) => {
   try {
     // Fetch user data and address data
     const userId = req.session.user;
+    if(!userId ){
+      return res.redirect('/login')
+    }
     const userData = await User.findOne({ _id: userId });
     const userAddress = await UserAddress.find({ user: userId });
     res.render('user/userProfile', {

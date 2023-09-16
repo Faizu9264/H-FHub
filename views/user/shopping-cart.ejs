@@ -57,7 +57,12 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
+                <% if (user && user.name) { %>
+                    <p>Welcome, <%= user.name %></p>
+                    <a href="/logout">Logout</a>
+                  <% } else { %>
+                    <a href="/login">Sign In</a>
+                  <% } %>
             </div>
             
         </div>

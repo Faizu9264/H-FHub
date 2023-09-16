@@ -225,6 +225,9 @@ exports.loadWishlist = async(req, res, next) => {
   try {
       const userId = req.session.userId
       const isLoggedIn = Boolean(req.session.userId)
+      if(!isLoggedIn){
+        return res.redirect('/login')
+      }
       const userData = await User.findById({_id:userId}).populate('wishlist')
       let user = userData
       const wishlist = userData.wishlist
